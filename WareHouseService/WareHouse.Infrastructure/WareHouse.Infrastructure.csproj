@@ -24,4 +24,12 @@
 		<ProjectReference Include="..\WareHouse.Application\WareHouse.Application.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Data\" />
+	  <Folder Include="Repositories\" />
+	  <Folder Include="Messaging\" />
+	  <Folder Include="Services\" />
+	  <Folder Include="Configuration\" />
+	</ItemGroup>
+
 </Project>

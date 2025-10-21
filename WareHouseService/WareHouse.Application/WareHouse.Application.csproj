@@ -17,4 +17,13 @@
 		<ProjectReference Include="..\WareHouse.Domain\WareHouse.Domain.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Commands\" />
+	  <Folder Include="Queries\" />
+	  <Folder Include="DTOs\" />
+	  <Folder Include="Interfaces\" />
+	  <Folder Include="Behaviors\" />
+	  <Folder Include="Services\" />
+	</ItemGroup>
+
 </Project>
