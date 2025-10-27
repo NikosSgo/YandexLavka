@@ -21,6 +21,9 @@ public class StorageUnit
 
     public int AvailableQuantity => Quantity - ReservedQuantity;
 
+    public bool IsLowStock { get; set; }
+    public bool IsOutOfStock { get; set; }
+
     public StorageUnit(Guid productId, string productName, string sku, int quantity, string location, string zone)
     {
         UnitId = Guid.NewGuid();

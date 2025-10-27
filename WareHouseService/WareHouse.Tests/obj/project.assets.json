@@ -1527,6 +1527,7 @@
           "FluentValidation.DependencyInjectionExtensions": "11.9.0",
           "MediatR": "12.2.0",
           "Microsoft.EntityFrameworkCore": "8.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
           "WareHouse.Domain": "1.0.0"
         },
         "compile": {
