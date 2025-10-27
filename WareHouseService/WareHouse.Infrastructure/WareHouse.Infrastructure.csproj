@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -17,19 +16,11 @@
 		<PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
-		<PackageReference Include="StackExchange.Redis" Version="2.7.33" />
+		<PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.0" />
+		<PackageReference Include="MediatR" Version="12.2.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\WareHouse.Application\WareHouse.Application.csproj" />
 	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Data\" />
-	  <Folder Include="Repositories\" />
-	  <Folder Include="Messaging\" />
-	  <Folder Include="Services\" />
-	  <Folder Include="Configuration\" />
-	</ItemGroup>
-
 </Project>
