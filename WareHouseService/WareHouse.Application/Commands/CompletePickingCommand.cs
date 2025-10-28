@@ -62,6 +62,20 @@ public class CompletePickingCommandHandler : IRequestHandler<CompletePickingComm
         foreach (var (productId, quantity) in request.PickedQuantities)
         {
             pickingTask.UpdateItemPickedStatus(productId, quantity);
+
+            //var storageUnits = await _storageUnitRepository.GetByProductAsync(productId);
+            //var remainingQty = quantity;
+
+            //foreach (var unit in storageUnits.Where(u => u.AvailableQuantity > 0))
+            //{
+            //    var qtyToReserve = Math.Min(remainingQty, unit.AvailableQuantity);
+            //    unit.Reserve(qtyToReserve); // ← ВЫЗОВ МЕТОДА РЕЗЕРВИРОВАНИЯ
+            //    await _storageUnitRepository.UpdateAsync(unit);
+
+            //    remainingQty -= qtyToReserve;
+            //    if (remainingQty <= 0) break;
+            //}
+
         }
 
         await _orderRepository.UpdateAsync(order);

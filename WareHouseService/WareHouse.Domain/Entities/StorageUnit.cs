@@ -33,9 +33,11 @@ public class StorageUnit
         Quantity = quantity;
         Location = location;
         Zone = zone;
+        ReservedQuantity = 0; //Начальное значение
         LastRestocked = DateTime.UtcNow;
     }
 
+    // 1. МЕТОД РЕЗЕРВИРОВАНИЯ
     public void Reserve(int quantity)
     {
         if (AvailableQuantity < quantity)
@@ -44,6 +46,7 @@ public class StorageUnit
         ReservedQuantity += quantity;
     }
 
+    // 2. МЕТОД ОСВОБОЖДЕНИЯ РЕЗЕРВА
     public void ReleaseReservation(int quantity)
     {
         if (ReservedQuantity < quantity)

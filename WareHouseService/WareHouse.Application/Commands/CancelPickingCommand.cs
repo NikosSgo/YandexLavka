@@ -35,6 +35,16 @@ public class CancelPickingCommandHandler : IRequestHandler<CancelPickingCommand,
 
     public async Task<Unit> Handle(CancelPickingCommand request, CancellationToken cancellationToken)
     {
+
+        // ОСВОБОЖДЕНИЕ резерваций при отмене
+        //var reservations = await _reservationRepository.GetByOrderAsync(orderId);
+        //foreach (var reservation in reservations)
+        //{
+        //    var storageUnit = await _storageUnitRepository.GetByIdAsync(reservation.UnitId);
+        //    storageUnit.ReleaseReservation(reservation.Quantity); // ← ВЫЗОВ МЕТОДА ОСВОБОЖДЕНИЯ
+        //    await _storageUnitRepository.UpdateAsync(storageUnit);
+        //}
+
         _logger.LogInformation("Cancelling picking for order {OrderId}. Reason: {Reason}",
             request.OrderId, request.Reason);
 
