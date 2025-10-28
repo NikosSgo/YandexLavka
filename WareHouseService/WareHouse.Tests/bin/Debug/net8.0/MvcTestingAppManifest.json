@@ -1,0 +1,6 @@
+{
+  "WareHouse.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API",
+  "WareHouse.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application",
+  "WareHouse.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain",
+  "WareHouse.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure"
+}

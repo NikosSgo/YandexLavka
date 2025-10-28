@@ -26,6 +26,8 @@ public class OrderAggregate
     private readonly List<IDomainEvent> _domainEvents = new();
     public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
+    public object AllItemsPicked { get; set; }
+
     private OrderAggregate() { }
 
     public OrderAggregate(Guid orderId, string customerId, List<OrderLine> lines)
