@@ -22,83 +22,73 @@ public class CompletePickingCommandValidator : AbstractValidator<CompletePicking
 
 public class CompletePickingCommandHandler : IRequestHandler<CompletePickingCommand, Unit>
 {
-    private readonly IOrderRepository _orderRepository;
-    private readonly IPickingTaskRepository _pickingTaskRepository;
-    private readonly IStorageUnitRepository _storageUnitRepository;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly ILogger<CompletePickingCommandHandler> _logger;
 
     public CompletePickingCommandHandler(
-        IOrderRepository orderRepository,
-        IPickingTaskRepository pickingTaskRepository,
-        IStorageUnitRepository storageUnitRepository,
+        IUnitOfWork unitOfWork,
         ILogger<CompletePickingCommandHandler> logger)
     {
-        _orderRepository = orderRepository;
-        _pickingTaskRepository = pickingTaskRepository;
-        _storageUnitRepository = storageUnitRepository;
+        _unitOfWork = unitOfWork;
         _logger = logger;
     }
 
     public async Task<Unit> Handle(CompletePickingCommand request, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("Completing picking for order {OrderId}", request.OrderId);
+        await _unitOfWork.BeginTransactionAsync();
 
-        var order = await _orderRepository.GetByIdAsync(request.OrderId);
-        if (order == null)
-            throw new NotFoundException($"Order {request.OrderId} not found");
-
-        var pickingTask = await _pickingTaskRepository.GetActiveForOrderAsync(request.OrderId);
-        if (pickingTask == null)
-            throw new NotFoundException($"Active picking task not found for order {request.OrderId}");
-
-        // Резервируем товары на складе
-        await ReserveStockForOrder(request.PickedQuantities);
-
-        // Завершаем сборку
-        order.CompletePicking(request.PickedQuantities);
-        pickingTask.Complete();
-
-        // Обновляем статус собранных товаров в задании
-        foreach (var (productId, quantity) in request.PickedQuantities)
+        try
         {
-            pickingTask.UpdateItemPickedStatus(productId, quantity);
+            _logger.LogInformation("Completing picking for order {OrderId}", request.OrderId);
 
-            //var storageUnits = await _storageUnitRepository.GetByProductAsync(productId);
-            //var remainingQty = quantity;
+            var order = await _unitOfWork.Orders.GetByIdAsync(request.OrderId);
+            if (order == null)
+                throw new NotFoundException($"Order {request.OrderId} not found");
 
-            //foreach (var unit in storageUnits.Where(u => u.AvailableQuantity > 0))
-            //{
-            //    var qtyToReserve = Math.Min(remainingQty, unit.AvailableQuantity);
-            //    unit.Reserve(qtyToReserve); // ← ВЫЗОВ МЕТОДА РЕЗЕРВИРОВАНИЯ
-            //    await _storageUnitRepository.UpdateAsync(unit);
+            var pickingTask = await _unitOfWork.PickingTasks.GetActiveForOrderAsync(request.OrderId);
+            if (pickingTask == null)
+                throw new NotFoundException($"Active picking task not found for order {request.OrderId}");
 
-            //    remainingQty -= qtyToReserve;
-            //    if (remainingQty <= 0) break;
-            //}
+            // Резервируем товары на складе
+            await ReserveStockForOrder(request.PickedQuantities);
 
+            // Завершаем сборку
+            order.CompletePicking(request.PickedQuantities);
+            pickingTask.Complete();
+
+            // Обновляем статус собранных товаров в задании
+            foreach (var (productId, quantity) in request.PickedQuantities)
+            {
+                pickingTask.UpdateItemPickedStatus(productId, quantity);
+            }
+
+            await _unitOfWork.Orders.UpdateAsync(order);
+            await _unitOfWork.PickingTasks.UpdateAsync(pickingTask);
+            await _unitOfWork.CommitAsync();
+
+            _logger.LogInformation("Picking completed for order {OrderId}", request.OrderId);
+
+            return Unit.Value;
         }
-
-        await _orderRepository.UpdateAsync(order);
-        await _pickingTaskRepository.UpdateAsync(pickingTask);
-        await _orderRepository.SaveChangesAsync();
-
-        _logger.LogInformation("Picking completed for order {OrderId}", request.OrderId);
-
-        return Unit.Value;
+        catch
+        {
+            await _unitOfWork.RollbackAsync();
+            throw;
+        }
     }
 
     private async Task ReserveStockForOrder(Dictionary<Guid, int> pickedQuantities)
     {
         foreach (var (productId, quantity) in pickedQuantities)
         {
-            var storageUnits = await _storageUnitRepository.GetByProductAsync(productId);
+            var storageUnits = await _unitOfWork.StorageUnits.GetByProductAsync(productId);
             var remainingQty = quantity;
 
             foreach (var unit in storageUnits.Where(u => u.AvailableQuantity > 0))
             {
                 var qtyToReserve = Math.Min(remainingQty, unit.AvailableQuantity);
                 unit.Reserve(qtyToReserve);
-                await _storageUnitRepository.UpdateAsync(unit);
+                await _unitOfWork.StorageUnits.UpdateAsync(unit);
 
                 remainingQty -= qtyToReserve;
                 if (remainingQty <= 0) break;

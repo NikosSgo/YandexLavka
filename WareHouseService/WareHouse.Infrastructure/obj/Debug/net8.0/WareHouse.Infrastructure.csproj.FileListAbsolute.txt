@@ -1,5 +1,4 @@
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\bin\Debug\net8.0\WareHouse.Infrastructure.deps.json
-C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\bin\Debug\net8.0\WareHouse.Infrastructure.runtimeconfig.json
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\bin\Debug\net8.0\WareHouse.Infrastructure.dll
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\bin\Debug\net8.0\WareHouse.Infrastructure.pdb
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\bin\Debug\net8.0\WareHouse.Application.dll
@@ -16,5 +15,4 @@ C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\obj\Deb
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\obj\Debug\net8.0\WareHouse.Infrastructure.dll
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\obj\Debug\net8.0\refint\WareHouse.Infrastructure.dll
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\obj\Debug\net8.0\WareHouse.Infrastructure.pdb
-C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\obj\Debug\net8.0\WareHouse.Infrastructure.genruntimeconfig.cache
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\obj\Debug\net8.0\ref\WareHouse.Infrastructure.dll

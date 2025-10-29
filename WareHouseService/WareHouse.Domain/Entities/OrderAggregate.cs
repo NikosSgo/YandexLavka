@@ -32,17 +32,34 @@ public class OrderAggregate : AggregateRoot
     [NotMapped]
     public int PickedItems => _lines.Sum(line => line.QuantityPicked);
 
+    // ✅ ИСПРАВЛЕНО: Свойство Id для Dapper с правильными модификаторами доступа
+    [NotMapped]
+    public override Guid Id
+    {
+        get => OrderId;
+        protected set => OrderId = value; // ✅ protected set
+    }
+
+    // ✅ ИЗМЕНЕНО: Конструктор без параметров для Dapper
     private OrderAggregate() { }
 
     public OrderAggregate(Guid orderId, string customerId, List<OrderLine> lines)
     {
         OrderId = orderId;
+        Id = orderId; // ✅ Устанавливаем оба ID
         CustomerId = customerId;
         _lines = lines;
         Status = OrderStatus.Received;
         CreatedAt = DateTime.UtcNow;
 
         AddDomainEvent(new OrderReceivedEvent(OrderId, CustomerId, lines));
+    }
+
+    // ✅ ДОБАВЛЕНО: Метод для установки линий заказа из репозитория
+    public void SetOrderLines(List<OrderLine> lines)
+    {
+        _lines.Clear();
+        _lines.AddRange(lines);
     }
 
     public void StartPicking()

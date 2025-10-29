@@ -19,56 +19,53 @@ public class CancelPickingCommandValidator : AbstractValidator<CancelPickingComm
 
 public class CancelPickingCommandHandler : IRequestHandler<CancelPickingCommand, Unit>
 {
-    private readonly IOrderRepository _orderRepository;
-    private readonly IPickingTaskRepository _pickingTaskRepository;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly ILogger<CancelPickingCommandHandler> _logger;
 
     public CancelPickingCommandHandler(
-        IOrderRepository orderRepository,
-        IPickingTaskRepository pickingTaskRepository,
+        IUnitOfWork unitOfWork,
         ILogger<CancelPickingCommandHandler> logger)
     {
-        _orderRepository = orderRepository;
-        _pickingTaskRepository = pickingTaskRepository;
+        _unitOfWork = unitOfWork;
         _logger = logger;
     }
 
     public async Task<Unit> Handle(CancelPickingCommand request, CancellationToken cancellationToken)
     {
+        await _unitOfWork.BeginTransactionAsync();
 
-        // ОСВОБОЖДЕНИЕ резерваций при отмене
-        //var reservations = await _reservationRepository.GetByOrderAsync(orderId);
-        //foreach (var reservation in reservations)
-        //{
-        //    var storageUnit = await _storageUnitRepository.GetByIdAsync(reservation.UnitId);
-        //    storageUnit.ReleaseReservation(reservation.Quantity); // ← ВЫЗОВ МЕТОДА ОСВОБОЖДЕНИЯ
-        //    await _storageUnitRepository.UpdateAsync(storageUnit);
-        //}
-
-        _logger.LogInformation("Cancelling picking for order {OrderId}. Reason: {Reason}",
-            request.OrderId, request.Reason);
-
-        var order = await _orderRepository.GetByIdAsync(request.OrderId);
-        if (order == null)
-            throw new NotFoundException($"Order {request.OrderId} not found");
-
-        var pickingTask = await _pickingTaskRepository.GetActiveForOrderAsync(request.OrderId);
-
-        // Отменяем заказ
-        order.Cancel(request.Reason);
-
-        // Отменяем задание на сборку если есть
-        if (pickingTask != null)
+        try
         {
-            pickingTask.Cancel();
-            await _pickingTaskRepository.UpdateAsync(pickingTask);
+            _logger.LogInformation("Cancelling picking for order {OrderId}. Reason: {Reason}",
+                request.OrderId, request.Reason);
+
+            var order = await _unitOfWork.Orders.GetByIdAsync(request.OrderId);
+            if (order == null)
+                throw new NotFoundException($"Order {request.OrderId} not found");
+
+            var pickingTask = await _unitOfWork.PickingTasks.GetActiveForOrderAsync(request.OrderId);
+
+            // Отменяем заказ
+            order.Cancel(request.Reason);
+
+            // Отменяем задание на сборку если есть
+            if (pickingTask != null)
+            {
+                pickingTask.Cancel();
+                await _unitOfWork.PickingTasks.UpdateAsync(pickingTask);
+            }
+
+            await _unitOfWork.Orders.UpdateAsync(order);
+            await _unitOfWork.CommitAsync();
+
+            _logger.LogInformation("Picking cancelled for order {OrderId}", request.OrderId);
+
+            return Unit.Value;
         }
-
-        await _orderRepository.UpdateAsync(order);
-        await _orderRepository.SaveChangesAsync();
-
-        _logger.LogInformation("Picking cancelled for order {OrderId}", request.OrderId);
-
-        return Unit.Value;
+        catch
+        {
+            await _unitOfWork.RollbackAsync();
+            throw;
+        }
     }
 }

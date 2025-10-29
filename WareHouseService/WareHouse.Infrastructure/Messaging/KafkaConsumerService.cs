@@ -1,145 +1,160 @@
 ﻿using Confluent.Kafka;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using System.Text.Json;
 
 namespace WareHouse.Infrastructure.Messaging;
 
 public class KafkaConsumerService : BackgroundService
 {
-    private readonly IConsumer<string, string> _consumer;
-    private readonly IServiceProvider _serviceProvider;
+    private readonly IConsumer<Ignore, string> _consumer;
     private readonly ILogger<KafkaConsumerService> _logger;
     private readonly string[] _topics;
 
-    public KafkaConsumerService(
-        IConfiguration configuration,
-        IServiceProvider serviceProvider,
-        ILogger<KafkaConsumerService> logger)
+    public KafkaConsumerService(IConfiguration configuration, ILogger<KafkaConsumerService> logger)
     {
-        _serviceProvider = serviceProvider;
         _logger = logger;
 
         var config = new ConsumerConfig
         {
-            BootstrapServers = configuration["Kafka:BootstrapServers"],
-            GroupId = "warehouse-service-group",
+            BootstrapServers = configuration["Kafka:BootstrapServers"] ?? "localhost:9092",
+            GroupId = configuration["Kafka:GroupId"] ?? "warehouse-service",
             AutoOffsetReset = AutoOffsetReset.Earliest,
-            EnableAutoCommit = false,
-            EnableAutoOffsetStore = false
+            EnableAutoCommit = false
         };
 
-        _consumer = new ConsumerBuilder<string, string>(config).Build();
-        _topics = new[] { "orders", "warehouse-commands" };
+        _consumer = new ConsumerBuilder<Ignore, string>(config).Build();
+
+        // ✅ ИСПРАВЛЕНО: Берем топики из конфигурации, а не хардкод
+        _topics = new[]
+        {
+            configuration["Kafka:Topics:Orders"] ?? "orders",
+            configuration["Kafka:Topics:WarehouseCommands"] ?? "warehouse-commands",
+            configuration["Kafka:Topics:WarehouseEvents"] ?? "warehouse-events",
+            configuration["Kafka:Topics:PickingTasks"] ?? "picking-tasks",
+            configuration["Kafka:Topics:StockUpdates"] ?? "stock-updates"
+        };
+
+        _logger.LogInformation("Kafka consumer configured for topics: {Topics}", string.Join(", ", _topics));
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        _consumer.Subscribe(_topics);
+        _logger.LogInformation("Starting Kafka consumer for topics: {Topics}", string.Join(", ", _topics));
 
-        while (!stoppingToken.IsCancellationRequested)
-        {
-            try
-            {
-                var consumeResult = _consumer.Consume(stoppingToken);
-                await ProcessMessageAsync(consumeResult);
-                _consumer.StoreOffset(consumeResult);
-            }
-            catch (ConsumeException ex)
-            {
-                _logger.LogError(ex, "Error consuming message from Kafka");
-            }
-            catch (OperationCanceledException)
-            {
-                _logger.LogInformation("Kafka consumer stopping");
-                break;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Unexpected error in Kafka consumer");
-            }
-        }
-
-        _consumer.Close();
-    }
-
-    private async Task ProcessMessageAsync(ConsumeResult<string, string> consumeResult)
-    {
-        using var scope = _serviceProvider.CreateScope();
+        // ✅ ДОБАВЬТЕ ЗАДЕРЖКУ ПЕРЕД ПОДКЛЮЧЕНИЕМ
+        _logger.LogInformation("Waiting 10 seconds for Kafka to be ready...");
+        await Task.Delay(10000, stoppingToken);
 
         try
         {
-            var eventTypeHeader = consumeResult.Message.Headers.FirstOrDefault(h => h.Key == "event-type");
-            if (eventTypeHeader == null)
-            {
-                _logger.LogWarning("Message without event-type header received");
-                return;
-            }
+            _consumer.Subscribe(_topics);
 
-            var eventType = System.Text.Encoding.UTF8.GetString(eventTypeHeader.GetValueBytes());
-            await HandleEventAsync(eventType, consumeResult.Message.Value, scope.ServiceProvider);
+            while (!stoppingToken.IsCancellationRequested)
+            {
+                try
+                {
+                    var consumeResult = _consumer.Consume(stoppingToken);
+
+                    _logger.LogInformation("Received message from topic {Topic}: {Message}",
+                        consumeResult.Topic, consumeResult.Message.Value);
+
+                    await ProcessMessageAsync(consumeResult.Topic, consumeResult.Message.Value);
+                    _consumer.Commit(consumeResult);
+                }
+                catch (ConsumeException ex) when (ex.Error.IsFatal)
+                {
+                    _logger.LogError(ex, "Fatal error consuming from Kafka. Stopping consumer.");
+                    break;
+                }
+                catch (ConsumeException ex)
+                {
+                    _logger.LogWarning(ex, "Error consuming message from Kafka. Retrying...");
+                    await Task.Delay(1000, stoppingToken);
+                }
+                catch (OperationCanceledException)
+                {
+                    _logger.LogInformation("Kafka consumer was cancelled");
+                    break;
+                }
+            }
         }
-        catch (Exception ex)
+        finally
         {
-            _logger.LogError(ex, "Error processing Kafka message from topic {Topic}", consumeResult.Topic);
+            _consumer.Close();
+            _consumer.Dispose();
+            _logger.LogInformation("Kafka consumer stopped");
         }
     }
 
-    private async Task HandleEventAsync(string eventType, string message, IServiceProvider serviceProvider)
+    private async Task ProcessMessageAsync(string topic, string message)
     {
-        // Здесь будет логика обработки различных типов событий
-        // Например: OrderCreatedEvent, OrderCancelledEvent и т.д.
-        _logger.LogInformation("Processing event {EventType}: {Message}", eventType, message);
-
-        // Пример обработки:
-        switch (eventType)
+        try
         {
-            case "OrderCreatedEvent":
-                var orderCreated = JsonSerializer.Deserialize<OrderCreatedEvent>(message);
-                // Обработка создания заказа
-                break;
-            case "OrderCancelledEvent":
-                var orderCancelled = JsonSerializer.Deserialize<OrderCancelledEvent>(message);
-                // Обработка отмены заказа
-                break;
-            default:
-                _logger.LogWarning("Unknown event type: {EventType}", eventType);
-                break;
-        }
+            _logger.LogInformation("Processing message from topic {Topic}: {Message}", topic, message);
 
+            // Здесь будет логика обработки сообщений в зависимости от топика
+            switch (topic)
+            {
+                case "orders":
+                    await ProcessOrderMessage(message);
+                    break;
+                case "warehouse-commands":
+                    await ProcessWarehouseCommand(message);
+                    break;
+                case "warehouse-events":
+                    await ProcessWarehouseEvent(message);
+                    break;
+                case "picking-tasks":
+                    await ProcessPickingTaskMessage(message);
+                    break;
+                case "stock-updates":
+                    await ProcessStockUpdateMessage(message);
+                    break;
+                default:
+                    _logger.LogWarning("Unknown topic received: {Topic}", topic);
+                    break;
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error processing message from topic {Topic}", topic);
+        }
+    }
+
+    private async Task ProcessOrderMessage(string message)
+    {
+        _logger.LogInformation("Processing order message: {Message}", message);
+        await Task.CompletedTask;
+    }
+
+    private async Task ProcessWarehouseCommand(string message)
+    {
+        _logger.LogInformation("Processing warehouse command: {Message}", message);
+        await Task.CompletedTask;
+    }
+
+    private async Task ProcessWarehouseEvent(string message)
+    {
+        _logger.LogInformation("Processing warehouse event: {Message}", message);
+        await Task.CompletedTask;
+    }
+
+    private async Task ProcessPickingTaskMessage(string message)
+    {
+        _logger.LogInformation("Processing picking task: {Message}", message);
+        await Task.CompletedTask;
+    }
+
+    private async Task ProcessStockUpdateMessage(string message)
+    {
+        _logger.LogInformation("Processing stock update: {Message}", message);
         await Task.CompletedTask;
     }
 
     public override void Dispose()
     {
-        _consumer?.Close();
         _consumer?.Dispose();
         base.Dispose();
     }
-}
-
-// DTO для событий Kafka
-public class OrderCreatedEvent
-{
-    public Guid OrderId { get; set; }
-    public string CustomerId { get; set; }
-    public List<OrderLineDto> Items { get; set; }
-    public DateTime CreatedAt { get; set; }
-}
-
-public class OrderCancelledEvent
-{
-    public Guid OrderId { get; set; }
-    public string Reason { get; set; }
-    public DateTime CancelledAt { get; set; }
-}
-
-public class OrderLineDto
-{
-    public Guid ProductId { get; set; }
-    public string ProductName { get; set; }
-    public int Quantity { get; set; }
-    public decimal UnitPrice { get; set; }
 }

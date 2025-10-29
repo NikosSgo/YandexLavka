@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WareHouse.Domain.Entities;
-
+﻿// WareHouse.Domain/Interfaces/IStorageUnitRepository.cs
 using WareHouse.Domain.Entities;
 
 namespace WareHouse.Domain.Interfaces;
 
-public interface IStorageUnitRepository : IRepository<StorageUnit>
+public interface IStorageUnitRepository
 {
     Task<StorageUnit> GetByIdAsync(Guid unitId);
     Task<StorageUnit> GetByProductAndLocationAsync(Guid productId, string location);
@@ -18,4 +12,10 @@ public interface IStorageUnitRepository : IRepository<StorageUnit>
     Task<List<StorageUnit>> GetByZoneAsync(string zone);
     Task<List<StorageUnit>> GetUnitsForOrderAsync(Guid orderId);
     Task<List<StorageUnit>> GetLowStockUnitsAsync();
+
+    // IRepository methods
+    Task AddAsync(StorageUnit entity);
+    Task UpdateAsync(StorageUnit entity);
+    Task DeleteAsync(StorageUnit entity);
+    Task<IReadOnlyList<StorageUnit>> GetAllAsync();
 }

@@ -23,59 +23,63 @@ public class StartPickingCommandValidator : AbstractValidator<StartPickingComman
 
 public class StartPickingCommandHandler : IRequestHandler<StartPickingCommand, PickingTaskDto>
 {
-    private readonly IOrderRepository _orderRepository;
-    private readonly IPickingTaskRepository _pickingTaskRepository;
-    private readonly IStorageUnitRepository _storageUnitRepository;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly ILogger<StartPickingCommandHandler> _logger;
 
     public StartPickingCommandHandler(
-        IOrderRepository orderRepository,
-        IPickingTaskRepository pickingTaskRepository,
-        IStorageUnitRepository storageUnitRepository,
+        IUnitOfWork unitOfWork,
         ILogger<StartPickingCommandHandler> logger)
     {
-        _orderRepository = orderRepository;
-        _pickingTaskRepository = pickingTaskRepository;
-        _storageUnitRepository = storageUnitRepository;
+        _unitOfWork = unitOfWork;
         _logger = logger;
     }
 
     public async Task<PickingTaskDto> Handle(StartPickingCommand request, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("Starting picking for order {OrderId} by picker {PickerId}",
-            request.OrderId, request.PickerId);
+        await _unitOfWork.BeginTransactionAsync();
 
-        var order = await _orderRepository.GetByIdAsync(request.OrderId);
-        if (order == null)
-            throw new NotFoundException($"Order {request.OrderId} not found");
+        try
+        {
+            _logger.LogInformation("Starting picking for order {OrderId} by picker {PickerId}",
+                request.OrderId, request.PickerId);
 
-        if (order.Status != OrderStatus.Received)
-            throw new DomainException($"Cannot start picking for order in {order.Status} status");
+            var order = await _unitOfWork.Orders.GetByIdAsync(request.OrderId);
+            if (order == null)
+                throw new NotFoundException($"Order {request.OrderId} not found");
 
-        // Проверяем существующее активное задание
-        var existingTask = await _pickingTaskRepository.GetActiveForOrderAsync(request.OrderId);
-        if (existingTask != null)
-            throw new DomainException($"Active picking task already exists for order {request.OrderId}");
+            if (order.Status != OrderStatus.Received)
+                throw new DomainException($"Cannot start picking for order in {order.Status} status");
 
-        // Получаем оптимальные локации для сборки
-        var storageUnits = await _storageUnitRepository.GetUnitsForOrderAsync(request.OrderId);
-        var pickingItems = CreatePickingItems(order, storageUnits);
+            // Проверяем существующее активное задание
+            var existingTask = await _unitOfWork.PickingTasks.GetActiveForOrderAsync(request.OrderId);
+            if (existingTask != null)
+                throw new DomainException($"Active picking task already exists for order {request.OrderId}");
 
-        // Создаем задание на сборку
-        var pickingTask = new PickingTask(request.OrderId, pickingItems, request.Zone, request.PickerId);
-        pickingTask.StartPicking(request.PickerId);
+            // Получаем оптимальные локации для сборки
+            var storageUnits = await _unitOfWork.StorageUnits.GetUnitsForOrderAsync(request.OrderId);
+            var pickingItems = CreatePickingItems(order, storageUnits);
 
-        // Обновляем статус заказа
-        order.StartPicking();
+            // Создаем задание на сборку
+            var pickingTask = new PickingTask(request.OrderId, pickingItems, request.Zone, request.PickerId);
+            pickingTask.StartPicking(request.PickerId);
 
-        await _pickingTaskRepository.AddAsync(pickingTask);
-        await _orderRepository.UpdateAsync(order);
-        await _pickingTaskRepository.SaveChangesAsync();
+            // Обновляем статус заказа
+            order.StartPicking();
 
-        _logger.LogInformation("Picking task {TaskId} created for order {OrderId}",
-            pickingTask.TaskId, request.OrderId);
+            await _unitOfWork.PickingTasks.AddAsync(pickingTask);
+            await _unitOfWork.Orders.UpdateAsync(order);
+            await _unitOfWork.CommitAsync();
 
-        return PickingTaskDto.FromEntity(pickingTask);
+            _logger.LogInformation("Picking task {TaskId} created for order {OrderId}",
+                pickingTask.TaskId, request.OrderId);
+
+            return PickingTaskDto.FromEntity(pickingTask);
+        }
+        catch
+        {
+            await _unitOfWork.RollbackAsync();
+            throw;
+        }
     }
 
     private List<PickingItem> CreatePickingItems(OrderAggregate order, List<StorageUnit> storageUnits)
@@ -94,10 +98,8 @@ public class StartPickingCommandHandler : IRequestHandler<StartPickingCommand, P
             {
                 var qtyToPick = Math.Min(remainingQty, unit.AvailableQuantity);
 
-                // Теперь PickingItem создается без TaskId в конструкторе
-                // TaskId будет установлен в конструкторе PickingTask
                 var pickingItem = new PickingItem(
-                    Guid.Empty, // TaskId будет установлен позже
+                    Guid.Empty, // TaskId будет установлен в конструкторе PickingTask
                     line.ProductId,
                     line.ProductName,
                     line.Sku,

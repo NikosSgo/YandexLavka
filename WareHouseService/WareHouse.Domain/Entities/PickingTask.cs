@@ -32,11 +32,21 @@ public class PickingTask : AggregateRoot
     [NotMapped]
     public int PickedItemsCount => _items.Count(item => item.IsPicked);
 
+    // ✅ ИСПРАВЛЕНО: Свойство Id для Dapper с правильными модификаторами доступа
+    [NotMapped]
+    public override Guid Id
+    {
+        get => TaskId;
+        protected set => TaskId = value; // ✅ protected set
+    }
+
+    // ✅ ИЗМЕНЕНО: Конструктор без параметров для Dapper
     private PickingTask() { }
 
     public PickingTask(Guid orderId, List<PickingItem> items, string zone, string assignedPicker = null)
     {
         TaskId = Guid.NewGuid();
+        Id = TaskId; // ✅ Устанавливаем оба ID
         OrderId = orderId;
         AssignedPicker = assignedPicker;
         Status = PickingTaskStatus.Created;
@@ -58,6 +68,13 @@ public class PickingTask : AggregateRoot
             );
             _items.Add(pickingItem);
         }
+    }
+
+    // ✅ ДОБАВЛЕНО: Метод для установки items из репозитория
+    public void SetPickingItems(List<PickingItem> items)
+    {
+        _items.Clear();
+        _items.AddRange(items);
     }
 
     public void StartPicking(string pickerId)
@@ -103,5 +120,4 @@ public class PickingTask : AggregateRoot
         item.MarkAsPicked(quantityPicked);
         UpdateTimestamps();
     }
-
 }

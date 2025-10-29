@@ -28,45 +28,53 @@ public class UpdateStockCommandValidator : AbstractValidator<UpdateStockCommand>
 
 public class UpdateStockCommandHandler : IRequestHandler<UpdateStockCommand, Unit>
 {
-    private readonly IStorageUnitRepository _storageUnitRepository;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly ILogger<UpdateStockCommandHandler> _logger;
 
     public UpdateStockCommandHandler(
-        IStorageUnitRepository storageUnitRepository,
+        IUnitOfWork unitOfWork,
         ILogger<UpdateStockCommandHandler> logger)
     {
-        _storageUnitRepository = storageUnitRepository;
+        _unitOfWork = unitOfWork;
         _logger = logger;
     }
 
     public async Task<Unit> Handle(UpdateStockCommand request, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("Updating stock for product {ProductId} at {Location}. Operation: {Operation}",
-            request.ProductId, request.Location, request.Operation);
+        await _unitOfWork.BeginTransactionAsync();
 
-        var storageUnit = await _storageUnitRepository.GetByProductAndLocationAsync(
-            request.ProductId, request.Location);
-
-        if (storageUnit == null)
-            throw new NotFoundException($"Storage unit not found for product {request.ProductId} at {request.Location}");
-
-        if (request.Operation == "restock")
+        try
         {
-            storageUnit.Restock(request.Quantity);
+            _logger.LogInformation("Updating stock for product {ProductId} at {Location}. Operation: {Operation}",
+                request.ProductId, request.Location, request.Operation);
+
+            var storageUnit = await _unitOfWork.StorageUnits.GetByProductAndLocationAsync(
+                request.ProductId, request.Location);
+
+            if (storageUnit == null)
+                throw new NotFoundException($"Storage unit not found for product {request.ProductId} at {request.Location}");
+
+            if (request.Operation == "restock")
+            {
+                storageUnit.Restock(request.Quantity);
+            }
+            else if (request.Operation == "adjust")
+            {
+                throw new DomainException("Adjust operation not implemented yet");
+            }
+
+            await _unitOfWork.StorageUnits.UpdateAsync(storageUnit);
+            await _unitOfWork.CommitAsync();
+
+            _logger.LogInformation("Stock updated for product {ProductId}. New quantity: {Quantity}",
+                request.ProductId, storageUnit.Quantity);
+
+            return Unit.Value;
         }
-        else if (request.Operation == "adjust")
+        catch
         {
-            // Для корректировки устанавливаем точное количество
-            // В реальном приложении здесь была бы более сложная логика
-            throw new DomainException("Adjust operation not implemented yet");
+            await _unitOfWork.RollbackAsync();
+            throw;
         }
-
-        await _storageUnitRepository.UpdateAsync(storageUnit);
-        await _storageUnitRepository.SaveChangesAsync();
-
-        _logger.LogInformation("Stock updated for product {ProductId}. New quantity: {Quantity}",
-            request.ProductId, storageUnit.Quantity);
-
-        return Unit.Value;
     }
 }

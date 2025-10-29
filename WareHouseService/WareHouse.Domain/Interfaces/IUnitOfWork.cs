@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// WareHouse.Domain/Interfaces/IUnitOfWork.cs
+using System.Data;
 
-namespace WareHouse.Domain.Interfaces
+namespace WareHouse.Domain.Interfaces;
+
+public interface IUnitOfWork : IDisposable, IAsyncDisposable
 {
-    public interface IUnitOfWork : IDisposable
-    {
-        IOrderRepository Orders { get; }
-        IPickingTaskRepository PickingTasks { get; }
-        IStorageUnitRepository StorageUnits { get; }
+    IOrderRepository Orders { get; }
+    IPickingTaskRepository PickingTasks { get; }
+    IStorageUnitRepository StorageUnits { get; }
 
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
-        Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default);
-    }
+    Task BeginTransactionAsync(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted);
+    Task CommitAsync();
+    Task RollbackAsync();
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+    Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default);
 }

@@ -18,7 +18,7 @@ services:
     networks:
       - warehouse-network
 
-  # Redis for cashing
+  # Redis for caching
   redis:
     image: redis:7-alpine
     container_name: warehouse-redis
@@ -52,8 +52,50 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT_INTERNAL
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      # Auto creating topics on start
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_CREATE_TOPICS: "orders:1:1,warehouse-commands:1:1,warehouse-events:1:1,picking-tasks:1:1,stock-updates:1:1"
     ports:
       - "9092:9092"
+    networks:
+      - warehouse-network
+
+  # Kafka Topics Initializer (creates topics if auto-create doesn't work)
+  kafka-topics-init:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: warehouse-kafka-topics-init
+    depends_on:
+      - kafka
+    command: |
+      bash -c "
+        echo 'Waiting for Kafka to be ready...'
+        cub kafka-ready -b kafka:29092 1 60
+        
+        echo 'Creating Kafka topics...'
+        kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic orders --partitions 1 --replication-factor 1
+        kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic warehouse-commands --partitions 1 --replication-factor 1
+        kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic warehouse-events --partitions 1 --replication-factor 1
+        kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic picking-tasks --partitions 1 --replication-factor 1
+        kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic stock-updates --partitions 1 --replication-factor 1
+        
+        echo 'All topics created successfully!'
+        kafka-topics --list --bootstrap-server kafka:29092
+      "
+    networks:
+      - warehouse-network
+
+  # Kafka UI (for topics monitoring)
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: warehouse-kafka-ui
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+    ports:
+      - "8081:8080"
     networks:
       - warehouse-network
 

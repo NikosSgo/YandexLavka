@@ -53,7 +53,6 @@ C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\bin\Debug\net8.0\M
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\bin\Debug\net8.0\Mono.TextTemplating.dll
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\bin\Debug\net8.0\Npgsql.dll
-C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\bin\Debug\net8.0\Prometheus.NetStandard.dll
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\bin\Debug\net8.0\Serilog.dll
@@ -203,3 +202,7 @@ C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\obj\Debug\net8.0\W
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\obj\Debug\net8.0\WareHouse.API.genruntimeconfig.cache
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\obj\Debug\net8.0\ref\WareHouse.API.dll
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\bin\Debug\net8.0\Dapper.dll
+C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\bin\Debug\net8.0\Dapper.Contrib.dll
+C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
