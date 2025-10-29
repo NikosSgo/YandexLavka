@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using WareHouse.Domain.Common;
 using WareHouse.Domain.Enums;
 using WareHouse.Domain.Events;
 using WareHouse.Domain.Exceptions;
 
-using WareHouse.Domain.Events;
-
 namespace WareHouse.Domain.Entities;
 
-public class OrderAggregate
+public class OrderAggregate : AggregateRoot
 {
     public Guid OrderId { get; private set; }
     public OrderStatus Status { get; private set; }
@@ -19,14 +14,23 @@ public class OrderAggregate
     public DateTime CreatedAt { get; private set; }
     public DateTime? PickingStartedAt { get; private set; }
     public DateTime? PickingCompletedAt { get; private set; }
+    public DateTime? PackingCompletedAt { get; private set; }
 
     private readonly List<OrderLine> _lines = new();
     public IReadOnlyCollection<OrderLine> Lines => _lines.AsReadOnly();
 
-    private readonly List<IDomainEvent> _domainEvents = new();
-    public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
+    // Вычисляемые свойства - должны быть помечены как [NotMapped]
+    [NotMapped]
+    public bool AllItemsPicked => _lines.All(line => line.QuantityPicked >= line.QuantityOrdered);
 
-    public object AllItemsPicked { get; set; }
+    [NotMapped]
+    public decimal TotalAmount => _lines.Sum(line => line.TotalPrice);
+
+    [NotMapped]
+    public int TotalItems => _lines.Sum(line => line.QuantityOrdered);
+
+    [NotMapped]
+    public int PickedItems => _lines.Sum(line => line.QuantityPicked);
 
     private OrderAggregate() { }
 
@@ -38,7 +42,7 @@ public class OrderAggregate
         Status = OrderStatus.Received;
         CreatedAt = DateTime.UtcNow;
 
-        _domainEvents.Add(new OrderReceivedEvent(OrderId, CustomerId, lines));
+        AddDomainEvent(new OrderReceivedEvent(OrderId, CustomerId, lines));
     }
 
     public void StartPicking()
@@ -48,8 +52,9 @@ public class OrderAggregate
 
         Status = OrderStatus.Picking;
         PickingStartedAt = DateTime.UtcNow;
+        UpdateTimestamps();
 
-        _domainEvents.Add(new OrderPickingStartedEvent(OrderId));
+        AddDomainEvent(new OrderPickingStartedEvent(OrderId));
     }
 
     public void CompletePicking(Dictionary<Guid, int> pickedQuantities)
@@ -57,16 +62,26 @@ public class OrderAggregate
         if (Status != OrderStatus.Picking)
             throw new DomainException($"Cannot complete picking for order in {Status} status");
 
-        foreach (var line in _lines)
-        {
-            if (!pickedQuantities.TryGetValue(line.ProductId, out var pickedQty) || pickedQty < line.QuantityOrdered)
-                throw new DomainException($"Insufficient quantity picked for product {line.ProductId}");
-        }
+        ValidatePickedQuantities(pickedQuantities);
+        UpdatePickedQuantities(pickedQuantities);
 
         Status = OrderStatus.Picked;
         PickingCompletedAt = DateTime.UtcNow;
+        UpdateTimestamps();
 
-        _domainEvents.Add(new OrderPickedEvent(OrderId, pickedQuantities));
+        AddDomainEvent(new OrderPickedEvent(OrderId, pickedQuantities));
+    }
+
+    public void CompletePacking()
+    {
+        if (Status != OrderStatus.Picked)
+            throw new DomainException($"Cannot complete packing for order in {Status} status");
+
+        Status = OrderStatus.Packed;
+        PackingCompletedAt = DateTime.UtcNow;
+        UpdateTimestamps();
+
+        AddDomainEvent(new OrderPackedEvent(OrderId));
     }
 
     public void Cancel(string reason)
@@ -75,12 +90,31 @@ public class OrderAggregate
             throw new DomainException($"Cannot cancel order in {Status} status");
 
         Status = OrderStatus.Cancelled;
+        UpdateTimestamps();
 
-        _domainEvents.Add(new OrderCancelledEvent(OrderId, reason));
+        AddDomainEvent(new OrderCancelledEvent(OrderId, reason));
     }
 
-    public void ClearDomainEvents()
+    private void ValidatePickedQuantities(Dictionary<Guid, int> pickedQuantities)
     {
-        _domainEvents.Clear();
+        foreach (var line in _lines)
+        {
+            if (!pickedQuantities.TryGetValue(line.ProductId, out var pickedQty))
+                throw new DomainException($"Product {line.ProductId} not picked");
+
+            if (pickedQty < line.QuantityOrdered)
+                throw new DomainException($"Insufficient quantity for product {line.ProductId}. Ordered: {line.QuantityOrdered}, Picked: {pickedQty}");
+        }
+    }
+
+    private void UpdatePickedQuantities(Dictionary<Guid, int> pickedQuantities)
+    {
+        foreach (var line in _lines)
+        {
+            if (pickedQuantities.TryGetValue(line.ProductId, out var pickedQty))
+            {
+                line.UpdatePickedQuantity(pickedQty);
+            }
+        }
     }
 }

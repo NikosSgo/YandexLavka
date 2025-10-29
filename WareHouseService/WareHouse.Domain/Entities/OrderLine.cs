@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using WareHouse.Domain.Common;
 using WareHouse.Domain.Exceptions;
 
 namespace WareHouse.Domain.Entities;
 
-public class OrderLine
+public class OrderLine : Entity  // ← Наследуем от Entity
 {
+    public Guid OrderId { get; private set; }
     public Guid ProductId { get; private set; }
     public string ProductName { get; private set; }
     public string Sku { get; private set; }
@@ -16,8 +13,14 @@ public class OrderLine
     public int QuantityPicked { get; private set; }
     public decimal UnitPrice { get; private set; }
 
-    public OrderLine(Guid productId, string productName, string sku, int quantityOrdered, decimal unitPrice)
+    // Навигационное свойство
+    public OrderAggregate Order { get; private set; }
+
+    private OrderLine() { }
+
+    public OrderLine(Guid orderId, Guid productId, string productName, string sku, int quantityOrdered, decimal unitPrice)
     {
+        OrderId = orderId;
         ProductId = productId;
         ProductName = productName;
         Sku = sku;
@@ -32,6 +35,7 @@ public class OrderLine
             throw new DomainException($"Picked quantity cannot exceed ordered quantity");
 
         QuantityPicked = quantity;
+        UpdateTimestamps();
     }
 
     public decimal TotalPrice => UnitPrice * QuantityOrdered;

@@ -93,15 +93,20 @@ public class StartPickingCommandHandler : IRequestHandler<StartPickingCommand, P
             foreach (var unit in availableUnits)
             {
                 var qtyToPick = Math.Min(remainingQty, unit.AvailableQuantity);
-                pickingItems.Add(new PickingItem(
+
+                // Теперь PickingItem создается без TaskId в конструкторе
+                // TaskId будет установлен в конструкторе PickingTask
+                var pickingItem = new PickingItem(
+                    Guid.Empty, // TaskId будет установлен позже
                     line.ProductId,
                     line.ProductName,
                     line.Sku,
                     qtyToPick,
                     unit.Location,
-                    $"BC-{line.ProductId}" // Генерируем штрих-код
-                ));
+                    $"BC-{line.ProductId}"
+                );
 
+                pickingItems.Add(pickingItem);
                 remainingQty -= qtyToPick;
                 if (remainingQty <= 0) break;
             }

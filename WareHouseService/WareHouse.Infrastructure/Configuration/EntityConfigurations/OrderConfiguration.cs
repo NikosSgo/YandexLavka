@@ -35,40 +35,19 @@ public class OrderConfiguration : IEntityTypeConfiguration<OrderAggregate>
         builder.Property(o => o.PickingCompletedAt)
             .HasColumnName("picking_completed_at");
 
-        // OwnsMany для OrderLine (Value Objects)
-        builder.OwnsMany(o => o.Lines, line =>
-        {
-            line.ToTable("order_lines");
-            line.WithOwner().HasForeignKey("order_id");
-            line.HasKey("OrderId", "ProductId");
+        builder.Property(o => o.PackingCompletedAt)
+            .HasColumnName("packing_completed_at");
 
-            line.Property(l => l.ProductId)
-                .HasColumnName("product_id")
-                .IsRequired();
+        // Явно игнорируем вычисляемые свойства
+        builder.Ignore(o => o.AllItemsPicked);
+        builder.Ignore(o => o.TotalAmount);
+        builder.Ignore(o => o.TotalItems);
+        builder.Ignore(o => o.PickedItems);
 
-            line.Property(l => l.ProductName)
-                .HasColumnName("product_name")
-                .HasMaxLength(200)
-                .IsRequired();
-
-            line.Property(l => l.Sku)
-                .HasColumnName("sku")
-                .HasMaxLength(50)
-                .IsRequired();
-
-            line.Property(l => l.QuantityOrdered)
-                .HasColumnName("quantity_ordered")
-                .IsRequired();
-
-            line.Property(l => l.QuantityPicked)
-                .HasColumnName("quantity_picked")
-                .IsRequired();
-
-            line.Property(l => l.UnitPrice)
-                .HasColumnName("unit_price")
-                .HasColumnType("decimal(18,2)")
-                .IsRequired();
-        });
+        // Связь с OrderLines
+        builder.HasMany(o => o.Lines)
+            .WithOne(ol => ol.Order)
+            .HasForeignKey(ol => ol.OrderId);
 
         builder.Ignore(o => o.DomainEvents);
     }

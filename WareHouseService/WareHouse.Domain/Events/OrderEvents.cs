@@ -1,12 +1,4 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WareHouse.Domain.Entities;
-
-using WareHouse.Domain.Entities;
+﻿using WareHouse.Domain.Entities;
 
 namespace WareHouse.Domain.Events;
 
@@ -49,6 +41,17 @@ public class OrderPickedEvent : DomainEvent
     {
         OrderId = orderId;
         PickedQuantities = pickedQuantities;
+    }
+}
+
+// ДОБАВВЛЕН ЭТОТ КЛАСС
+public class OrderPackedEvent : DomainEvent
+{
+    public Guid OrderId { get; }
+
+    public OrderPackedEvent(Guid orderId)
+    {
+        OrderId = orderId;
     }
 }
 

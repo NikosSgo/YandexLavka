@@ -10,8 +10,8 @@ public class StorageUnitConfiguration : IEntityTypeConfiguration<StorageUnit>
     {
         builder.ToTable("storage_units");
 
-        builder.HasKey(su => su.UnitId);
-        builder.Property(su => su.UnitId)
+        builder.HasKey(su => su.Id);
+        builder.Property(su => su.Id)
             .HasColumnName("id")
             .IsRequired();
 

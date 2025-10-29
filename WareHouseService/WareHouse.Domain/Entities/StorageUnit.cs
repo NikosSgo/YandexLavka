@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WareHouse.Domain.Common;
 using WareHouse.Domain.Exceptions;
 
 namespace WareHouse.Domain.Entities;
 
-public class StorageUnit
+public class StorageUnit : AggregateRoot
 {
-    public Guid UnitId { get; private set; }
+    //public Guid UnitId { get; private set; }
     public Guid ProductId { get; private set; }
     public string ProductName { get; private set; }
     public string Sku { get; private set; }
@@ -26,7 +27,7 @@ public class StorageUnit
 
     public StorageUnit(Guid productId, string productName, string sku, int quantity, string location, string zone)
     {
-        UnitId = Guid.NewGuid();
+        //UnitId = Guid.NewGuid();
         ProductId = productId;
         ProductName = productName;
         Sku = sku;

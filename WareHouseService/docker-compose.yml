@@ -1,4 +1,4 @@
-version: '3.8'
+п»їversion: '3.8'
 
 services:
   # PostgreSQL Database
@@ -9,14 +9,16 @@ services:
       POSTGRES_DB: WareHouseDb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
+      POSTGRES_HOST_AUTH_METHOD: md5
+      POSTGRES_INITDB_ARGS: --auth md5
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - warehouse-network
 
-  # Redis для кэширования
+  # Redis for cashing
   redis:
     image: redis:7-alpine
     container_name: warehouse-redis
@@ -25,7 +27,7 @@ services:
     networks:
       - warehouse-network
 
-  # Zookeeper (требуется для Kafka)
+  # Zookeeper (for Kafka)
   zookeeper:
     image: confluentinc/cp-zookeeper:7.4.0
     container_name: warehouse-zookeeper
@@ -55,7 +57,7 @@ services:
     networks:
       - warehouse-network
 
-  # PGAdmin для управления БД (опционально)
+  # PGAdmin for managing DB
   pgadmin:
     image: dpage/pgadmin4
     container_name: warehouse-pgadmin

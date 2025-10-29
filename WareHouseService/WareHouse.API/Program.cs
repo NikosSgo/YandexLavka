@@ -1,19 +1,49 @@
-using Microsoft.EntityFrameworkCore;
+п»їusing Microsoft.EntityFrameworkCore;
 using Serilog;
 using WareHouse.API.Configuration;
 using WareHouse.API.Middleware;
 using WareHouse.Infrastructure.Data;
+using Npgsql;
 
-// Создаем логгер для начальной настройки
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateBootstrapLogger();
 
 try
 {
-    Log.Information("Starting WareHouse API application");
+    Console.WriteLine("рџљЂ STARTING APPLICATION ON PORT 5433 WITH PASSWORD");
 
     var builder = WebApplication.CreateBuilder(args);
+
+    // вњ… РРЎРџРћР›Р¬Р—РЈР•Рњ РџР РђР’РР›Р¬РќР«Р™ CONNECTION STRING РЎ РџРћР РўРћРњ 5433 Р РџРђР РћР›Р•Рњ
+    var connectionString = "Host=localhost;Port=5433;Database=WareHouseDb;Username=postgres;Password=password;";
+    builder.Configuration["ConnectionStrings:DefaultConnection"] = connectionString;
+
+    Console.WriteLine($"рџ”§ CONNECTION: {connectionString.Replace("password", "****")}");
+
+    // вњ… РўР•РЎРўРР РЈР•Рњ РџРћР”РљР›Р®Р§Р•РќРР• РЎ РџРђР РћР›Р•Рњ Р РџРћР РўРћРњ 5433
+    Console.WriteLine("рџ”Њ TESTING CONNECTION TO PORT 5433 WITH PASSWORD...");
+    try
+    {
+        using var connection = new NpgsqlConnection(connectionString);
+        await connection.OpenAsync();
+        Console.WriteLine("вњ… CONNECTION SUCCESS WITH PASSWORD!");
+
+        var cmd = new NpgsqlCommand("SELECT current_database(), current_user, inet_server_port()", connection);
+        using var reader = await cmd.ExecuteReaderAsync();
+        if (await reader.ReadAsync())
+        {
+            Console.WriteLine($"рџ“Љ Database: {reader.GetString(0)}");
+            Console.WriteLine($"рџ‘¤ User: {reader.GetString(1)}");
+            Console.WriteLine($"рџ”Њ Port: {reader.GetInt32(2)}");
+        }
+        await connection.CloseAsync();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"вќЊ CONNECTION FAILED: {ex.Message}");
+        throw;
+    }
 
     // Configure Serilog
     builder.Host.UseSerilog((context, services, configuration) => configuration
@@ -33,13 +63,13 @@ try
     {
         var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-        // Применяем миграции
+        Console.WriteLine("рџ—„пёЏ APPLYING DATABASE MIGRATIONS...");
         await context.Database.MigrateAsync();
 
-        // Заполняем тестовыми данными
+        Console.WriteLine("рџЊ± SEEDING DATABASE...");
         await DatabaseSeeder.SeedAsync(context);
 
-        Log.Information("Database initialized successfully");
+        Console.WriteLine("вњ… DATABASE INITIALIZED SUCCESSFULLY");
     }
 
     // Configure Pipeline
@@ -51,37 +81,28 @@ try
             c.SwaggerEndpoint("/swagger/v1/swagger.json", "WareHouse API v1");
             c.RoutePrefix = "api-docs";
         });
-
-        app.UseDeveloperExceptionPage();
+        Console.WriteLine("рџ“љ SWAGGER ENABLED");
     }
 
     app.UseHttpsRedirection();
     app.UseCors("AllowAll");
-
-    // Global Exception Handling
     app.UseGlobalExceptionHandler();
-
-    // Custom Middleware
     app.UseRequestLogging();
     app.UseCorrelationId();
-
     app.UseRouting();
     app.UseAuthorization();
 
-    // Health Checks
     app.MapHealthChecks("/health");
-
-    // API Controllers
     app.MapControllers();
 
-    Log.Information("WareHouse API application started successfully");
-    Log.Information("API Documentation: https://localhost:7001/api-docs");
-    Log.Information("Health Checks: https://localhost:7001/health");
+    Console.WriteLine("рџЋ‰ APPLICATION STARTED SUCCESSFULLY!");
+    Console.WriteLine("рџ“Ќ API: https://localhost:7001/api-docs");
 
     app.Run();
 }
 catch (Exception ex)
 {
+    Console.WriteLine($"рџ’Ґ ERROR: {ex.Message}");
     Log.Fatal(ex, "Application terminated unexpectedly");
 }
 finally

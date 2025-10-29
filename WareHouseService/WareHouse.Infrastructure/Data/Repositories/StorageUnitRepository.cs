@@ -10,10 +10,10 @@ public class StorageUnitRepository : BaseRepository<StorageUnit>, IStorageUnitRe
     {
     }
 
-    public async override Task<StorageUnit> GetByIdAsync(Guid unitId)
+    public async override Task<StorageUnit> GetByIdAsync(Guid id) // ← Новый параметр
     {
         return await _context.StorageUnits
-            .FirstOrDefaultAsync(su => su.UnitId == unitId);
+            .FirstOrDefaultAsync(su => su.Id == id); // Id
     }
 
     public async Task<StorageUnit> GetByProductAndLocationAsync(Guid productId, string location)
@@ -49,7 +49,7 @@ public class StorageUnitRepository : BaseRepository<StorageUnit>, IStorageUnitRe
     {
         var order = await _context.Orders
             .Include(o => o.Lines)
-            .FirstOrDefaultAsync(o => o.OrderId == orderId);
+            .FirstOrDefaultAsync(o => o.Id == orderId); // ← ВОЗМОЖНО ТОЖЕ НУЖНО Id
 
         if (order == null) return new List<StorageUnit>();
 

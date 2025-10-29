@@ -21,9 +21,9 @@ C:\Backend_Project\YandexLavka\WareHouseService\WareHouseService\obj\Debug\net8.
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouseService\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouseService\obj\Debug\net8.0\staticwebassets.development.json
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouseService\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Backend_Project\YandexLavka\WareHouseService\WareHouseService\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouseService\obj\Debug\net8.0\WareHouseService.dll
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouseService\obj\Debug\net8.0\refint\WareHouseService.dll
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouseService\obj\Debug\net8.0\WareHouseService.pdb
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouseService\obj\Debug\net8.0\WareHouseService.genruntimeconfig.cache
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouseService\obj\Debug\net8.0\ref\WareHouseService.dll
+C:\Backend_Project\YandexLavka\WareHouseService\WareHouseService\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -37,7 +37,7 @@ public class GetStockLevelQueryHandler : IRequestHandler<GetStockLevelQuery, Sto
             IsOutOfStock = storageUnits.All(u => u.IsOutOfStock),
             StorageUnits = storageUnits.Select(u => new StorageUnitDto
             {
-                UnitId = u.UnitId,
+                UnitId = u.Id,
                 Location = u.Location,
                 Zone = u.Zone,
                 Quantity = u.Quantity,

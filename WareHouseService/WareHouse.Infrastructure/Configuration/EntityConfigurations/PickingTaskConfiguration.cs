@@ -37,43 +37,24 @@ public class PickingTaskConfiguration : IEntityTypeConfiguration<PickingTask>
             .HasColumnName("created_at")
             .IsRequired();
 
+        builder.Property(pt => pt.StartedAt)
+            .HasColumnName("started_at");
+
         builder.Property(pt => pt.CompletedAt)
             .HasColumnName("completed_at");
 
-        // OwnsMany для PickingItem
-        builder.OwnsMany(pt => pt.Items, item =>
-        {
-            item.ToTable("picking_items");
-            item.WithOwner().HasForeignKey("picking_task_id");
-            item.HasKey("PickingTaskId", "ProductId");
+        // Явно игнорируем вычисляемые свойства
+        builder.Ignore(pt => pt.AllItemsPicked);
+        builder.Ignore(pt => pt.Progress);
+        builder.Ignore(pt => pt.TotalItems);
+        builder.Ignore(pt => pt.PickedItemsCount);
 
-            item.Property(i => i.ProductId)
-                .HasColumnName("product_id")
-                .IsRequired();
+        // Связь с PickingItems
+        builder.HasMany(pt => pt.Items)
+            .WithOne(pi => pi.PickingTask)
+            .HasForeignKey(pi => pi.PickingTaskId);
 
-            item.Property(i => i.ProductName)
-                .HasColumnName("product_name")
-                .HasMaxLength(200)
-                .IsRequired();
-
-            item.Property(i => i.Sku)
-                .HasColumnName("sku")
-                .HasMaxLength(50)
-                .IsRequired();
-
-            item.Property(i => i.Quantity)
-                .HasColumnName("quantity")
-                .IsRequired();
-
-            item.Property(i => i.StorageLocation)
-                .HasColumnName("storage_location")
-                .HasMaxLength(20)
-                .IsRequired();
-
-            item.Property(i => i.Barcode)
-                .HasColumnName("barcode")
-                .HasMaxLength(100);
-        });
+        builder.Ignore(pt => pt.DomainEvents);
 
         builder.HasIndex(pt => pt.OrderId);
         builder.HasIndex(pt => pt.AssignedPicker);
