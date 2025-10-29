@@ -11,7 +11,7 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
-    Console.WriteLine("🚀 STARTING APPLICATION ON PORT 5433 WITH PASSWORD");
+    Console.WriteLine("🚀 STARTING WAREHOUSE APPLICATION");
 
     var builder = WebApplication.CreateBuilder(args);
 
@@ -19,15 +19,15 @@ try
     var connectionString = "Host=localhost;Port=5433;Database=WareHouseDb;Username=postgres;Password=password;";
     builder.Configuration["ConnectionStrings:DefaultConnection"] = connectionString;
 
-    Console.WriteLine($"🔧 CONNECTION: {connectionString.Replace("password", "****")}");
+    Console.WriteLine($"🔧 Database: WareHouseDb (localhost:5433)");
 
-    // ✅ ТЕСТИРУЕМ ПОДКЛЮЧЕНИЕ С ПАРОЛЕМ И ПОРТОМ 5433
-    Console.WriteLine("🔌 TESTING CONNECTION TO PORT 5433 WITH PASSWORD...");
+    // ✅ ТЕСТИРУЕМ ПОДКЛЮЧЕНИЕ К POSTGRESQL
+    Console.WriteLine("🔌 TESTING DATABASE CONNECTION...");
     try
     {
         using var connection = new NpgsqlConnection(connectionString);
         await connection.OpenAsync();
-        Console.WriteLine("✅ CONNECTION SUCCESS WITH PASSWORD!");
+        Console.WriteLine("✅ DATABASE CONNECTION SUCCESS!");
 
         var cmd = new NpgsqlCommand("SELECT current_database(), current_user, inet_server_port()", connection);
         using var reader = await cmd.ExecuteReaderAsync();
@@ -41,7 +41,7 @@ try
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"❌ CONNECTION FAILED: {ex.Message}");
+        Console.WriteLine($"❌ DATABASE CONNECTION FAILED: {ex.Message}");
         throw;
     }
 
@@ -58,18 +58,22 @@ try
 
     var app = builder.Build();
 
-    // Initialize Database
+    // ✅ ИНИЦИАЛИЗАЦИЯ БАЗЫ ДАННЫХ (ТОЛЬКО SEEDING)
     using (var scope = app.Services.CreateScope())
     {
         var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-        Console.WriteLine("🗄️ APPLYING DATABASE MIGRATIONS...");
-        await context.Database.MigrateAsync();
-
-        Console.WriteLine("🌱 SEEDING DATABASE...");
-        await DatabaseSeeder.SeedAsync(context);
-
-        Console.WriteLine("✅ DATABASE INITIALIZED SUCCESSFULLY");
+        Console.WriteLine("🌱 SEEDING DATABASE WITH TEST DATA...");
+        try
+        {
+            await DatabaseSeeder.SeedAsync(context);
+            Console.WriteLine("✅ DATABASE SEEDED SUCCESSFULLY");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"⚠️ SEEDING WARNING: {ex.Message}");
+            Console.WriteLine("📝 Continuing application startup...");
+        }
     }
 
     // Configure Pipeline
@@ -81,7 +85,7 @@ try
             c.SwaggerEndpoint("/swagger/v1/swagger.json", "WareHouse API v1");
             c.RoutePrefix = "api-docs";
         });
-        Console.WriteLine("📚 SWAGGER ENABLED");
+        Console.WriteLine("📚 SWAGGER ENABLED AT /api-docs");
     }
 
     app.UseHttpsRedirection();
@@ -95,14 +99,16 @@ try
     app.MapHealthChecks("/health");
     app.MapControllers();
 
-    Console.WriteLine("🎉 APPLICATION STARTED SUCCESSFULLY!");
-    Console.WriteLine("📍 API: https://localhost:7001/api-docs");
+    Console.WriteLine("🎉 WAREHOUSE APPLICATION STARTED SUCCESSFULLY!");
+    Console.WriteLine("📍 API Documentation: https://localhost:7001/api-docs");
+    Console.WriteLine("📍 Health Checks: https://localhost:7001/health");
+    Console.WriteLine("📍 PostgreSQL: localhost:5433");
 
     app.Run();
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"💥 ERROR: {ex.Message}");
+    Console.WriteLine($"💥 APPLICATION STARTUP FAILED: {ex.Message}");
     Log.Fatal(ex, "Application terminated unexpectedly");
 }
 finally
