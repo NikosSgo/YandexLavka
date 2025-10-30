@@ -18,7 +18,8 @@ public class OrderLine : Entity  // ← Наследуем от Entity
 
     private OrderLine() { }
 
-    public OrderLine(Guid orderId, Guid productId, string productName, string sku, int quantityOrdered, decimal unitPrice)
+    public OrderLine(Guid id, Guid orderId, Guid productId, string productName, string sku,
+                    int quantityOrdered, decimal unitPrice) : base(id)
     {
         OrderId = orderId;
         ProductId = productId;

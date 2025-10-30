@@ -11,7 +11,7 @@ public enum OrderStatus
     Received = 1,    // Заказ получен
     Picking = 2,     // В процессе сборки
     Picked = 3,      // Собран
-    Packed = 4,      // Упакован
+    Completed = 4,   // Завершен (бывший Packed)
     Cancelled = 5    // Отменен
 }
 

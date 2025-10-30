@@ -7,9 +7,16 @@ public abstract class Entity
     public DateTime CreatedAt { get; protected set; } = DateTime.UtcNow;
     public DateTime? UpdatedAt { get; protected set; }
 
+    // ✅ ДОБАВЬТЕ КОНСТРУКТОР ПО УМОЛЧАНИЮ
     protected Entity()
     {
-        Id = Guid.NewGuid();
+        CreatedAt = DateTime.UtcNow;
+        UpdatedAt = DateTime.UtcNow;
+    }
+
+    protected Entity(Guid id) : this()
+    {
+        Id = id;
     }
 
     protected void UpdateTimestamps()

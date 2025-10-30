@@ -14,6 +14,7 @@ public class HealthController : ControllerBase
     }
 
     [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public ActionResult Get()
     {
         _logger.LogInformation("Health check requested");
@@ -28,24 +29,39 @@ public class HealthController : ControllerBase
     }
 
     [HttpGet("detailed")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status503ServiceUnavailable)]
     public async Task<ActionResult> GetDetailed()
     {
         _logger.LogInformation("Detailed health check requested");
 
-        // Здесь можно добавить проверки различных зависимостей
-        var checks = new
+        try
         {
-            database = "Healthy",
-            kafka = "Healthy",
-            redis = "Healthy",
-            external_services = "Healthy"
-        };
+            // Здесь можно добавить проверки различных зависимостей
+            var checks = new
+            {
+                database = "Healthy",
+                kafka = "Healthy",
+                redis = "Healthy",
+                external_services = "Healthy"
+            };
 
-        return Ok(new
+            return Ok(new
+            {
+                status = "Healthy",
+                timestamp = DateTime.UtcNow,
+                checks
+            });
+        }
+        catch (Exception ex)
         {
-            status = "Healthy",
-            timestamp = DateTime.UtcNow,
-            checks
-        });
+            _logger.LogError(ex, "Detailed health check failed");
+            return StatusCode(503, new
+            {
+                status = "Unhealthy",
+                timestamp = DateTime.UtcNow,
+                error = ex.Message
+            });
+        }
     }
 }

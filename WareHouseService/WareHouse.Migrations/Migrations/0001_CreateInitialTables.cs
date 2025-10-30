@@ -7,6 +7,8 @@ public class CreateInitialTables : Migration
 {
     public override void Up()
     {
+        // Добавить в таблицу order_lines внешний ключ: 
+        // CONSTRAINT fk_order_lines_storage_units FOREIGN KEY (product_id) REFERENCES storage_units(id) ON DELETE CASCADE
         Execute.Sql(@"
             CREATE TABLE orders (
                 id UUID PRIMARY KEY,
@@ -27,6 +29,9 @@ public class CreateInitialTables : Migration
                 unit_price NUMERIC(18,2) NOT NULL,
                 PRIMARY KEY (order_id, product_id),
                 CONSTRAINT fk_order_lines_orders FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
+                
+
+
             );
 
             CREATE TABLE picking_tasks (

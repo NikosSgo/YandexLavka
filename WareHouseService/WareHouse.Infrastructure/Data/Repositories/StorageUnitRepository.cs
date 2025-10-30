@@ -113,15 +113,24 @@ public class StorageUnitRepository : IStorageUnitRepository
 
     public async Task<List<StorageUnit>> GetLowStockUnitsAsync()
     {
-        var connection = await GetConnectionAsync();
-        var results = await connection.QueryAsync<dynamic>(@"
+        try
+        {
+            var connection = await GetConnectionAsync();
+            var results = await connection.QueryAsync<dynamic>(@"
             SELECT * FROM storage_units 
             WHERE (quantity - reserved_quantity) <= 10 
             ORDER BY (quantity - reserved_quantity)",
-            new { },
-            _transaction);
+                new { },
+                _transaction);
 
-        return results.Select(MapToStorageUnit).Where(x => x != null).ToList();
+            var units = results.Select(MapToStorageUnit).Where(x => x != null).ToList();
+            return units;
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error in GetLowStockUnitsAsync: {ex.Message}");
+            throw;
+        }
     }
 
     // IRepository<T> методы

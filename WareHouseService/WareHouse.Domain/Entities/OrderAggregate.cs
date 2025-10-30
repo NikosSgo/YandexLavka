@@ -92,18 +92,18 @@ public class OrderAggregate : AggregateRoot
     public void CompletePacking()
     {
         if (Status != OrderStatus.Picked)
-            throw new DomainException($"Cannot complete packing for order in {Status} status");
+            throw new DomainException($"Cannot complete order in {Status} status");
 
-        Status = OrderStatus.Packed;
+        Status = OrderStatus.Completed; // Было Packed
         PackingCompletedAt = DateTime.UtcNow;
         UpdateTimestamps();
 
-        AddDomainEvent(new OrderPackedEvent(OrderId));
+        AddDomainEvent(new OrderCompletedEvent(OrderId)); // Переименуйте событие если нужно
     }
 
     public void Cancel(string reason)
     {
-        if (Status == OrderStatus.Packed || Status == OrderStatus.Cancelled)
+        if (Status == OrderStatus.Completed || Status == OrderStatus.Cancelled) // Было Packed
             throw new DomainException($"Cannot cancel order in {Status} status");
 
         Status = OrderStatus.Cancelled;

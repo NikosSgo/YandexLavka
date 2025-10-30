@@ -45,11 +45,11 @@ public class OrderPickedEvent : DomainEvent
 }
 
 // ДОБАВВЛЕН ЭТОТ КЛАСС
-public class OrderPackedEvent : DomainEvent
+public class OrderCompletedEvent : DomainEvent
 {
     public Guid OrderId { get; }
 
-    public OrderPackedEvent(Guid orderId)
+    public OrderCompletedEvent(Guid orderId)
     {
         OrderId = orderId;
     }

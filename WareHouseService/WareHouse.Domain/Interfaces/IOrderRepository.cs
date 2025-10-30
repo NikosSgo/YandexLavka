@@ -3,17 +3,10 @@ using WareHouse.Domain.Enums;
 
 namespace WareHouse.Domain.Interfaces;
 
-public interface IOrderRepository
+public interface IOrderRepository : IRepository<OrderAggregate>
 {
-    Task<OrderAggregate> GetByIdAsync(Guid orderId);
-    Task<List<OrderAggregate>> GetOrdersByStatusAsync(OrderStatus status);
-    Task<bool> ExistsAsync(Guid orderId);
-    Task<List<OrderAggregate>> GetOrdersByPickerAsync(string pickerId);
-    Task<List<OrderAggregate>> GetOrdersCreatedAfterAsync(DateTime date);
-
-    // IRepository methods
-    Task AddAsync(OrderAggregate entity);
-    Task UpdateAsync(OrderAggregate entity);
-    Task DeleteAsync(OrderAggregate entity);
-    Task<IReadOnlyList<OrderAggregate>> GetAllAsync();
+    Task<OrderAggregate?> GetByIdAsync(Guid id);
+    Task<List<OrderAggregate>> GetByStatusAsync(OrderStatus status);
+    Task<List<OrderLine>> GetOrderLinesAsync(Guid orderId);
+    Task UpdateOrderStatusAsync(Guid orderId, OrderStatus status);
 }
