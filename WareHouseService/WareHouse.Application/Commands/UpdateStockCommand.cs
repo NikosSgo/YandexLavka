@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using WareHouse.Domain.Entities;
 using WareHouse.Domain.Exceptions;
 using WareHouse.Domain.Interfaces;
 
@@ -52,29 +53,80 @@ public class UpdateStockCommandHandler : IRequestHandler<UpdateStockCommand, Uni
                 request.ProductId, request.Location);
 
             if (storageUnit == null)
-                throw new NotFoundException($"Storage unit not found for product {request.ProductId} at {request.Location}");
+            {
+                // Создаем новый storage unit если не существует
+                _logger.LogInformation("Creating new storage unit for product {ProductId} at {Location}",
+                    request.ProductId, request.Location);
 
+                storageUnit = CreateNewStorageUnit(request.ProductId, request.Location);
+                await _unitOfWork.StorageUnits.AddAsync(storageUnit);
+
+                _logger.LogInformation("New storage unit created with ID: {StorageUnitId}", storageUnit.Id);
+            }
+
+            // Выполняем операцию
             if (request.Operation == "restock")
             {
                 storageUnit.Restock(request.Quantity);
+                _logger.LogInformation("Restocked {Quantity} units for product {ProductId}",
+                    request.Quantity, request.ProductId);
             }
             else if (request.Operation == "adjust")
             {
-                throw new DomainException("Adjust operation not implemented yet");
+                AdjustStock(storageUnit, request.Quantity);
+                _logger.LogInformation("Adjusted stock to {Quantity} units for product {ProductId}",
+                    request.Quantity, request.ProductId);
             }
 
             await _unitOfWork.StorageUnits.UpdateAsync(storageUnit);
             await _unitOfWork.CommitAsync();
 
-            _logger.LogInformation("Stock updated for product {ProductId}. New quantity: {Quantity}",
+            _logger.LogInformation("Stock updated successfully for product {ProductId}. New quantity: {Quantity}",
                 request.ProductId, storageUnit.Quantity);
 
             return Unit.Value;
         }
-        catch
+        catch (Exception ex)
         {
             await _unitOfWork.RollbackAsync();
+            _logger.LogError(ex, "Error updating stock for product {ProductId}", request.ProductId);
             throw;
         }
+    }
+
+    private StorageUnit CreateNewStorageUnit(Guid productId, string location)
+    {
+        var zone = GetZoneFromLocation(location);
+        var productName = $"Product-{productId}";
+        var sku = $"SKU-{productId}";
+
+        return new StorageUnit(
+            productId: productId,
+            productName: productName,
+            sku: sku,
+            quantity: 0, // Начальное количество 0
+            location: location,
+            zone: zone
+        );
+    }
+
+    private void AdjustStock(StorageUnit storageUnit, int newQuantity)
+    {
+        if (newQuantity < 0)
+        {
+            throw new DomainException("Quantity cannot be negative");
+        }
+
+        // Используем публичный метод для установки количества
+        storageUnit.SetQuantity(newQuantity);
+    }
+
+    private string GetZoneFromLocation(string location)
+    {
+        if (!string.IsNullOrEmpty(location) && location.Length > 0 && char.IsLetter(location[0]))
+        {
+            return location.Substring(0, 1).ToUpper();
+        }
+        return "DEFAULT";
     }
 }

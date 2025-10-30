@@ -22,4 +22,6 @@ public interface IStockService
     Task<StockLevelDto> GetStockLevelAsync(Guid productId);
     Task<List<StockLevelDto>> GetLowStockItemsAsync();
     Task UpdateStockAsync(StockUpdateRequest request);
+
+    Task RestockProductAsync(Guid productId, int quantity, string location); // ✅ ДОБАВЬТЕ ЭТОТ МЕТОД
 }

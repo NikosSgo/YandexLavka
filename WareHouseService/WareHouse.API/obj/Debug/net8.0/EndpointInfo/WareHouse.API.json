@@ -988,11 +988,7 @@
             "type": "string",
             "nullable": true
           },
-          "totalQuantity": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "availableQuantity": {
+          "quantity": {
             "type": "integer",
             "format": "int32"
           },
@@ -1000,34 +996,42 @@
             "type": "integer",
             "format": "int32"
           },
-          "isLowStock": {
-            "type": "boolean"
-          },
-          "isOutOfStock": {
-            "type": "boolean"
-          },
-          "storageUnits": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/StorageUnitDto"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "StorageUnitDto": {
-        "type": "object",
-        "properties": {
-          "unitId": {
-            "type": "string",
-            "format": "uuid"
+          "availableQuantity": {
+            "type": "integer",
+            "format": "int32"
           },
           "location": {
             "type": "string",
             "nullable": true
           },
           "zone": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastRestocked": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isLowStock": {
+            "type": "boolean"
+          },
+          "isOutOfStock": {
+            "type": "boolean"
+          },
+          "storageLocations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StorageLocationDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StorageLocationDto": {
+        "type": "object",
+        "properties": {
+          "location": {
             "type": "string",
             "nullable": true
           },
@@ -1038,14 +1042,6 @@
           "availableQuantity": {
             "type": "integer",
             "format": "int32"
-          },
-          "reservedQuantity": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "lastRestocked": {
-            "type": "string",
-            "format": "date-time"
           }
         },
         "additionalProperties": false

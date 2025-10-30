@@ -22,9 +22,8 @@ public class StockService : IStockService
 
     public async Task<List<StockLevelDto>> GetLowStockItemsAsync()
     {
-        // Для простоты используем прямую работу с репозиторием
-        // В реальном приложении здесь был бы отдельный Query
-        throw new NotImplementedException();
+        var query = new GetLowStockQuery();
+        return await _mediator.Send(query);
     }
 
     public async Task UpdateStockAsync(StockUpdateRequest request)
@@ -34,6 +33,16 @@ public class StockService : IStockService
             request.Quantity,
             request.Location,
             request.Operation
+        ));
+    }
+
+    public async Task RestockProductAsync(Guid productId, int quantity, string location)
+    {
+        await _mediator.Send(new UpdateStockCommand(
+            productId,
+            quantity,
+            location,
+            "restock"
         ));
     }
 }

@@ -1,0 +1,101 @@
+2025-10-30 00:57:27.135 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-30 00:57:27.176 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-30 00:57:27.179 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-10-30 00:58:13.990 +03:00 [INF] Incoming request: POST /api/Stock/products/3f9bcc41-4a35-496b-a008-30428253ecb4/restock
+2025-10-30 00:58:14.045 +03:00 [INF] Restocking product "3f9bcc41-4a35-496b-a008-30428253ecb4"
+2025-10-30 00:58:14.065 +03:00 [INF] Handling command/query: UpdateStockCommand {"ProductId":"3f9bcc41-4a35-496b-a008-30428253ecb4","Quantity":5,"Location":"B-02-02","Operation":"restock","$type":"UpdateStockCommand"}
+2025-10-30 00:58:14.094 +03:00 [INF] Updating stock for product "3f9bcc41-4a35-496b-a008-30428253ecb4" at B-02-02. Operation: restock
+2025-10-30 00:58:14.151 +03:00 [ERR] An unhandled exception has occurred: 23502: null value in column "product_name" of relation "storage_units" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+Npgsql.PostgresException (0x80004005): 23502: null value in column "product_name" of relation "storage_units" violates not-null constraint
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 662
+   at WareHouse.Infrastructure.Data.Repositories.StorageUnitRepository.UpdateAsync(StorageUnit entity) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\Data\Repositories\StorageUnitRepository.cs:line 131
+   at WareHouse.Application.Commands.UpdateStockCommandHandler.Handle(UpdateStockCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\UpdateStockCommand.cs:line 66
+   at WareHouse.Application.Commands.UpdateStockCommandHandler.Handle(UpdateStockCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\UpdateStockCommand.cs:line 77
+   at WareHouse.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\ValidationBehavior.cs:line 36
+   at WareHouse.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\LoggingBehavior.cs:line 22
+   at WareHouse.API.Controllers.StockController.RestockProduct(Guid productId, RestockRequest request) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Controllers\StockController.cs:line 65
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at WareHouse.API.Middleware.CorrelationIdMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\CorrelationIdMiddleware.cs:line 27
+   at WareHouse.API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\RequestLoggingMiddleware.cs:line 23
+   at WareHouse.API.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\GlobalExceptionHandlerMiddleware.cs:line 27
+  Exception data:
+    Severity: ERROR
+    SqlState: 23502
+    MessageText: null value in column "product_name" of relation "storage_units" violates not-null constraint
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: storage_units
+    ColumnName: product_name
+    File: execMain.c
+    Line: 1971
+    Routine: ExecConstraints
+2025-10-30 01:05:45.771 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-30 01:05:45.812 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-30 01:05:45.816 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-10-30 01:06:24.610 +03:00 [INF] Incoming request: POST /api/Stock/products/3f9bcc41-4a35-496b-a008-30428253ecb4/restock
+2025-10-30 01:06:24.656 +03:00 [INF] Restocking product "3f9bcc41-4a35-496b-a008-30428253ecb4"
+2025-10-30 01:06:24.675 +03:00 [INF] Handling command/query: UpdateStockCommand {"ProductId":"3f9bcc41-4a35-496b-a008-30428253ecb4","Quantity":5,"Location":"B-02-02","Operation":"restock","$type":"UpdateStockCommand"}
+2025-10-30 01:06:24.702 +03:00 [INF] Updating stock for product "3f9bcc41-4a35-496b-a008-30428253ecb4" at B-02-02. Operation: restock
+2025-10-30 01:06:24.755 +03:00 [ERR] An unhandled exception has occurred: 42703: column "updated_at" of relation "storage_units" does not exist
+
+POSITION: 266
+Npgsql.PostgresException (0x80004005): 42703: column "updated_at" of relation "storage_units" does not exist
+
+POSITION: 266
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 662
+   at WareHouse.Infrastructure.Data.Repositories.StorageUnitRepository.UpdateAsync(StorageUnit entity) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\Data\Repositories\StorageUnitRepository.cs:line 178
+   at WareHouse.Application.Commands.UpdateStockCommandHandler.Handle(UpdateStockCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\UpdateStockCommand.cs:line 66
+   at WareHouse.Application.Commands.UpdateStockCommandHandler.Handle(UpdateStockCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\UpdateStockCommand.cs:line 77
+   at WareHouse.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\ValidationBehavior.cs:line 36
+   at WareHouse.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\LoggingBehavior.cs:line 22
+   at WareHouse.API.Controllers.StockController.RestockProduct(Guid productId, RestockRequest request) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Controllers\StockController.cs:line 65
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at WareHouse.API.Middleware.CorrelationIdMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\CorrelationIdMiddleware.cs:line 27
+   at WareHouse.API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\RequestLoggingMiddleware.cs:line 23
+   at WareHouse.API.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\GlobalExceptionHandlerMiddleware.cs:line 27
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column "updated_at" of relation "storage_units" does not exist
+    Position: 266
+    File: analyze.c
+    Line: 2515
+    Routine: transformUpdateTargetList
