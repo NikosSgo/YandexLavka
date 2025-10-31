@@ -1,6 +1,0 @@
-2025-10-31 00:58:22.563 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
-2025-10-31 00:58:22.628 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
-2025-10-31 00:58:22.631 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
-2025-10-31 11:19:00.525 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
-2025-10-31 11:19:00.606 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
-2025-10-31 11:19:00.611 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...

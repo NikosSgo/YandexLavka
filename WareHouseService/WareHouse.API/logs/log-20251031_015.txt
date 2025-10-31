@@ -1,0 +1,67 @@
+2025-10-31 23:28:07.841 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 23:28:07.925 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 23:28:07.928 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-10-31 23:28:24.021 +03:00 [INF] Incoming request: GET /api/Stock/low-stock
+2025-10-31 23:28:24.071 +03:00 [INF] Getting low stock items
+2025-10-31 23:28:24.086 +03:00 [INF] Handling command/query: GetLowStockQuery {"$type":"GetLowStockQuery"}
+2025-10-31 23:28:24.113 +03:00 [INF] Getting low stock items
+2025-10-31 23:28:24.342 +03:00 [INF] Found 6 low stock items
+2025-10-31 23:28:24.353 +03:00 [INF] Handled command/query: GetLowStockQuery
+2025-10-31 23:28:24.401 +03:00 [INF] Request completed: GET /api/Stock/low-stock - 200 in 380.7484ms
+2025-10-31 23:29:50.511 +03:00 [INF] Incoming request: PUT /api/Stock/products/88888888-8888-8888-8888-888888888888/stock
+2025-10-31 23:29:50.577 +03:00 [INF] Updating stock for product "88888888-8888-8888-8888-888888888888"
+2025-10-31 23:29:50.649 +03:00 [INF] Handling command/query: UpdateStockCommand {"ProductId":"88888888-8888-8888-8888-888888888888","Quantity":5,"Location":"A-01-02","Operation":"restock","$type":"UpdateStockCommand"}
+2025-10-31 23:29:50.715 +03:00 [INF] Updating stock for product "88888888-8888-8888-8888-888888888888" at A-01-02. Operation: restock
+2025-10-31 23:29:50.771 +03:00 [INF] Restocked 5 units for product "88888888-8888-8888-8888-888888888888"
+2025-10-31 23:29:50.803 +03:00 [ERR] Error updating stock for product "88888888-8888-8888-8888-888888888888"
+Npgsql.PostgresException (0x80004005): 42703: column "product_name" of relation "storage_units" does not exist
+
+POSITION: 107
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 662
+   at WareHouse.Infrastructure.Data.Repositories.StorageUnitRepository.UpdateAsync(StorageUnit entity) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\Data\Repositories\StorageUnitRepository.cs:line 279
+   at WareHouse.Application.Commands.UpdateStockCommandHandler.Handle(UpdateStockCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\UpdateStockCommand.cs:line 81
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column "product_name" of relation "storage_units" does not exist
+    Position: 107
+    File: analyze.c
+    Line: 2515
+    Routine: transformUpdateTargetList
+2025-10-31 23:29:50.868 +03:00 [ERR] Error updating stock for product "88888888-8888-8888-8888-888888888888"
+Npgsql.PostgresException (0x80004005): 42703: column "product_name" of relation "storage_units" does not exist
+
+POSITION: 107
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 662
+   at WareHouse.Infrastructure.Data.Repositories.StorageUnitRepository.UpdateAsync(StorageUnit entity) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\Data\Repositories\StorageUnitRepository.cs:line 279
+   at WareHouse.Application.Commands.UpdateStockCommandHandler.Handle(UpdateStockCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\UpdateStockCommand.cs:line 81
+   at WareHouse.Application.Commands.UpdateStockCommandHandler.Handle(UpdateStockCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\UpdateStockCommand.cs:line 93
+   at WareHouse.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\ValidationBehavior.cs:line 36
+   at WareHouse.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\LoggingBehavior.cs:line 22
+   at WareHouse.API.Controllers.StockController.UpdateStock(Guid productId, UpdateStockRequest request) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Controllers\StockController.cs:line 79
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column "product_name" of relation "storage_units" does not exist
+    Position: 107
+    File: analyze.c
+    Line: 2515
+    Routine: transformUpdateTargetList
+2025-10-31 23:29:50.938 +03:00 [INF] Request completed: PUT /api/Stock/products/88888888-8888-8888-8888-888888888888/stock - 400 in 426.6569ms
+2025-10-31 23:35:11.118 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 23:35:11.251 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 23:35:11.261 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...

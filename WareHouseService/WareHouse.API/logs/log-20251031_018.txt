@@ -1,0 +1,14 @@
+2025-10-31 23:50:30.957 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 23:50:31.036 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 23:50:31.039 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-10-31 23:51:36.076 +03:00 [INF] Incoming request: GET /api/Stock/products/11111111-1111-1111-1111-111111111111
+2025-10-31 23:51:36.188 +03:00 [INF] Getting stock level for product "11111111-1111-1111-1111-111111111111"
+2025-10-31 23:51:36.220 +03:00 [INF] Handling command/query: GetStockLevelQuery {"ProductId":"11111111-1111-1111-1111-111111111111","$type":"GetStockLevelQuery"}
+2025-10-31 23:51:36.260 +03:00 [INF] Getting stock level for product "11111111-1111-1111-1111-111111111111"
+2025-10-31 23:51:36.271 +03:00 [ERR] Error getting stock level for product "11111111-1111-1111-1111-111111111111"
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at WareHouse.Application.Queries.GetStockLevelQueryHandler.Handle(GetStockLevelQuery request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Queries\GetStockLevelQuery.cs:line 26
+   at WareHouse.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\ValidationBehavior.cs:line 36
+   at WareHouse.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\LoggingBehavior.cs:line 22
+   at WareHouse.API.Controllers.StockController.GetStockLevel(Guid productId) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Controllers\StockController.cs:line 35
+2025-10-31 23:51:36.378 +03:00 [INF] Request completed: GET /api/Stock/products/11111111-1111-1111-1111-111111111111 - 404 in 305.6392ms

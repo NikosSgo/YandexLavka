@@ -1,0 +1,143 @@
+2025-10-31 22:57:58.077 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 22:57:58.145 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 22:57:58.153 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-10-31 22:58:13.344 +03:00 [INF] Incoming request: GET /api/Orders
+2025-10-31 22:58:13.440 +03:00 [INF] Getting orders with status Picking
+2025-10-31 22:58:13.452 +03:00 [INF] Handling command/query: GetOrdersByStatusQuery {"Status":"Picking","$type":"GetOrdersByStatusQuery"}
+2025-10-31 22:58:13.475 +03:00 [INF] Getting orders with status Picking
+2025-10-31 22:58:13.838 +03:00 [INF] Handled command/query: GetOrdersByStatusQuery
+2025-10-31 22:58:13.888 +03:00 [INF] Request completed: GET /api/Orders - 200 in 547.1013ms
+2025-10-31 23:01:06.080 +03:00 [INF] Incoming request: GET /api/Orders
+2025-10-31 23:01:06.100 +03:00 [INF] Getting orders with status Cancelled
+2025-10-31 23:01:06.105 +03:00 [INF] Handling command/query: GetOrdersByStatusQuery {"Status":"Cancelled","$type":"GetOrdersByStatusQuery"}
+2025-10-31 23:01:06.117 +03:00 [INF] Getting orders with status Cancelled
+2025-10-31 23:01:06.176 +03:00 [INF] Handled command/query: GetOrdersByStatusQuery
+2025-10-31 23:01:06.181 +03:00 [INF] Request completed: GET /api/Orders - 200 in 100.4151ms
+2025-10-31 23:01:19.124 +03:00 [INF] Incoming request: GET /api/Orders
+2025-10-31 23:01:19.131 +03:00 [INF] Getting orders with status Picking
+2025-10-31 23:01:19.137 +03:00 [INF] Handling command/query: GetOrdersByStatusQuery {"Status":"Picking","$type":"GetOrdersByStatusQuery"}
+2025-10-31 23:01:19.150 +03:00 [INF] Getting orders with status Picking
+2025-10-31 23:01:19.283 +03:00 [INF] Handled command/query: GetOrdersByStatusQuery
+2025-10-31 23:01:19.293 +03:00 [INF] Request completed: GET /api/Orders - 200 in 168.1393ms
+2025-10-31 23:02:01.593 +03:00 [INF] Incoming request: GET /api/Picking/tasks
+2025-10-31 23:02:01.616 +03:00 [INF] Getting picking tasks. Status: InProgress, Zone: A
+2025-10-31 23:02:01.627 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":"InProgress","Zone":"A","$type":"GetPickingTasksQuery"}
+2025-10-31 23:02:01.717 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-10-31 23:02:01.728 +03:00 [INF] Request completed: GET /api/Picking/tasks - 200 in 135.0831ms
+2025-10-31 23:02:10.076 +03:00 [INF] Incoming request: GET /api/Picking/tasks
+2025-10-31 23:02:10.096 +03:00 [INF] Getting picking tasks. Status: Picking, Zone: A
+2025-10-31 23:02:10.103 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":"Picking","Zone":"A","$type":"GetPickingTasksQuery"}
+2025-10-31 23:02:10.120 +03:00 [ERR] An unhandled exception has occurred: Invalid picking task status: Picking
+WareHouse.Domain.Exceptions.DomainException: Invalid picking task status: Picking
+   at WareHouse.Application.Queries.GetPickingTasksQueryHandler.Handle(GetPickingTasksQuery request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Queries\GetPickingTasksQuery.cs:line 28
+   at WareHouse.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\ValidationBehavior.cs:line 36
+   at WareHouse.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\LoggingBehavior.cs:line 22
+   at WareHouse.API.Controllers.PickingController.GetPickingTasks(String status, String zone) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Controllers\PickingController.cs:line 29
+   at lambda_method54(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at WareHouse.API.Middleware.CorrelationIdMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\CorrelationIdMiddleware.cs:line 27
+   at WareHouse.API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\RequestLoggingMiddleware.cs:line 23
+   at WareHouse.API.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\GlobalExceptionHandlerMiddleware.cs:line 27
+2025-10-31 23:02:25.987 +03:00 [INF] Incoming request: GET /api/Picking/tasks
+2025-10-31 23:02:26.018 +03:00 [INF] Getting picking tasks. Status: InProgress, Zone: B
+2025-10-31 23:02:26.035 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":"InProgress","Zone":"B","$type":"GetPickingTasksQuery"}
+2025-10-31 23:02:26.084 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-10-31 23:02:26.089 +03:00 [INF] Request completed: GET /api/Picking/tasks - 200 in 102.7624ms
+2025-10-31 23:02:45.287 +03:00 [INF] Incoming request: GET /api/Picking/tasks
+2025-10-31 23:02:45.307 +03:00 [INF] Getting picking tasks. Status: InProgress, Zone: "freezer"
+2025-10-31 23:02:45.319 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":"InProgress","Zone":"\"freezer\"","$type":"GetPickingTasksQuery"}
+2025-10-31 23:02:45.371 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-10-31 23:02:45.377 +03:00 [INF] Request completed: GET /api/Picking/tasks - 200 in 90.243ms
+2025-10-31 23:03:28.954 +03:00 [INF] Incoming request: GET /api/Picking/tasks
+2025-10-31 23:03:28.966 +03:00 [INF] Getting picking tasks. Status: InProgress, Zone: "A,B,C,D"
+2025-10-31 23:03:28.976 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":"InProgress","Zone":"\"A,B,C,D\"","$type":"GetPickingTasksQuery"}
+2025-10-31 23:03:29.019 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-10-31 23:03:29.027 +03:00 [INF] Request completed: GET /api/Picking/tasks - 200 in 72.3332ms
+2025-10-31 23:03:44.085 +03:00 [INF] Incoming request: GET /api/Picking/tasks
+2025-10-31 23:03:44.098 +03:00 [INF] Getting picking tasks. Status: InProgress, Zone: A,B,C,D
+2025-10-31 23:03:44.114 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":"InProgress","Zone":"A,B,C,D","$type":"GetPickingTasksQuery"}
+2025-10-31 23:03:44.214 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-10-31 23:03:44.226 +03:00 [INF] Request completed: GET /api/Picking/tasks - 200 in 141.2511ms
+2025-10-31 23:04:19.163 +03:00 [INF] Incoming request: GET /api/Picking/tasks/33333333-3333-3333-3333-333333333333
+2025-10-31 23:04:19.174 +03:00 [INF] Getting picking task "33333333-3333-3333-3333-333333333333"
+2025-10-31 23:04:19.180 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":null,"Zone":null,"$type":"GetPickingTasksQuery"}
+2025-10-31 23:04:19.225 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-10-31 23:04:19.231 +03:00 [INF] Request completed: GET /api/Picking/tasks/33333333-3333-3333-3333-333333333333 - 200 in 67.9757ms
+2025-10-31 23:10:41.458 +03:00 [INF] Incoming request: GET /api/Stock/low-stock
+2025-10-31 23:10:41.475 +03:00 [INF] Getting low stock items
+2025-10-31 23:10:41.478 +03:00 [INF] Handling command/query: GetLowStockQuery {"$type":"GetLowStockQuery"}
+2025-10-31 23:10:41.486 +03:00 [INF] Getting low stock items
+2025-10-31 23:10:41.539 +03:00 [INF] Found 6 low stock items
+2025-10-31 23:10:41.543 +03:00 [INF] Handled command/query: GetLowStockQuery
+2025-10-31 23:10:41.550 +03:00 [INF] Request completed: GET /api/Stock/low-stock - 200 in 92.437ms
+2025-10-31 23:12:45.725 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 23:12:45.868 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 23:12:45.872 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-10-31 23:12:56.338 +03:00 [INF] Incoming request: GET /api/Stock/low-stock
+2025-10-31 23:12:56.386 +03:00 [INF] Getting low stock items
+2025-10-31 23:12:56.398 +03:00 [INF] Handling command/query: GetLowStockQuery {"$type":"GetLowStockQuery"}
+2025-10-31 23:12:56.418 +03:00 [INF] Getting low stock items
+2025-10-31 23:12:56.521 +03:00 [INF] Found 6 low stock items
+2025-10-31 23:12:56.527 +03:00 [INF] Handled command/query: GetLowStockQuery
+2025-10-31 23:12:56.551 +03:00 [INF] Request completed: GET /api/Stock/low-stock - 200 in 214.5647ms
+2025-10-31 23:16:02.863 +03:00 [INF] Incoming request: GET /.well-known/appspecific/com.chrome.devtools.json
+2025-10-31 23:16:02.871 +03:00 [INF] Request completed: GET /.well-known/appspecific/com.chrome.devtools.json - 404 in 8.1177ms
+2025-10-31 23:18:45.848 +03:00 [INF] Incoming request: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff2/start-picking
+2025-10-31 23:18:45.925 +03:00 [INF] Starting picking for order "ffffffff-ffff-ffff-ffff-fffffffffff2"
+2025-10-31 23:18:45.956 +03:00 [INF] Handling command/query: StartPickingCommand {"OrderId":"ffffffff-ffff-ffff-ffff-fffffffffff2","PickerId":"john","Zone":"A","$type":"StartPickingCommand"}
+2025-10-31 23:18:46.035 +03:00 [INF] Starting picking for order "ffffffff-ffff-ffff-ffff-fffffffffff2" by picker john
+2025-10-31 23:18:46.323 +03:00 [ERR] An unhandled exception has occurred: 23514: new row for relation "picking_tasks" violates check constraint "chk_picking_tasks_status"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+Npgsql.PostgresException (0x80004005): 23514: new row for relation "picking_tasks" violates check constraint "chk_picking_tasks_status"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Dapper.SqlMapper.ExecuteImplAsync(IDbConnection cnn, CommandDefinition command, Object param) in /_/Dapper/SqlMapper.Async.cs:line 662
+   at WareHouse.Infrastructure.Data.Repositories.PickingTaskRepository.AddAsync(PickingTask entity) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\Data\Repositories\PickingTaskRepository.cs:line 156
+   at WareHouse.Application.Commands.StartPickingCommandHandler.Handle(StartPickingCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\StartPickingCommand.cs:line 69
+   at WareHouse.Application.Commands.StartPickingCommandHandler.Handle(StartPickingCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\StartPickingCommand.cs:line 81
+   at WareHouse.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\ValidationBehavior.cs:line 36
+   at WareHouse.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\LoggingBehavior.cs:line 22
+   at WareHouse.API.Controllers.OrdersController.StartPicking(Guid orderId, StartPickingRequest request) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Controllers\OrdersController.cs:line 51
+   at lambda_method37(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at WareHouse.API.Middleware.CorrelationIdMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\CorrelationIdMiddleware.cs:line 27
+   at WareHouse.API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\RequestLoggingMiddleware.cs:line 23
+   at WareHouse.API.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\GlobalExceptionHandlerMiddleware.cs:line 27
+  Exception data:
+    Severity: ERROR
+    SqlState: 23514
+    MessageText: new row for relation "picking_tasks" violates check constraint "chk_picking_tasks_status"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: picking_tasks
+    ConstraintName: chk_picking_tasks_status
+    File: execMain.c
+    Line: 2022
+    Routine: ExecConstraints

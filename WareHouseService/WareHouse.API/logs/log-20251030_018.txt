@@ -1,9 +1,0 @@
-2025-10-30 23:49:35.955 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
-2025-10-30 23:49:36.000 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
-2025-10-30 23:49:36.003 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
-2025-10-30 23:50:16.823 +03:00 [INF] Incoming request: GET /api/Orders/c3d4e5f6-3456-7890-12cd-ef3456789012
-2025-10-30 23:50:16.865 +03:00 [INF] Getting order "c3d4e5f6-3456-7890-12cd-ef3456789012"
-2025-10-30 23:50:16.874 +03:00 [INF] Handling command/query: GetOrderQuery {"OrderId":"c3d4e5f6-3456-7890-12cd-ef3456789012","$type":"GetOrderQuery"}
-2025-10-30 23:50:16.885 +03:00 [INF] Getting order "c3d4e5f6-3456-7890-12cd-ef3456789012"
-2025-10-30 23:50:16.993 +03:00 [INF] Handled command/query: GetOrderQuery
-2025-10-30 23:50:17.015 +03:00 [INF] Request completed: GET /api/Orders/c3d4e5f6-3456-7890-12cd-ef3456789012 - 200 in 194.6105ms

@@ -13,6 +13,9 @@ public interface IStorageUnitRepository
     Task<List<StorageUnit>> GetUnitsForOrderAsync(Guid orderId);
     Task<List<StorageUnit>> GetLowStockUnitsAsync();
 
+    Task<StorageUnit?> GetStockLevelByProductIdAsync(Guid productId);
+    Task<List<StorageUnit>> GetStockLevelsByProductIdsAsync(List<Guid> productIds);
+
     // IRepository methods
     Task AddAsync(StorageUnit entity);
     Task UpdateAsync(StorageUnit entity);

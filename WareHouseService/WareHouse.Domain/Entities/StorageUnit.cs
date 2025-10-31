@@ -25,7 +25,7 @@ public class StorageUnit : AggregateRoot
     public bool IsOutOfStock { get; private set; }
 
     // Конструктор для Dapper
-    protected StorageUnit()
+    public StorageUnit()
     {
         // Инициализация для Dapper
         ProductName = string.Empty;
