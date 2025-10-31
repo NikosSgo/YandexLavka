@@ -154,7 +154,7 @@ try
         Console.WriteLine("🌱 SEEDING DATABASE WITH TEST DATA...");
         try
         {
-            await DatabaseSeeder.SeedAsync(seederConnectionString);
+            //await DatabaseSeeder.SeedAsync(seederConnectionString);
             Console.WriteLine("✅ DATABASE SEEDED SUCCESSFULLY");
         }
         catch (Exception ex)

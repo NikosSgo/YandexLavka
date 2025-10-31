@@ -23,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
 		README.md = README.md
+		SQL_Seeds.txt = SQL_Seeds.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WareHouse.Migrations", "WareHouse.Migrations\WareHouse.Migrations.csproj", "{F5294C98-5D2B-42B8-B5BE-F63F6D3CD310}"

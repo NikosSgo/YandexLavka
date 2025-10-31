@@ -8,3 +8,6 @@
 2025-10-31 00:28:26.818 +03:00 [INF] Picking task "a474b6e1-df78-4d53-9a1a-1cee5e6d8375" created for order "a1b2c3d4-1234-5678-90ab-cdef12345678"
 2025-10-31 00:28:26.823 +03:00 [INF] Handled command/query: StartPickingCommand
 2025-10-31 00:28:26.845 +03:00 [INF] Request completed: POST /api/Orders/a1b2c3d4-1234-5678-90ab-cdef12345678/start-picking - 200 in 377.3846ms
+2025-10-31 00:58:22.563 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 00:58:22.628 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 00:58:22.631 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...

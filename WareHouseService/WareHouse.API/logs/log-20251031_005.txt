@@ -1,0 +1,112 @@
+2025-10-31 11:46:42.665 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 11:46:42.734 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 11:46:42.741 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-10-31 11:47:40.424 +03:00 [INF] Incoming request: POST /api/Orders/b2c3d4e5-2345-6789-01bc-def234567890/complete-picking
+2025-10-31 11:47:40.575 +03:00 [INF] Request completed: POST /api/Orders/b2c3d4e5-2345-6789-01bc-def234567890/complete-picking - 400 in 154.3266ms
+2025-10-31 11:57:30.358 +03:00 [INF] Incoming request: POST /api/Orders/b2c3d4e5-2345-6789-01bc-def234567890/complete-picking
+2025-10-31 11:57:30.424 +03:00 [INF] Completing picking for order "b2c3d4e5-2345-6789-01bc-def234567890"
+2025-10-31 11:57:30.488 +03:00 [INF] Handling command/query: CompletePickingCommand {"OrderId":"b2c3d4e5-2345-6789-01bc-def234567890","PickedQuantities":{"6ba7b810-9dad-11d1-80b4-00c04fd430c8":3,"1cc91a87-d141-4e1c-bd7f-a5fe50e7754d":5},"$type":"CompletePickingCommand"}
+2025-10-31 11:57:30.603 +03:00 [INF] Completing picking for order "b2c3d4e5-2345-6789-01bc-def234567890"
+2025-10-31 11:57:30.944 +03:00 [ERR] An unhandled exception has occurred: Cannot reserve 3 units for product 6ba7b810-9dad-11d1-80b4-00c04fd430c8
+WareHouse.Domain.Exceptions.DomainException: Cannot reserve 3 units for product 6ba7b810-9dad-11d1-80b4-00c04fd430c8
+   at WareHouse.Application.Commands.CompletePickingCommandHandler.ReserveStockForOrder(Dictionary`2 pickedQuantities) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\CompletePickingCommand.cs:line 98
+   at WareHouse.Application.Commands.CompletePickingCommandHandler.Handle(CompletePickingCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\CompletePickingCommand.cs:line 53
+   at WareHouse.Application.Commands.CompletePickingCommandHandler.Handle(CompletePickingCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\CompletePickingCommand.cs:line 76
+   at WareHouse.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\ValidationBehavior.cs:line 36
+   at WareHouse.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\LoggingBehavior.cs:line 22
+   at WareHouse.API.Controllers.OrdersController.CompletePicking(Guid orderId, CompletePickingRequest request) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Controllers\OrdersController.cs:line 64
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at WareHouse.API.Middleware.CorrelationIdMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\CorrelationIdMiddleware.cs:line 27
+   at WareHouse.API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\RequestLoggingMiddleware.cs:line 23
+   at WareHouse.API.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\GlobalExceptionHandlerMiddleware.cs:line 27
+2025-10-31 12:00:43.263 +03:00 [INF] Incoming request: POST /api/Orders/b2c3d4e5-2345-6789-01bc-def234567890/complete-picking
+2025-10-31 12:00:43.273 +03:00 [INF] Completing picking for order "b2c3d4e5-2345-6789-01bc-def234567890"
+2025-10-31 12:00:43.286 +03:00 [INF] Handling command/query: CompletePickingCommand {"OrderId":"b2c3d4e5-2345-6789-01bc-def234567890","PickedQuantities":{"6ba7b810-9dad-11d1-80b4-00c04fd430c8":3,"1cc91a87-d141-4e1c-bd7f-a5fe50e7754d":5},"$type":"CompletePickingCommand"}
+2025-10-31 12:00:43.302 +03:00 [INF] Completing picking for order "b2c3d4e5-2345-6789-01bc-def234567890"
+2025-10-31 12:00:43.329 +03:00 [ERR] An unhandled exception has occurred: Cannot reserve 3 units for product 6ba7b810-9dad-11d1-80b4-00c04fd430c8
+WareHouse.Domain.Exceptions.DomainException: Cannot reserve 3 units for product 6ba7b810-9dad-11d1-80b4-00c04fd430c8
+   at WareHouse.Application.Commands.CompletePickingCommandHandler.ReserveStockForOrder(Dictionary`2 pickedQuantities) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\CompletePickingCommand.cs:line 98
+   at WareHouse.Application.Commands.CompletePickingCommandHandler.Handle(CompletePickingCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\CompletePickingCommand.cs:line 53
+   at WareHouse.Application.Commands.CompletePickingCommandHandler.Handle(CompletePickingCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\CompletePickingCommand.cs:line 76
+   at WareHouse.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\ValidationBehavior.cs:line 36
+   at WareHouse.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\LoggingBehavior.cs:line 22
+   at WareHouse.API.Controllers.OrdersController.CompletePicking(Guid orderId, CompletePickingRequest request) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Controllers\OrdersController.cs:line 64
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at WareHouse.API.Middleware.CorrelationIdMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\CorrelationIdMiddleware.cs:line 27
+   at WareHouse.API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\RequestLoggingMiddleware.cs:line 23
+   at WareHouse.API.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\GlobalExceptionHandlerMiddleware.cs:line 27
+2025-10-31 12:01:23.991 +03:00 [INF] Incoming request: POST /api/Orders/b2c3d4e5-2345-6789-01bc-def234567890/complete-picking
+2025-10-31 12:01:24.002 +03:00 [INF] Completing picking for order "b2c3d4e5-2345-6789-01bc-def234567890"
+2025-10-31 12:01:24.016 +03:00 [INF] Handling command/query: CompletePickingCommand {"OrderId":"b2c3d4e5-2345-6789-01bc-def234567890","PickedQuantities":{"fecc933e-6750-442e-b548-c1ebbeeff279":3,"1cc91a87-d141-4e1c-bd7f-a5fe50e7754d":5},"$type":"CompletePickingCommand"}
+2025-10-31 12:01:24.056 +03:00 [INF] Completing picking for order "b2c3d4e5-2345-6789-01bc-def234567890"
+2025-10-31 12:01:24.207 +03:00 [ERR] An unhandled exception has occurred: Cannot complete task with unpicked items
+WareHouse.Domain.Exceptions.DomainException: Cannot complete task with unpicked items
+   at WareHouse.Domain.Entities.PickingTask.Complete() in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Domain\Entities\PickingTask.cs:line 97
+   at WareHouse.Application.Commands.CompletePickingCommandHandler.Handle(CompletePickingCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\CompletePickingCommand.cs:line 57
+   at WareHouse.Application.Commands.CompletePickingCommandHandler.Handle(CompletePickingCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\CompletePickingCommand.cs:line 76
+   at WareHouse.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\ValidationBehavior.cs:line 36
+   at WareHouse.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\LoggingBehavior.cs:line 22
+   at WareHouse.API.Controllers.OrdersController.CompletePicking(Guid orderId, CompletePickingRequest request) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Controllers\OrdersController.cs:line 64
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at WareHouse.API.Middleware.CorrelationIdMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\CorrelationIdMiddleware.cs:line 27
+   at WareHouse.API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\RequestLoggingMiddleware.cs:line 23
+   at WareHouse.API.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\GlobalExceptionHandlerMiddleware.cs:line 27
+2025-10-31 12:02:46.176 +03:00 [INF] Incoming request: POST /api/Orders/b2c3d4e5-2345-6789-01bc-def234567890/complete-picking
+2025-10-31 12:02:46.185 +03:00 [INF] Completing picking for order "b2c3d4e5-2345-6789-01bc-def234567890"
+2025-10-31 12:02:46.192 +03:00 [INF] Handling command/query: CompletePickingCommand {"OrderId":"b2c3d4e5-2345-6789-01bc-def234567890","PickedQuantities":{"fecc933e-6750-442e-b548-c1ebbeeff279":3,"1cc91a87-d141-4e1c-bd7f-a5fe50e7754d":5},"$type":"CompletePickingCommand"}
+2025-10-31 12:02:46.234 +03:00 [INF] Completing picking for order "b2c3d4e5-2345-6789-01bc-def234567890"
+2025-10-31 12:02:46.281 +03:00 [ERR] An unhandled exception has occurred: Cannot complete task with unpicked items
+WareHouse.Domain.Exceptions.DomainException: Cannot complete task with unpicked items
+   at WareHouse.Domain.Entities.PickingTask.Complete() in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Domain\Entities\PickingTask.cs:line 97
+   at WareHouse.Application.Commands.CompletePickingCommandHandler.Handle(CompletePickingCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\CompletePickingCommand.cs:line 57
+   at WareHouse.Application.Commands.CompletePickingCommandHandler.Handle(CompletePickingCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\CompletePickingCommand.cs:line 76
+   at WareHouse.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\ValidationBehavior.cs:line 36
+   at WareHouse.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\LoggingBehavior.cs:line 22
+   at WareHouse.API.Controllers.OrdersController.CompletePicking(Guid orderId, CompletePickingRequest request) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Controllers\OrdersController.cs:line 64
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at WareHouse.API.Middleware.CorrelationIdMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\CorrelationIdMiddleware.cs:line 27
+   at WareHouse.API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\RequestLoggingMiddleware.cs:line 23
+   at WareHouse.API.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\GlobalExceptionHandlerMiddleware.cs:line 27
+2025-10-31 14:16:59.208 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 14:16:59.264 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-10-31 14:16:59.267 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
