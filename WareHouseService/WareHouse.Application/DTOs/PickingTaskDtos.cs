@@ -9,6 +9,8 @@ public record PickingTaskDto
     public string AssignedPicker { get; init; }
     public string Status { get; init; }
     public string Zone { get; init; }
+
+    public List<string> Zones { get; set; } = new(); // ✅ Добавляем список всех зон
     public DateTime CreatedAt { get; init; }
     public DateTime? CompletedAt { get; init; }
     public decimal Progress { get; init; }
@@ -23,6 +25,7 @@ public record PickingTaskDto
             AssignedPicker = task.AssignedPicker,
             Status = task.Status.ToString(),
             Zone = task.Zone,
+            Zones = task.Zones, // ✅ Заполняем список зон
             CreatedAt = task.CreatedAt,
             CompletedAt = task.CompletedAt,
             Progress = task.Progress,

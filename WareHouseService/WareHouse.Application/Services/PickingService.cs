@@ -17,7 +17,7 @@ public class PickingService : IPickingService
 
     public async Task<PickingTaskDto> StartPickingAsync(Guid orderId, string pickerId, string zone)
     {
-        return await _mediator.Send(new StartPickingCommand(orderId, pickerId, zone));
+        return await _mediator.Send(new StartPickingCommand(orderId, pickerId));
     }
 
     public async Task CompletePickingAsync(Guid orderId, Dictionary<Guid, int> pickedQuantities)

@@ -290,6 +290,30 @@ public class StorageUnitRepository : IStorageUnitRepository
         return results.Select(MapToStorageUnit).Where(x => x != null).ToList();
     }
 
+    public async Task<List<string>> GetZonesForOrderAsync(Guid orderId)
+    {
+        var connection = await GetConnectionAsync();
+
+        try
+        {
+            var query = @"
+        SELECT DISTINCT su.zone
+        FROM storage_units su
+        INNER JOIN order_lines ol ON su.product_id = ol.product_id
+        WHERE ol.order_id = @OrderId
+        AND su.quantity > su.reserved_quantity
+        ORDER BY su.zone"; // ✅ Теперь zone есть в SELECT
+
+            var zones = await connection.QueryAsync<string>(query, new { OrderId = orderId }, _transaction);
+            return zones.ToList();
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error: {ex.Message} getting zones for order {orderId}");
+            throw;
+        }
+    }
+
     private StorageUnit MapToStorageUnit(dynamic result)
     {
         if (result == null) return null;

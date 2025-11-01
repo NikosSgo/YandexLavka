@@ -9,7 +9,7 @@ using WareHouse.Domain.Interfaces;
 
 namespace WareHouse.Application.Commands;
 
-public record StartPickingCommand(Guid OrderId, string PickerId, string Zone) : IRequest<PickingTaskDto>;
+public record StartPickingCommand(Guid OrderId, string PickerId) : IRequest<PickingTaskDto>;
 
 public class StartPickingCommandValidator : AbstractValidator<StartPickingCommand>
 {
@@ -17,7 +17,6 @@ public class StartPickingCommandValidator : AbstractValidator<StartPickingComman
     {
         RuleFor(x => x.OrderId).NotEmpty().WithMessage("OrderId is required");
         RuleFor(x => x.PickerId).NotEmpty().WithMessage("PickerId is required");
-        RuleFor(x => x.Zone).NotEmpty().WithMessage("Zone is required");
     }
 }
 
@@ -43,6 +42,7 @@ public class StartPickingCommandHandler : IRequestHandler<StartPickingCommand, P
             _logger.LogInformation("Starting picking for order {OrderId} by picker {PickerId}",
                 request.OrderId, request.PickerId);
 
+            // 1. Получаем заказ
             var order = await _unitOfWork.Orders.GetByIdAsync(request.OrderId);
             if (order == null)
                 throw new NotFoundException($"Order {request.OrderId} not found");
@@ -50,28 +50,42 @@ public class StartPickingCommandHandler : IRequestHandler<StartPickingCommand, P
             if (order.Status != OrderStatus.Received)
                 throw new DomainException($"Cannot start picking for order in {order.Status} status");
 
-            // Проверяем существующее активное задание
+            // 2. Проверяем существующее активное задание
             var existingTask = await _unitOfWork.PickingTasks.GetActiveForOrderAsync(request.OrderId);
             if (existingTask != null)
                 throw new DomainException($"Active picking task already exists for order {request.OrderId}");
 
-            // Получаем оптимальные локации для сборки
-            var storageUnits = await _unitOfWork.StorageUnits.GetUnitsForOrderAsync(request.OrderId);
-            var pickingItems = CreatePickingItems(order, storageUnits);
+            // 3. Автоматически определяем зоны на основе товаров заказа
+            var zones = await _unitOfWork.StorageUnits.GetZonesForOrderAsync(request.OrderId);
+            if (!zones.Any())
+                throw new DomainException($"No available stock found for order {request.OrderId}");
 
-            // Создаем задание на сборку
-            var pickingTask = new PickingTask(request.OrderId, pickingItems, request.Zone, request.PickerId);
+            _logger.LogInformation("Automatically determined zones for order {OrderId}: {Zones}",
+                request.OrderId, string.Join(", ", zones));
+
+            // 4. Получаем товары из всех необходимых зон
+            var storageUnits = await _unitOfWork.StorageUnits.GetUnitsForOrderAsync(request.OrderId);
+            var pickingItems = CreatePickingItems(order, storageUnits, zones);
+
+            // 5. Определяем основную зону
+            var optimizedZones = OptimizeZoneRoute(zones);
+            var primaryZone = optimizedZones.FirstOrDefault() ?? "A";
+            // ❌ УБИРАЕМ: var allZones = string.Join(",", optimizedZones);
+
+            // 6. Создаем задание на сборку (без allZones)
+            var pickingTask = new PickingTask(request.OrderId, pickingItems, primaryZone, request.PickerId);
             pickingTask.StartPicking(request.PickerId);
 
-            // Обновляем статус заказа
+            // 7. Обновляем статус заказа
             order.StartPicking();
 
+            // 8. Сохраняем изменения
             await _unitOfWork.PickingTasks.AddAsync(pickingTask);
             await _unitOfWork.Orders.UpdateAsync(order);
             await _unitOfWork.CommitAsync();
 
-            _logger.LogInformation("Picking task {TaskId} created for order {OrderId}",
-                pickingTask.TaskId, request.OrderId);
+            _logger.LogInformation("Picking task {TaskId} created for order {OrderId} with primary zone: {Zone} and all zones: {Zones}",
+                pickingTask.TaskId, request.OrderId, primaryZone, string.Join(",", optimizedZones));
 
             return PickingTaskDto.FromEntity(pickingTask);
         }
@@ -82,34 +96,44 @@ public class StartPickingCommandHandler : IRequestHandler<StartPickingCommand, P
         }
     }
 
-    private List<PickingItem> CreatePickingItems(OrderAggregate order, List<StorageUnit> storageUnits)
+    private List<PickingItem> CreatePickingItems(OrderAggregate order, List<StorageUnit> storageUnits, List<string> zones)
     {
         var pickingItems = new List<PickingItem>();
+        var zoneOrder = OptimizeZoneRoute(zones);
 
         foreach (var line in order.Lines)
         {
-            var availableUnits = storageUnits
-                .Where(u => u.ProductId == line.ProductId && u.AvailableQuantity > 0)
-                .OrderByDescending(u => u.AvailableQuantity)
-                .ToList();
-
             var remainingQty = line.QuantityOrdered;
-            foreach (var unit in availableUnits)
+
+            // Собираем товары по зонам в оптимальном порядке
+            foreach (var zone in zoneOrder)
             {
-                var qtyToPick = Math.Min(remainingQty, unit.AvailableQuantity);
+                var availableUnits = storageUnits
+                    .Where(u => u.ProductId == line.ProductId &&
+                               u.Zone == zone &&
+                               u.AvailableQuantity > 0)
+                    .OrderByDescending(u => u.AvailableQuantity)
+                    .ToList();
 
-                var pickingItem = new PickingItem(
-                    Guid.Empty, // TaskId будет установлен в конструкторе PickingTask
-                    line.ProductId,
-                    line.ProductName,
-                    line.Sku,
-                    qtyToPick,
-                    unit.Location,
-                    $"BC-{line.ProductId}"
-                );
+                foreach (var unit in availableUnits)
+                {
+                    var qtyToPick = Math.Min(remainingQty, unit.AvailableQuantity);
 
-                pickingItems.Add(pickingItem);
-                remainingQty -= qtyToPick;
+                    var pickingItem = new PickingItem(
+                        Guid.Empty, // TaskId будет установлен позже
+                        line.ProductId,
+                        line.ProductName,
+                        line.Sku,
+                        qtyToPick,
+                        unit.Location,
+                        $"BC-{line.ProductId}"
+                    );
+
+                    pickingItems.Add(pickingItem);
+                    remainingQty -= qtyToPick;
+                    if (remainingQty <= 0) break;
+                }
+
                 if (remainingQty <= 0) break;
             }
 
@@ -118,5 +142,43 @@ public class StartPickingCommandHandler : IRequestHandler<StartPickingCommand, P
         }
 
         return pickingItems;
+    }
+
+    private List<string> OptimizeZoneRoute(List<string> zones)
+    {
+        // Логика оптимизации маршрута по приоритету зон
+        var zonePriority = new Dictionary<string, int>
+        {
+            ["A"] = 1,
+            ["B"] = 2,
+            ["C"] = 3,
+            ["D"] = 4,
+            ["cooler"] = 5,
+            ["freezer"] = 6
+        };
+
+        return zones
+            .Distinct()
+            .OrderBy(zone => zonePriority.TryGetValue(zone, out var priority) ? priority : 999)
+            .ToList();
+    }
+
+    private string DeterminePrimaryZone(List<string> zones)
+    {
+        // Определяем основную зону по приоритету
+        var zonePriority = new Dictionary<string, int>
+        {
+            ["A"] = 1,
+            ["B"] = 2,
+            ["C"] = 3,
+            ["D"] = 4,
+            ["cooler"] = 5,
+            ["freezer"] = 6
+        };
+
+        return zones
+            .Distinct()
+            .OrderBy(zone => zonePriority.TryGetValue(zone, out var priority) ? priority : 999)
+            .FirstOrDefault() ?? "A";
     }
 }

@@ -33,6 +33,7 @@ public class OrderRepository : IOrderRepository
     {
         var connection = await GetConnectionAsync();
 
+        // Получаем основной заказ
         var orderResult = await connection.QueryFirstOrDefaultAsync<dynamic>(
             "SELECT * FROM orders WHERE id = @Id",
             new { Id = id },
@@ -41,8 +42,20 @@ public class OrderRepository : IOrderRepository
         if (orderResult == null)
             throw new KeyNotFoundException($"Order with id {id} not found");
 
+        // Получаем order_lines с информацией о продуктах через JOIN
+        var linesResults = await connection.QueryAsync<dynamic>(@"
+            SELECT 
+                ol.*,
+                p.name as product_name,
+                p.sku as sku
+            FROM order_lines ol
+            LEFT JOIN products p ON ol.product_id = p.id
+            WHERE ol.order_id = @OrderId",
+            new { OrderId = id },
+            _transaction);
+
         var order = CreateOrderAggregateFromDynamic(orderResult);
-        var lines = await GetOrderLinesAsync(id);
+        var lines = linesResults.Select(CreateOrderLineFromDynamic).ToList();
 
         order.SetOrderLines(lines);
 
@@ -55,7 +68,7 @@ public class OrderRepository : IOrderRepository
 
         var orderResults = await connection.QueryAsync<dynamic>(
             "SELECT * FROM orders WHERE status = @Status ORDER BY created_at DESC",
-            new { Status = status.ToString() },
+            new { Status = EnumConverter.ToString(status) },
             _transaction);
 
         var orders = new List<OrderAggregate>();
@@ -63,8 +76,20 @@ public class OrderRepository : IOrderRepository
         foreach (var orderResult in orderResults)
         {
             var order = CreateOrderAggregateFromDynamic(orderResult);
-            var lines = await GetOrderLinesAsync(order.OrderId);
 
+            // Получаем линии заказа с информацией о продуктах
+            var linesResults = await connection.QueryAsync<dynamic>(@"
+                SELECT 
+                    ol.*,
+                    p.name as product_name,
+                    p.sku as sku
+                FROM order_lines ol
+                LEFT JOIN products p ON ol.product_id = p.id
+                WHERE ol.order_id = @OrderId",
+                new { OrderId = order.OrderId },
+                _transaction);
+
+            var lines = linesResults.Select(CreateOrderLineFromDynamic).ToList();
             order.SetOrderLines(lines);
             orders.Add(order);
         }
@@ -76,8 +101,14 @@ public class OrderRepository : IOrderRepository
     {
         var connection = await GetConnectionAsync();
 
-        var results = await connection.QueryAsync<dynamic>(
-            "SELECT * FROM order_lines WHERE order_id = @OrderId",
+        var results = await connection.QueryAsync<dynamic>(@"
+            SELECT 
+                ol.*,
+                p.name as product_name,
+                p.sku as sku
+            FROM order_lines ol
+            LEFT JOIN products p ON ol.product_id = p.id
+            WHERE ol.order_id = @OrderId",
             new { OrderId = orderId },
             _transaction);
 
@@ -98,92 +129,104 @@ public class OrderRepository : IOrderRepository
 
         await connection.ExecuteAsync(@"
             UPDATE orders SET status = @Status WHERE id = @OrderId",
-            new { OrderId = orderId, Status = status.ToString() },
+            new { OrderId = orderId, Status = EnumConverter.ToString(status) },
             _transaction);
     }
 
     // IRepository<T> методы
-    public async Task<OrderAggregate> AddAsync(OrderAggregate entity)
+    public async Task<OrderAggregate> AddAsync(OrderAggregate entity) // ✅ Изменен возвращаемый тип
     {
         var connection = await GetConnectionAsync();
 
+        // Вставляем заказ
+        var orderParameters = new
+        {
+            Id = entity.Id,
+            CustomerId = entity.CustomerId,
+            Status = EnumConverter.ToString(entity.Status),
+            CreatedAt = entity.CreatedAt,
+            PickingStartedAt = entity.PickingStartedAt,
+            PickingCompletedAt = entity.PickingCompletedAt
+        };
+
         await connection.ExecuteAsync(@"
-            INSERT INTO orders (id, customer_id, status, created_at, picking_started_at, picking_completed_at)
-            VALUES (@Id, @CustomerId, @Status, @CreatedAt, @PickingStartedAt, @PickingCompletedAt)",
-            new
-            {
-                Id = entity.OrderId,
-                CustomerId = entity.CustomerId,
-                Status = entity.Status.ToString(),
-                CreatedAt = entity.CreatedAt,
-                PickingStartedAt = entity.PickingStartedAt,
-                PickingCompletedAt = entity.PickingCompletedAt
+            INSERT INTO orders 
+                (id, customer_id, status, created_at, picking_started_at, picking_completed_at)
+            VALUES 
+                (@Id, @CustomerId, @Status, @CreatedAt, @PickingStartedAt, @PickingCompletedAt)",
+            orderParameters, _transaction);
 
-            },
-            _transaction);
-
+        // Вставляем order_lines (только существующие поля)
         foreach (var line in entity.Lines)
         {
+            var lineParameters = new
+            {
+                OrderId = entity.Id,
+                ProductId = line.ProductId,
+                QuantityOrdered = line.QuantityOrdered,
+                QuantityPicked = line.QuantityPicked,
+                UnitPrice = line.UnitPrice
+            };
+
             await connection.ExecuteAsync(@"
-                INSERT INTO order_lines (order_id, product_id, product_name, sku, quantity_ordered, quantity_picked, unit_price)
-                VALUES (@OrderId, @ProductId, @ProductName, @Sku, @QuantityOrdered, @QuantityPicked, @UnitPrice)",
-                new
-                {
-                    OrderId = line.OrderId,
-                    ProductId = line.ProductId,
-                    ProductName = line.ProductName,
-                    Sku = line.Sku,
-                    QuantityOrdered = line.QuantityOrdered,
-                    QuantityPicked = line.QuantityPicked,
-                    UnitPrice = line.UnitPrice
-                },
-                _transaction);
+                INSERT INTO order_lines 
+                    (order_id, product_id, quantity_ordered, quantity_picked, unit_price)
+                VALUES 
+                    (@OrderId, @ProductId, @QuantityOrdered, @QuantityPicked, @UnitPrice)",
+                lineParameters, _transaction);
         }
 
-        return entity;
+        return entity; // ✅ Возвращаем добавленную сущность
     }
 
     public async Task UpdateAsync(OrderAggregate entity)
     {
         var connection = await GetConnectionAsync();
 
+        // Обновляем только основную таблицу orders
+        var orderParameters = new
+        {
+            Id = entity.Id,
+            CustomerId = entity.CustomerId,
+            Status = EnumConverter.ToString(entity.Status),
+            CreatedAt = entity.CreatedAt,
+            PickingStartedAt = entity.PickingStartedAt,
+            PickingCompletedAt = entity.PickingCompletedAt
+        };
+
         await connection.ExecuteAsync(@"
             UPDATE orders 
-            SET customer_id = @CustomerId, status = @Status, 
-                picking_started_at = @PickingStartedAt, 
+            SET 
+                customer_id = @CustomerId,
+                status = @Status,
+                picking_started_at = @PickingStartedAt,
                 picking_completed_at = @PickingCompletedAt
             WHERE id = @Id",
-            new
-            {
-                Id = entity.OrderId,
-                CustomerId = entity.CustomerId,
-                Status = entity.Status.ToString(),
-                PickingStartedAt = entity.PickingStartedAt,
-                PickingCompletedAt = entity.PickingCompletedAt,
-            },
-            _transaction);
+            orderParameters, _transaction);
 
+        // Обновляем order_lines - удаляем старые и вставляем новые
         await connection.ExecuteAsync(
             "DELETE FROM order_lines WHERE order_id = @OrderId",
-            new { OrderId = entity.OrderId },
-            _transaction);
+            new { OrderId = entity.Id }, _transaction);
 
+        // Вставляем обновленные линии заказа
         foreach (var line in entity.Lines)
         {
+            var lineParameters = new
+            {
+                OrderId = entity.Id,
+                ProductId = line.ProductId,
+                QuantityOrdered = line.QuantityOrdered,
+                QuantityPicked = line.QuantityPicked,
+                UnitPrice = line.UnitPrice
+            };
+
             await connection.ExecuteAsync(@"
-                INSERT INTO order_lines (order_id, product_id, product_name, sku, quantity_ordered, quantity_picked, unit_price)
-                VALUES (@OrderId, @ProductId, @ProductName, @Sku, @QuantityOrdered, @QuantityPicked, @UnitPrice)",
-                new
-                {
-                    OrderId = line.OrderId,
-                    ProductId = line.ProductId,
-                    ProductName = line.ProductName,
-                    Sku = line.Sku,
-                    QuantityOrdered = line.QuantityOrdered,
-                    QuantityPicked = line.QuantityPicked,
-                    UnitPrice = line.UnitPrice
-                },
-                _transaction);
+                INSERT INTO order_lines 
+                    (order_id, product_id, quantity_ordered, quantity_picked, unit_price)
+                VALUES 
+                    (@OrderId, @ProductId, @QuantityOrdered, @QuantityPicked, @UnitPrice)",
+                lineParameters, _transaction);
         }
     }
 
@@ -215,8 +258,20 @@ public class OrderRepository : IOrderRepository
         foreach (var orderResult in orderResults)
         {
             var order = CreateOrderAggregateFromDynamic(orderResult);
-            var lines = await GetOrderLinesAsync(order.OrderId);
 
+            // Получаем линии заказа с информацией о продуктах
+            var linesResults = await connection.QueryAsync<dynamic>(@"
+                SELECT 
+                    ol.*,
+                    p.name as product_name,
+                    p.sku as sku
+                FROM order_lines ol
+                LEFT JOIN products p ON ol.product_id = p.id
+                WHERE ol.order_id = @OrderId",
+                new { OrderId = order.OrderId },
+                _transaction);
+
+            var lines = linesResults.Select(CreateOrderLineFromDynamic).ToList();
             order.SetOrderLines(lines);
             orders.Add(order);
         }
@@ -256,7 +311,6 @@ public class OrderRepository : IOrderRepository
     public async Task SaveChangesAsync()
     {
         // Для Dapper обычно не требуется отдельный SaveChanges
-        // Но если используется транзакция, можно закоммитить её здесь
         if (_transaction != null)
         {
             await _transaction.CommitAsync();
@@ -265,19 +319,17 @@ public class OrderRepository : IOrderRepository
 
     private OrderAggregate CreateOrderAggregateFromDynamic(dynamic result)
     {
-        // Используем reflection для вызова приватного конструктора
         var orderType = typeof(OrderAggregate);
         var order = (OrderAggregate)Activator.CreateInstance(orderType, true)!;
 
-        // Устанавливаем свойства через reflection
         SetProperty(order, "OrderId", result.id);
         SetProperty(order, "CustomerId", result.customer_id);
         SetProperty(order, "CreatedAt", result.created_at);
         SetProperty(order, "PickingStartedAt", result.picking_started_at);
         SetProperty(order, "PickingCompletedAt", result.picking_completed_at);
 
-        // Устанавливаем статус
-        var status = Enum.Parse<OrderStatus>(result.status);
+        // Используем EnumConverter для конвертации статуса
+        var status = EnumConverter.ToOrderStatus(result.status);
         SetProperty(order, "Status", status);
 
         return order;
@@ -285,15 +337,12 @@ public class OrderRepository : IOrderRepository
 
     private OrderLine CreateOrderLineFromDynamic(dynamic result)
     {
-        // Создаем OrderLine через reflection (предполагая, что у него тоже есть приватный конструктор)
         var lineType = typeof(OrderLine);
         var line = (OrderLine)Activator.CreateInstance(lineType, true)!;
 
-        SetProperty(line, "Id", result.id ?? Guid.NewGuid());
-        SetProperty(line, "OrderId", result.order_id);
         SetProperty(line, "ProductId", result.product_id);
-        SetProperty(line, "ProductName", result.product_name);
-        SetProperty(line, "Sku", result.sku);
+        SetProperty(line, "ProductName", result.product_name ?? "Unknown Product");
+        SetProperty(line, "Sku", result.sku ?? "Unknown SKU");
         SetProperty(line, "QuantityOrdered", result.quantity_ordered);
         SetProperty(line, "QuantityPicked", result.quantity_picked);
         SetProperty(line, "UnitPrice", result.unit_price);

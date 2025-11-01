@@ -184,7 +184,7 @@
       },
       {
         "Name": "request",
-        "Type": "WareHouse.API.Controllers.StartPickingRequest",
+        "Type": "WareHouse.API.Controllers.OrdersController\u002BStartPickingRequest",
         "IsRequired": true
       }
     ],

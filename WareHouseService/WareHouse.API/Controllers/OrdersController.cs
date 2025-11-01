@@ -45,13 +45,17 @@ public class OrdersController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<PickingTaskDto>> StartPicking(Guid orderId, [FromBody] StartPickingRequest request)
     {
-        _logger.LogInformation("Starting picking for order {OrderId}", orderId);
+        _logger.LogInformation("Starting picking for order {OrderId} with automatic zone detection", orderId);
 
-        var command = new StartPickingCommand(orderId, request.PickerId, request.Zone);
+        // ✅ Используем команду без параметра Zone
+        var command = new StartPickingCommand(orderId, request.PickerId);
         var result = await _mediator.Send(command);
 
         return Ok(result);
     }
+
+    // ✅ Обновили запрос - убрали Zone
+    public record StartPickingRequest(string PickerId);
 
     [HttpPost("{orderId:guid}/complete-picking")]
     [ProducesResponseType(StatusCodes.Status200OK)]

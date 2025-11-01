@@ -34,19 +34,28 @@ public class PickingTaskRepository : IPickingTaskRepository
     {
         var connection = await GetConnectionAsync();
 
-        var task = await connection.QueryFirstOrDefaultAsync<PickingTask>(
+        var taskResult = await connection.QueryFirstOrDefaultAsync<dynamic>(
             "SELECT * FROM picking_tasks WHERE id = @TaskId",
             new { TaskId = taskId },
             _transaction);
 
-        if (task == null) return null;
+        if (taskResult == null) return null;
 
-        var items = await connection.QueryAsync<PickingItem>(
-            "SELECT * FROM picking_items WHERE picking_task_id = @TaskId",
+        var itemsResults = await connection.QueryAsync<dynamic>(@"
+        SELECT 
+            pi.*,
+            p.name as product_name,
+            p.sku as sku
+        FROM picking_items pi
+        LEFT JOIN products p ON pi.product_id = p.id
+        WHERE pi.picking_task_id = @TaskId",
             new { TaskId = taskId },
             _transaction);
 
-        task.SetPickingItems(items.AsList());
+        var items = itemsResults.Select(MapToPickingItem).Where(x => x != null).ToList();
+
+        var task = MapToPickingTask(taskResult);
+        task.SetPickingItems(items);
 
         return task;
     }
@@ -153,32 +162,68 @@ public class PickingTaskRepository : IPickingTaskRepository
     {
         var connection = await GetConnectionAsync();
 
+        var parameters = new
+        {
+            Id = entity.TaskId,
+            OrderId = entity.OrderId,
+            AssignedPicker = entity.AssignedPicker,
+            Status = EnumConverter.ToString(entity.Status),
+            Zone = entity.Zone,
+            CreatedAt = entity.CreatedAt,
+            CompletedAt = entity.CompletedAt
+        };
+
         await connection.ExecuteAsync(@"
-            INSERT INTO picking_tasks (id, order_id, assigned_picker, status, zone, created_at, completed_at)
-            VALUES (@Id, @OrderId, @AssignedPicker, @Status, @Zone, @CreatedAt, @CompletedAt)",
-            entity, _transaction);
+        INSERT INTO picking_tasks 
+            (id, order_id, assigned_picker, status, zone, created_at, completed_at)
+        VALUES 
+            (@Id, @OrderId, @AssignedPicker, @Status, @Zone, @CreatedAt, @CompletedAt)",
+            parameters, _transaction);
 
         foreach (var item in entity.Items)
         {
+            var itemParameters = new
+            {
+                PickingTaskId = entity.TaskId,
+                ProductId = item.ProductId,
+                // ❌ УБИРАЕМ: ProductName = item.ProductName,
+                // ❌ УБИРАЕМ: Sku = item.Sku,
+                Quantity = item.Quantity,
+                StorageLocation = item.StorageLocation,
+                Barcode = item.Barcode
+            };
+
             await connection.ExecuteAsync(@"
-                INSERT INTO picking_items (picking_task_id, product_id, product_name, sku, quantity, storage_location, barcode)
-                VALUES (@PickingTaskId, @ProductId, @ProductName, @Sku, @Quantity, @StorageLocation, @Barcode)",
-                item, _transaction);
+            INSERT INTO picking_items 
+                (picking_task_id, product_id, quantity, storage_location, barcode)
+            VALUES 
+                (@PickingTaskId, @ProductId, @Quantity, @StorageLocation, @Barcode)",
+                itemParameters, _transaction);
         }
     }
-
     public async Task UpdateAsync(PickingTask entity)
     {
         var connection = await GetConnectionAsync();
 
-        await connection.ExecuteAsync(@"
-            UPDATE picking_tasks 
-            SET order_id = @OrderId, assigned_picker = @AssignedPicker, status = @Status,
-                zone = @Zone, completed_at = @CompletedAt
-            WHERE id = @Id",
-            entity, _transaction);
+        var parameters = new
+        {
+            Id = entity.TaskId,
+            AssignedPicker = entity.AssignedPicker,
+            Status = EnumConverter.ToString(entity.Status),
+            Zone = entity.Zone,
+            CompletedAt = entity.CompletedAt
+            // ❌ УБИРАЕМ: StartedAt = entity.StartedAt,
+        };
 
-        // TODO: Логика обновления picking items
+        await connection.ExecuteAsync(@"
+        UPDATE picking_tasks 
+        SET 
+            assigned_picker = @AssignedPicker,
+            status = @Status,
+            zone = @Zone,
+            completed_at = @CompletedAt
+        WHERE id = @Id",
+            parameters, _transaction);
     }
 
     public async Task DeleteAsync(PickingTask entity)
@@ -219,4 +264,150 @@ public class PickingTaskRepository : IPickingTaskRepository
 
         return result;
     }
+
+    // ✅ ДОБАВЛЯЕМ: Метод маппинга для PickingTask
+    private PickingTask MapToPickingTask(dynamic result)
+    {
+        if (result == null) return null;
+
+        try
+        {
+            var task = new PickingTask();
+
+            // Используем reflection для установки свойств
+            SetProperty(task, "TaskId", result.id);
+            SetProperty(task, "OrderId", result.order_id);
+            SetProperty(task, "AssignedPicker", result.assigned_picker);
+
+            // Конвертируем строковый статус в enum
+            var status = EnumConverter.ToPickingTaskStatus(result.status);
+            SetProperty(task, "Status", status);
+
+            SetProperty(task, "CreatedAt", result.created_at);
+            SetProperty(task, "CompletedAt", result.completed_at);
+            SetProperty(task, "Zone", result.zone);
+
+            return task;
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error mapping PickingTask: {ex.Message}");
+            return null;
+        }
+    }
+
+    // ✅ ДОБАВЛЯЕМ: Метод маппинга для PickingItem
+    private PickingItem MapToPickingItem(dynamic result)
+    {
+        if (result == null) return null;
+
+        try
+        {
+            return new PickingItem(
+                pickingTaskId: result.picking_task_id,
+                productId: result.product_id,
+                productName: result.product_name ?? "Unknown Product",
+                sku: result.sku ?? "Unknown SKU",
+                quantity: result.quantity,
+                storageLocation: result.storage_location,
+                barcode: result.barcode
+            );
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error mapping PickingItem: {ex.Message}");
+            return null;
+        }
+    }
+
+    // ✅ ДОБАВЛЯЕМ: Метод для установки свойств через reflection
+    private void SetProperty(object obj, string propertyName, object value)
+    {
+        if (value == null) return;
+
+        try
+        {
+            var property = obj.GetType().GetProperty(propertyName,
+                System.Reflection.BindingFlags.Public |
+                System.Reflection.BindingFlags.NonPublic |
+                System.Reflection.BindingFlags.Instance);
+
+            if (property != null && property.CanWrite)
+            {
+                var targetType = Nullable.GetUnderlyingType(property.PropertyType) ?? property.PropertyType;
+
+                // Специальная обработка для enum
+                if (property.PropertyType.IsEnum && value is string stringValue)
+                {
+                    var enumValue = Enum.Parse(property.PropertyType, stringValue);
+                    property.SetValue(obj, enumValue);
+                }
+                // Специальная обработка для Guid
+                else if (targetType == typeof(Guid) && value is string guidString)
+                {
+                    var guidValue = Guid.Parse(guidString);
+                    property.SetValue(obj, guidValue);
+                }
+                else if (value.GetType() != targetType)
+                {
+                    var convertedValue = Convert.ChangeType(value, targetType);
+                    property.SetValue(obj, convertedValue);
+                }
+                else
+                {
+                    property.SetValue(obj, value);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error setting property {propertyName}: {ex.Message}");
+            throw;
+        }
+    }
+
+    // ✅ ДОБАВЛЯЕМ: Отсутствующий метод AddAsync с возвращаемым значением
+    //public async Task<PickingTask> AddAsync(PickingTask entity)
+    //{
+    //    var connection = await GetConnectionAsync();
+
+    //    var parameters = new
+    //    {
+    //        Id = entity.TaskId,
+    //        OrderId = entity.OrderId,
+    //        AssignedPicker = entity.AssignedPicker,
+    //        Status = EnumConverter.ToString(entity.Status),
+    //        Zone = entity.Zone,
+    //        CreatedAt = entity.CreatedAt,
+    //        CompletedAt = entity.CompletedAt
+    //    };
+
+    //    await connection.ExecuteAsync(@"
+    //    INSERT INTO picking_tasks 
+    //        (id, order_id, assigned_picker, status, zone, created_at, completed_at)
+    //    VALUES 
+    //        (@Id, @OrderId, @AssignedPicker, @Status, @Zone, @CreatedAt, @CompletedAt)",
+    //        parameters, _transaction);
+
+    //    foreach (var item in entity.Items)
+    //    {
+    //        var itemParameters = new
+    //        {
+    //            PickingTaskId = entity.TaskId,
+    //            ProductId = item.ProductId,
+    //            Quantity = item.Quantity,
+    //            StorageLocation = item.StorageLocation,
+    //            Barcode = item.Barcode
+    //        };
+
+    //        await connection.ExecuteAsync(@"
+    //        INSERT INTO picking_items 
+    //            (picking_task_id, product_id, quantity, storage_location, barcode)
+    //        VALUES 
+    //            (@PickingTaskId, @ProductId, @Quantity, @StorageLocation, @Barcode)",
+    //            itemParameters, _transaction);
+    //    }
+
+    //    return entity; // ✅ Возвращаем добавленную сущность
+    //}
 }

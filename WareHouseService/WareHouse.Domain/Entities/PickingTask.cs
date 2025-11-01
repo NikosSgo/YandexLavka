@@ -12,9 +12,10 @@ public class PickingTask : AggregateRoot
     public string AssignedPicker { get; private set; }
     public PickingTaskStatus Status { get; private set; }
     public DateTime CreatedAt { get; private set; }
-    public DateTime? StartedAt { get; private set; }
+    //public DateTime? StartedAt { get; private set; }
     public DateTime? CompletedAt { get; private set; }
     public string Zone { get; private set; }
+    // ❌ УБИРАЕМ: public string AllZones { get; private set; }
 
     private readonly List<PickingItem> _items = new();
     public IReadOnlyCollection<PickingItem> Items => _items.AsReadOnly();
@@ -32,31 +33,35 @@ public class PickingTask : AggregateRoot
     [NotMapped]
     public int PickedItemsCount => _items.Count(item => item.IsPicked);
 
-    // ✅ ИСПРАВЛЕНО: Свойство Id для Dapper с правильными модификаторами доступа
+    // ✅ ДОБАВЛЕНО: Свойство для удобного доступа к списку зон (только для чтения)
+    [NotMapped]
+    public List<string> Zones => _items
+        .Select(item => item.StorageLocation?.Split('-').FirstOrDefault() ?? "Unknown")
+        .Distinct()
+        .ToList();
+
     [NotMapped]
     public override Guid Id
     {
         get => TaskId;
-        protected set => TaskId = value; // ✅ protected set
+        protected set => TaskId = value;
     }
 
-    // ✅ ИЗМЕНЕНО: Конструктор без параметров для Dapper
-    private PickingTask() { }
+    public PickingTask() { }
 
+    // ✅ ИЗМЕНЕНО: Убираем allZones из конструктора
     public PickingTask(Guid orderId, List<PickingItem> items, string zone, string assignedPicker = null)
     {
         TaskId = Guid.NewGuid();
-        Id = TaskId; // ✅ Устанавливаем оба ID
+        Id = TaskId;
         OrderId = orderId;
         AssignedPicker = assignedPicker;
         Status = PickingTaskStatus.Created;
         Zone = zone;
         CreatedAt = DateTime.UtcNow;
 
-        // Устанавливаем PickingTaskId для каждого элемента
         foreach (var item in items)
         {
-            // Создаем новый PickingItem с правильным TaskId
             var pickingItem = new PickingItem(
                 TaskId,
                 item.ProductId,
@@ -70,12 +75,13 @@ public class PickingTask : AggregateRoot
         }
     }
 
-    // ✅ ДОБАВЛЕНО: Метод для установки items из репозитория
     public void SetPickingItems(List<PickingItem> items)
     {
         _items.Clear();
         _items.AddRange(items);
     }
+
+    // ❌ УБИРАЕМ: метод UpdateZones так как AllZones больше нет
 
     public void StartPicking(string pickerId)
     {
@@ -84,7 +90,7 @@ public class PickingTask : AggregateRoot
 
         Status = PickingTaskStatus.InProgress;
         AssignedPicker = pickerId;
-        StartedAt = DateTime.UtcNow;
+        //StartedAt = DateTime.UtcNow;
         UpdateTimestamps();
     }
 
