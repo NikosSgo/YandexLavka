@@ -34,11 +34,18 @@ public class PickingTask : AggregateRoot
     public int PickedItemsCount => _items.Count(item => item.IsPicked);
 
     // ✅ ДОБАВЛЕНО: Свойство для удобного доступа к списку зон (только для чтения)
+    //[NotMapped]
+    //public List<string> Zones => _items
+    //    .Select(item => item.StorageLocation?.Split('-').FirstOrDefault() ?? "Unknown")
+    //    .Distinct()
+    //    .ToList();
+
+    // ✅ ПРОСТОЙ ВАРИАНТ: Вычисляем зоны на основе zone поля (разбиваем по запятой)
     [NotMapped]
-    public List<string> Zones => _items
-        .Select(item => item.StorageLocation?.Split('-').FirstOrDefault() ?? "Unknown")
-        .Distinct()
-        .ToList();
+    public List<string> Zones => Zone?
+        .Split(',', StringSplitOptions.RemoveEmptyEntries)
+        .Select(z => z.Trim())
+        .ToList() ?? new List<string>();
 
     [NotMapped]
     public override Guid Id

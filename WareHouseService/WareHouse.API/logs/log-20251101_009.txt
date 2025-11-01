@@ -1,0 +1,50 @@
+2025-11-01 22:23:51.106 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-01 22:23:51.146 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-01 22:23:51.150 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-11-01 22:24:16.697 +03:00 [INF] Incoming request: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff1/start-picking
+2025-11-01 22:24:16.789 +03:00 [INF] Starting picking for order "ffffffff-ffff-ffff-ffff-fffffffffff1" with automatic zone detection
+2025-11-01 22:24:16.810 +03:00 [INF] Handling command/query: StartPickingCommand {"OrderId":"ffffffff-ffff-ffff-ffff-fffffffffff1","PickerId":"jhon","$type":"StartPickingCommand"}
+2025-11-01 22:24:16.832 +03:00 [INF] Starting picking for order "ffffffff-ffff-ffff-ffff-fffffffffff1" by picker jhon
+2025-11-01 22:24:16.941 +03:00 [INF] Automatically determined zones for order "ffffffff-ffff-ffff-ffff-fffffffffff1": A, B, C, cooler
+2025-11-01 22:24:17.004 +03:00 [INF] Picking task "c392b50c-b534-4ca8-9da8-0f760c72b675" created for order "ffffffff-ffff-ffff-ffff-fffffffffff1" with zones: A,B,C,cooler
+2025-11-01 22:24:17.009 +03:00 [INF] Handled command/query: StartPickingCommand
+2025-11-01 22:24:17.027 +03:00 [INF] Request completed: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff1/start-picking - 200 in 332.8527ms
+2025-11-01 22:40:56.379 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-01 22:40:56.422 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-01 22:40:56.426 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-11-01 22:41:34.195 +03:00 [INF] Incoming request: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff1/start-picking
+2025-11-01 22:41:34.237 +03:00 [INF] Starting picking for order "ffffffff-ffff-ffff-ffff-fffffffffff1" with automatic zone detection
+2025-11-01 22:41:34.257 +03:00 [INF] Handling command/query: StartPickingCommand {"OrderId":"ffffffff-ffff-ffff-ffff-fffffffffff1","PickerId":"jhon","$type":"StartPickingCommand"}
+2025-11-01 22:41:34.282 +03:00 [INF] Starting picking for order "ffffffff-ffff-ffff-ffff-fffffffffff1" by picker jhon
+2025-11-01 22:41:34.388 +03:00 [INF] Automatically determined zones for order "ffffffff-ffff-ffff-ffff-fffffffffff1": A, B, C, cooler
+2025-11-01 22:41:34.452 +03:00 [INF] Picking task "c3f79e7a-664b-41be-b040-75e6102791e6" created for order "ffffffff-ffff-ffff-ffff-fffffffffff1" with zones: A,B,C,cooler
+2025-11-01 22:41:34.459 +03:00 [INF] Handled command/query: StartPickingCommand
+2025-11-01 22:41:34.478 +03:00 [INF] Request completed: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff1/start-picking - 200 in 283.2212ms
+2025-11-01 22:42:17.445 +03:00 [INF] Incoming request: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff1/complete-picking
+2025-11-01 22:42:17.479 +03:00 [INF] Request completed: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff1/complete-picking - 400 in 34.3269ms
+2025-11-01 22:52:43.199 +03:00 [INF] Incoming request: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff1/complete-picking
+2025-11-01 22:52:43.212 +03:00 [INF] Completing picking for order "ffffffff-ffff-ffff-ffff-fffffffffff1"
+2025-11-01 22:52:43.221 +03:00 [INF] Handling command/query: CompletePickingCommand {"OrderId":"ffffffff-ffff-ffff-ffff-fffffffffff1","PickedQuantities":{"11111111-1111-1111-1111-111111111111":2,"77777777-7777-7777-7777-777777777777":1,"dddddddd-dddd-dddd-dddd-dddddddddddd":3,"44444444-5555-6666-7777-888888888888":2},"$type":"CompletePickingCommand"}
+2025-11-01 22:52:43.254 +03:00 [INF] Completing picking for order "ffffffff-ffff-ffff-ffff-fffffffffff1"
+2025-11-01 22:52:43.304 +03:00 [ERR] An unhandled exception has occurred: Cannot complete task with unpicked items
+WareHouse.Domain.Exceptions.DomainException: Cannot complete task with unpicked items
+   at WareHouse.Domain.Entities.PickingTask.Complete() in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Domain\Entities\PickingTask.cs:line 110
+   at WareHouse.Application.Commands.CompletePickingCommandHandler.Handle(CompletePickingCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\CompletePickingCommand.cs:line 57
+   at WareHouse.Application.Commands.CompletePickingCommandHandler.Handle(CompletePickingCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\CompletePickingCommand.cs:line 76
+   at WareHouse.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\ValidationBehavior.cs:line 36
+   at WareHouse.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\LoggingBehavior.cs:line 22
+   at WareHouse.API.Controllers.OrdersController.CompletePicking(Guid orderId, CompletePickingRequest request) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Controllers\OrdersController.cs:line 68
+   at lambda_method70(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at WareHouse.API.Middleware.CorrelationIdMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\CorrelationIdMiddleware.cs:line 27
+   at WareHouse.API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\RequestLoggingMiddleware.cs:line 23
+   at WareHouse.API.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\GlobalExceptionHandlerMiddleware.cs:line 27

@@ -1,0 +1,11 @@
+2025-11-01 23:31:28.424 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-01 23:31:28.468 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-01 23:31:28.471 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-11-01 23:34:31.737 +03:00 [INF] Incoming request: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff1/complete-picking
+2025-11-01 23:34:31.784 +03:00 [INF] Completing picking for order "ffffffff-ffff-ffff-ffff-fffffffffff1"
+2025-11-01 23:34:31.812 +03:00 [INF] Handling command/query: CompletePickingCommand {"OrderId":"ffffffff-ffff-ffff-ffff-fffffffffff1","PickedQuantities":{"11111111-1111-1111-1111-111111111111":2,"77777777-7777-7777-7777-777777777777":1,"dddddddd-dddd-dddd-dddd-dddddddddddd":3,"44444444-5555-6666-7777-888888888888":2},"$type":"CompletePickingCommand"}
+2025-11-01 23:34:31.846 +03:00 [INF] Completing picking for order "ffffffff-ffff-ffff-ffff-fffffffffff1"
+2025-11-01 23:34:31.994 +03:00 [INF] Updated order_lines picked quantities for order "ffffffff-ffff-ffff-ffff-fffffffffff1"
+2025-11-01 23:34:32.055 +03:00 [INF] Picking completed for order "ffffffff-ffff-ffff-ffff-fffffffffff1"
+2025-11-01 23:34:32.059 +03:00 [INF] Handled command/query: CompletePickingCommand
+2025-11-01 23:34:32.065 +03:00 [INF] Request completed: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff1/complete-picking - 200 in 328.3177ms

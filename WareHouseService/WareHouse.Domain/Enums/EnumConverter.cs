@@ -10,7 +10,7 @@ public static class EnumConverter
         {
             OrderStatus.Received => "Received",
             OrderStatus.Picking => "Picking",
-            OrderStatus.Picked => "Picked",
+            //OrderStatus.Picked => "Picked",
             OrderStatus.Completed => "Completed",
             OrderStatus.Cancelled => "Cancelled",
             _ => status.ToString()
@@ -23,7 +23,7 @@ public static class EnumConverter
         {
             "received" => OrderStatus.Received,
             "picking" => OrderStatus.Picking,
-            "picked" => OrderStatus.Picked,
+            //"picked" => OrderStatus.Picked,
             "completed" => OrderStatus.Completed,
             "cancelled" => OrderStatus.Cancelled,
             _ => throw new ArgumentException($"Unknown order status: {status}")

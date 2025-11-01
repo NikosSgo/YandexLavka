@@ -2,6 +2,7 @@
 using Npgsql;
 using WareHouse.Domain.Entities;
 using WareHouse.Domain.Interfaces;
+using WareHouse.Domain.ValueObjects;
 
 namespace WareHouse.Infrastructure.Data.Repositories;
 
@@ -301,11 +302,19 @@ public class StorageUnitRepository : IStorageUnitRepository
         FROM storage_units su
         INNER JOIN order_lines ol ON su.product_id = ol.product_id
         WHERE ol.order_id = @OrderId
-        AND su.quantity > su.reserved_quantity
-        ORDER BY su.zone"; // ✅ Теперь zone есть в SELECT
+        AND (su.quantity - su.reserved_quantity) > 0
+        AND su.zone IS NOT NULL
+        AND su.zone != ''"; // ✅ Теперь zone есть в SELECT
 
             var zones = await connection.QueryAsync<string>(query, new { OrderId = orderId }, _transaction);
-            return zones.ToList();
+
+            // ✅ Возвращаем оригинальные названия зон
+            var result = zones?
+                .Where(zone => !string.IsNullOrEmpty(zone))
+                .Distinct()
+                .ToList() ?? new List<string>();
+            
+            return result;
         }
         catch (Exception ex)
         {

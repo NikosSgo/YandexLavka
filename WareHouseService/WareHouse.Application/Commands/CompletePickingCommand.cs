@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using WareHouse.Application.DTOs;
 using WareHouse.Domain.Exceptions;
 using WareHouse.Domain.Interfaces;
 
@@ -41,40 +42,64 @@ public class CompletePickingCommandHandler : IRequestHandler<CompletePickingComm
         {
             _logger.LogInformation("Completing picking for order {OrderId}", request.OrderId);
 
-            var order = await _unitOfWork.Orders.GetByIdAsync(request.OrderId);
-            if (order == null)
-                throw new NotFoundException($"Order {request.OrderId} not found");
-
+            // 1. Получаем активное задание на сборку
             var pickingTask = await _unitOfWork.PickingTasks.GetActiveForOrderAsync(request.OrderId);
             if (pickingTask == null)
                 throw new NotFoundException($"Active picking task not found for order {request.OrderId}");
 
-            // Резервируем товары на складе
-            await ReserveStockForOrder(request.PickedQuantities);
+            // 2. ✅ ОБНОВЛЯЕМ quantity_picked в order_lines
+            await UpdateOrderLinesPickedQuantities(request.OrderId, request.PickedQuantities);
 
-            // Завершаем сборку
-            order.CompletePicking(request.PickedQuantities);
-            pickingTask.Complete();
-
-            // Обновляем статус собранных товаров в задании
-            foreach (var (productId, quantity) in request.PickedQuantities)
+            // 3. Обновляем статус picked в picking items
+            foreach (var (productId, quantityPicked) in request.PickedQuantities)
             {
-                pickingTask.UpdateItemPickedStatus(productId, quantity);
+                pickingTask.UpdateItemPickedStatus(productId, quantityPicked);
             }
 
-            await _unitOfWork.Orders.UpdateAsync(order);
+            // 4. Завершаем задание
+            pickingTask.Complete();
+
+            // 5. Обновляем статус заказа
+            var order = await _unitOfWork.Orders.GetByIdAsync(request.OrderId);
+            order.CompletePicking(request.PickedQuantities); // ✅ Передаем pickedQuantities
+
+            // 6. Резервируем stock
+            await ReserveStockForOrder(request.PickedQuantities);
+
+            // 7. Сохраняем изменения
             await _unitOfWork.PickingTasks.UpdateAsync(pickingTask);
+            await _unitOfWork.Orders.UpdateAsync(order);
             await _unitOfWork.CommitAsync();
 
             _logger.LogInformation("Picking completed for order {OrderId}", request.OrderId);
 
-            return Unit.Value;
+            return Unit.Value; // ✅ Возвращаем Unit.Value для MediatR
         }
         catch
         {
             await _unitOfWork.RollbackAsync();
             throw;
         }
+    }
+
+    private async Task UpdateOrderLinesPickedQuantities(Guid orderId, Dictionary<Guid, int> pickedQuantities)
+    {
+        // ✅ Используем OrderRepository для обновления order_lines
+        var order = await _unitOfWork.Orders.GetByIdAsync(orderId);
+
+        foreach (var (productId, quantityPicked) in pickedQuantities)
+        {
+            var orderLine = order.Lines.FirstOrDefault(line => line.ProductId == productId);
+            if (orderLine != null)
+            {
+                // Обновляем quantity_picked в order line
+                orderLine.GetType().GetProperty("QuantityPicked")?
+                    .SetValue(orderLine, quantityPicked);
+            }
+        }
+
+        await _unitOfWork.Orders.UpdateAsync(order);
+        _logger.LogInformation("Updated order_lines picked quantities for order {OrderId}", orderId);
     }
 
     private async Task ReserveStockForOrder(Dictionary<Guid, int> pickedQuantities)

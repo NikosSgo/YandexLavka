@@ -74,32 +74,45 @@ public class OrderAggregate : AggregateRoot
         AddDomainEvent(new OrderPickingStartedEvent(OrderId));
     }
 
-    public void CompletePicking(Dictionary<Guid, int> pickedQuantities)
+    public void CompletePicking(Dictionary<Guid, int> pickedQuantities = null) // ✅ Добавляем параметр
     {
         if (Status != OrderStatus.Picking)
             throw new DomainException($"Cannot complete picking for order in {Status} status");
 
-        ValidatePickedQuantities(pickedQuantities);
-        UpdatePickedQuantities(pickedQuantities);
-
-        Status = OrderStatus.Picked;
+        //Status = OrderStatus.Picked;
+        Status = OrderStatus.Completed;
         PickingCompletedAt = DateTime.UtcNow;
-        UpdateTimestamps();
 
-        AddDomainEvent(new OrderPickedEvent(OrderId, pickedQuantities));
+        // ✅ Опционально: обновляем quantity_picked в order lines
+        if (pickedQuantities != null)
+        {
+            foreach (var (productId, quantityPicked) in pickedQuantities)
+            {
+                var line = Lines.FirstOrDefault(l => l.ProductId == productId);
+                if (line != null)
+                {
+                    // Обновляем quantity_picked через reflection
+                    GetType().GetProperty("QuantityPicked")?
+                        .SetValue(line, quantityPicked);
+                }
+            }
+        }
+
+        UpdateTimestamps();
     }
 
-    public void CompletePacking()
-    {
-        if (Status != OrderStatus.Picked)
-            throw new DomainException($"Cannot complete order in {Status} status");
 
-        Status = OrderStatus.Completed; // Было Packed
-        PackingCompletedAt = DateTime.UtcNow;
-        UpdateTimestamps();
+    //public void CompletePacking()
+    //{
+    //    if (Status != OrderStatus.Picked)
+    //        throw new DomainException($"Cannot complete order in {Status} status");
 
-        AddDomainEvent(new OrderCompletedEvent(OrderId)); // Переименуйте событие если нужно
-    }
+    //    Status = OrderStatus.Completed; // Было Packed
+    //    PackingCompletedAt = DateTime.UtcNow;
+    //    UpdateTimestamps();
+
+    //    AddDomainEvent(new OrderCompletedEvent(OrderId)); // Переименуйте событие если нужно
+    //}
 
     public void Cancel(string reason)
     {

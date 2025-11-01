@@ -67,13 +67,11 @@ public class StartPickingCommandHandler : IRequestHandler<StartPickingCommand, P
             var storageUnits = await _unitOfWork.StorageUnits.GetUnitsForOrderAsync(request.OrderId);
             var pickingItems = CreatePickingItems(order, storageUnits, zones);
 
-            // 5. Определяем основную зону
-            var optimizedZones = OptimizeZoneRoute(zones);
-            var primaryZone = optimizedZones.FirstOrDefault() ?? "A";
-            // ❌ УБИРАЕМ: var allZones = string.Join(",", optimizedZones);
+            // 5. ✅ ИЗМЕНЕНО: Сохраняем ВСЕ зоны через запятую
+            var allZones = string.Join(",", OptimizeZoneRoute(zones));
 
-            // 6. Создаем задание на сборку (без allZones)
-            var pickingTask = new PickingTask(request.OrderId, pickingItems, primaryZone, request.PickerId);
+            // 6. Создаем задание на сборку с ВСЕМИ зонами
+            var pickingTask = new PickingTask(request.OrderId, pickingItems, allZones, request.PickerId);
             pickingTask.StartPicking(request.PickerId);
 
             // 7. Обновляем статус заказа
@@ -84,8 +82,8 @@ public class StartPickingCommandHandler : IRequestHandler<StartPickingCommand, P
             await _unitOfWork.Orders.UpdateAsync(order);
             await _unitOfWork.CommitAsync();
 
-            _logger.LogInformation("Picking task {TaskId} created for order {OrderId} with primary zone: {Zone} and all zones: {Zones}",
-                pickingTask.TaskId, request.OrderId, primaryZone, string.Join(",", optimizedZones));
+            _logger.LogInformation("Picking task {TaskId} created for order {OrderId} with zones: {Zones}",
+                pickingTask.TaskId, request.OrderId, allZones);
 
             return PickingTaskDto.FromEntity(pickingTask);
         }
@@ -110,7 +108,7 @@ public class StartPickingCommandHandler : IRequestHandler<StartPickingCommand, P
             {
                 var availableUnits = storageUnits
                     .Where(u => u.ProductId == line.ProductId &&
-                               u.Zone == zone &&
+                               string.Equals(u.Zone, zone, StringComparison.OrdinalIgnoreCase) && // ✅ Сравнение без учета регистра
                                u.AvailableQuantity > 0)
                     .OrderByDescending(u => u.AvailableQuantity)
                     .ToList();

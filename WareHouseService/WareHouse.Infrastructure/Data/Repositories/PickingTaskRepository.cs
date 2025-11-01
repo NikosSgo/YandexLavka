@@ -64,21 +64,31 @@ public class PickingTaskRepository : IPickingTaskRepository
     {
         var connection = await GetConnectionAsync();
 
-        var task = await connection.QueryFirstOrDefaultAsync<PickingTask>(@"
-            SELECT * FROM picking_tasks 
-            WHERE order_id = @OrderId AND status IN ('Created', 'InProgress')
-            LIMIT 1",
+        var taskResult = await connection.QueryFirstOrDefaultAsync<dynamic>(@"
+        SELECT * FROM picking_tasks 
+        WHERE order_id = @OrderId AND status IN ('Created', 'InProgress')
+        LIMIT 1",
             new { OrderId = orderId },
             _transaction);
 
-        if (task == null) return null;
+        if (taskResult == null) return null;
 
-        var items = await connection.QueryAsync<PickingItem>(
-            "SELECT * FROM picking_items WHERE picking_task_id = @TaskId",
-            new { TaskId = task.Id },
+        // ✅ УБЕДИТЕСЬ ЧТО ITEMS ЗАГРУЖАЮТСЯ
+        var itemsResults = await connection.QueryAsync<dynamic>(@"
+        SELECT 
+            pi.*,
+            p.name as product_name,
+            p.sku as sku
+        FROM picking_items pi
+        LEFT JOIN products p ON pi.product_id = p.id
+        WHERE pi.picking_task_id = @TaskId",
+            new { TaskId = taskResult.id },
             _transaction);
 
-        task.SetPickingItems(items.AsList());
+        var items = itemsResults.Select(MapToPickingItem).Where(x => x != null).ToList();
+
+        var task = MapToPickingTask(taskResult);
+        task.SetPickingItems(items); // ✅ ВАЖНО: установить items
 
         return task;
     }

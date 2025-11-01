@@ -10,9 +10,9 @@ public enum OrderStatus
 {
     Received = 1,    // Заказ получен
     Picking = 2,     // В процессе сборки
-    Picked = 3,      // Собран
-    Completed = 4,   // Завершен (бывший Packed)
-    Cancelled = 5    // Отменен
+    //Picked = 3,      // Собран
+    Completed = 3,   // Завершен (бывший Packed)
+    Cancelled = 4    // Отменен
 }
 
 public enum PickingTaskStatus
