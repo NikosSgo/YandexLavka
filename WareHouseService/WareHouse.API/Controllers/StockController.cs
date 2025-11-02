@@ -21,18 +21,18 @@ public class StockController : ControllerBase
     }
 
     [HttpGet("products/{productId:guid}")]
-    [ProducesResponseType(typeof(StockLevelDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ProductStockDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<StockLevelDto>> GetStockLevel(
+    public async Task<ActionResult<ProductStockDto>> GetStockLevel(
         [FromRoute]
-        [Example("3f9bcc41-4a35-496b-a008-30428253ecb4")] // ✅ ДОБАВЬТЕ ЭТОТ АТРИБУТ
+        [Example("3f9bcc41-4a35-496b-a008-30428253ecb4")]
         Guid productId)
     {
         _logger.LogInformation("Getting stock level for product {ProductId}", productId);
 
         try
         {
-            var stockLevel = await _mediator.Send(new GetStockLevelQuery(productId));
+            var stockLevel = await _mediator.Send(new GetProductStockQuery(productId));
             return Ok(stockLevel);
         }
         catch (Exception ex)

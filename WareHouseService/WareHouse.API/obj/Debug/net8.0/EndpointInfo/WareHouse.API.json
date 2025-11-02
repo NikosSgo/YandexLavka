@@ -531,17 +531,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/StockLevelDto"
+                  "$ref": "#/components/schemas/ProductStockDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/StockLevelDto"
+                  "$ref": "#/components/schemas/ProductStockDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/StockLevelDto"
+                  "$ref": "#/components/schemas/ProductStockDto"
                 }
               }
             }
@@ -955,6 +955,56 @@
         },
         "additionalProperties": { }
       },
+      "ProductStockDto": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "productName": {
+            "type": "string",
+            "nullable": true
+          },
+          "sku": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalQuantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "availableQuantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "reservedQuantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "locations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "isLowStock": {
+            "type": "boolean"
+          },
+          "isOutOfStock": {
+            "type": "boolean"
+          },
+          "storageLocations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StorageLocationDtoProduct"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "RestockRequest": {
         "type": "object",
         "properties": {
@@ -1048,6 +1098,32 @@
           "availableQuantity": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StorageLocationDtoProduct": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "availableQuantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "zone": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastRestocked": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false

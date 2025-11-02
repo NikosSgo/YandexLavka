@@ -1,0 +1,38 @@
+2025-11-02 00:33:38.719 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-02 00:33:38.760 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-02 00:33:38.765 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-11-02 00:33:56.686 +03:00 [INF] Incoming request: GET /api/Stock/products/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+2025-11-02 00:33:56.719 +03:00 [INF] Getting stock level for product "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+2025-11-02 00:33:56.736 +03:00 [INF] Handling command/query: GetProductStockQuery {"ProductId":"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa","$type":"GetProductStockQuery"}
+2025-11-02 00:33:56.749 +03:00 [INF] Getting stock level for product "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+2025-11-02 00:33:56.752 +03:00 [ERR] Error getting stock level for product "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at WareHouse.Application.Queries.GetProductStockQueryHandler.Handle(GetProductStockQuery request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Queries\GetProductStockQuery.cs:line 28
+   at WareHouse.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\ValidationBehavior.cs:line 36
+   at WareHouse.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\LoggingBehavior.cs:line 22
+   at WareHouse.API.Controllers.StockController.GetStockLevel(Guid productId) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Controllers\StockController.cs:line 35
+2025-11-02 00:33:56.782 +03:00 [INF] Request completed: GET /api/Stock/products/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa - 404 in 97.4324ms
+2025-11-02 00:37:25.190 +03:00 [INF] Incoming request: GET /api/Picking/tasks
+2025-11-02 00:37:25.215 +03:00 [INF] Getting picking tasks. Status: InProgress, Zone: B,D,cooler
+2025-11-02 00:37:25.220 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":"InProgress","Zone":"B,D,cooler","$type":"GetPickingTasksQuery"}
+2025-11-02 00:37:25.283 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-11-02 00:37:25.299 +03:00 [INF] Request completed: GET /api/Picking/tasks - 200 in 109.5635ms
+2025-11-02 00:42:13.637 +03:00 [INF] Incoming request: GET /api/Picking/pickers/jhon/tasks
+2025-11-02 00:42:13.647 +03:00 [INF] Getting tasks for picker jhon
+2025-11-02 00:42:13.651 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":null,"Zone":null,"$type":"GetPickingTasksQuery"}
+2025-11-02 00:42:13.684 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-11-02 00:42:13.687 +03:00 [INF] Request completed: GET /api/Picking/pickers/jhon/tasks - 200 in 49.943ms
+2025-11-02 17:20:12.276 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-02 17:20:12.332 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-02 17:20:12.336 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-11-02 17:21:54.021 +03:00 [INF] Incoming request: GET /api/Stock/products/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+2025-11-02 17:21:54.106 +03:00 [INF] Getting stock level for product "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+2025-11-02 17:21:54.117 +03:00 [INF] Handling command/query: GetProductStockQuery {"ProductId":"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa","$type":"GetProductStockQuery"}
+2025-11-02 17:21:54.131 +03:00 [INF] Getting stock level for product "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+2025-11-02 17:21:54.138 +03:00 [ERR] Error getting stock level for product "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at WareHouse.Application.Queries.GetProductStockQueryHandler.Handle(GetProductStockQuery request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Queries\GetProductStockQuery.cs:line 28
+   at WareHouse.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\ValidationBehavior.cs:line 36
+   at WareHouse.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\LoggingBehavior.cs:line 22
+   at WareHouse.API.Controllers.StockController.GetStockLevel(Guid productId) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Controllers\StockController.cs:line 35
+2025-11-02 17:21:54.184 +03:00 [INF] Request completed: GET /api/Stock/products/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa - 404 in 164.9122ms

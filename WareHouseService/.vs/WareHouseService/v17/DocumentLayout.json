@@ -3,6 +3,110 @@
   "WorkspaceRootPath": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.infrastructure\\data\\queryunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|solutionrelative:warehouse.infrastructure\\data\\queryunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\queries\\getproductstockquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\queries\\getproductstockquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.infrastructure\\configuration\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|solutionrelative:warehouse.infrastructure\\configuration\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.infrastructure\\data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|solutionrelative:warehouse.infrastructure\\data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.infrastructure\\data\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|solutionrelative:warehouse.infrastructure\\data\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|solutionrelative:warehouse.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.infrastructure\\data\\repositories\\storageunitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|solutionrelative:warehouse.infrastructure\\data\\repositories\\storageunitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.domain\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|solutionrelative:warehouse.domain\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\dtos\\storagelocationdtoproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\dtos\\storagelocationdtoproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\dtos\\storagelocationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\dtos\\storagelocationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\dtos\\productstockdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\dtos\\productstockdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\dtos\\stockdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\dtos\\stockdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.domain\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|solutionrelative:warehouse.domain\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.domain\\enums\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|solutionrelative:warehouse.domain\\enums\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|solutionrelative:warehouse.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.api\\controllers\\stockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|solutionrelative:warehouse.api\\controllers\\stockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\services\\stockservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\services\\stockservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\queries\\getstocklevelquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\queries\\getstocklevelquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.tests\\unit\\application\\validators\\startpickingcommandvalidatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|solutionrelative:warehouse.tests\\unit\\application\\validators\\startpickingcommandvalidatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.tests\\unit\\domain\\storageunittests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|solutionrelative:warehouse.tests\\unit\\domain\\storageunittests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.tests\\unit\\domain\\orderaggregatetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|solutionrelative:warehouse.tests\\unit\\domain\\orderaggregatetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.tests\\unit\\application\\commands\\startpickingcommandtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|solutionrelative:warehouse.tests\\unit\\application\\commands\\startpickingcommandtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.api\\controllers\\pickingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|solutionrelative:warehouse.api\\controllers\\pickingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.api\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|solutionrelative:warehouse.api\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.domain\\enums\\enumconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|solutionrelative:warehouse.domain\\enums\\enumconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,16 +127,8 @@
       "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\commands\\startpickingcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.domain\\enums\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|solutionrelative:warehouse.domain\\enums\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.domain\\entities\\pickingtask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|solutionrelative:warehouse.domain\\entities\\pickingtask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.infrastructure\\data\\repositories\\storageunitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|solutionrelative:warehouse.infrastructure\\data\\repositories\\storageunitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.domain\\entities\\storageunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -71,48 +167,16 @@
       "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\dtos\\pickingtaskdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.api\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|solutionrelative:warehouse.api\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\queries\\getstocklevelquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\queries\\getstocklevelquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\dtos\\stockdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\dtos\\stockdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\dtos\\stockupdaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\dtos\\stockupdaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\dtos\\productstockdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\dtos\\productstockdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\queries\\getproductstockquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\queries\\getproductstockquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.api\\controllers\\stockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|solutionrelative:warehouse.api\\controllers\\stockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\services\\stockservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\services\\stockservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\queries\\getlowstockquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\queries\\getlowstockquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.domain\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|solutionrelative:warehouse.domain\\interfaces\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\commands\\updatestockcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -135,20 +199,12 @@
       "RelativeMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|solutionrelative:warehouse.infrastructure\\services\\cacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.infrastructure\\data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|solutionrelative:warehouse.infrastructure\\data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.infrastructure\\data\\idatabaseconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|solutionrelative:warehouse.infrastructure\\data\\idatabaseconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.infrastructure\\data\\databaseseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|solutionrelative:warehouse.infrastructure\\data\\databaseseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.infrastructure\\configuration\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|solutionrelative:warehouse.infrastructure\\configuration\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.domain\\services\\istockdomainservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -179,10 +235,6 @@
       "RelativeMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|solutionrelative:warehouse.domain\\common\\aggregateroot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\queries\\getpickingtasksquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\queries\\getpickingtasksquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -193,10 +245,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\queries\\getorderquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\queries\\getorderquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\dtos\\orderdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -213,10 +261,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.application\\behaviors\\loggingbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80AE6288-BC16-4E51-9D3B-C0664538FEF1}|WareHouse.Application\\WareHouse.Application.csproj|solutionrelative:warehouse.application\\behaviors\\loggingbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|solutionrelative:warehouse.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.api\\models\\webhookmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -237,10 +281,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.api\\middleware\\correlationidmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|solutionrelative:warehouse.api\\middleware\\correlationidmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.api\\controllers\\pickingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|solutionrelative:warehouse.api\\controllers\\pickingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F5294C98-5D2B-42B8-B5BE-F63F6D3CD310}|WareHouse.Migrations\\WareHouse.Migrations.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.migrations\\migrations\\202410280002_normalizedatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -319,14 +359,6 @@
       "RelativeMoniker": "D:0:0:{F5294C98-5D2B-42B8-B5BE-F63F6D3CD310}|WareHouse.Migrations\\WareHouse.Migrations.csproj|solutionrelative:warehouse.migrations\\appsettings.production.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.tests\\unit\\domain\\orderaggregatetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|solutionrelative:warehouse.tests\\unit\\domain\\orderaggregatetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.tests\\unit\\application\\commands\\startpickingcommandtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|solutionrelative:warehouse.tests\\unit\\application\\commands\\startpickingcommandtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.tests\\testbase\\testdatafactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|solutionrelative:warehouse.tests\\testbase\\testdatafactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -359,16 +391,8 @@
       "RelativeMoniker": "D:0:0:{068E5BE4-A6D0-4B74-867F-596346906823}|WareHouse.API\\WareHouse.API.csproj|solutionrelative:warehouse.api\\configuration\\apiserviceconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.tests\\unit\\application\\validators\\startpickingcommandvalidatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|solutionrelative:warehouse.tests\\unit\\application\\validators\\startpickingcommandvalidatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{754FC069-D67B-A9D7-50A1-8D1CA196D8F1}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{754FC069-D67B-A9D7-50A1-8D1CA196D8F1}|C:\\Backend_Project\\YandexLavka\\WareHouseService\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
       "RelativeMoniker": "D:0:0:{754FC069-D67B-A9D7-50A1-8D1CA196D8F1}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{754FC069-D67B-A9D7-50A1-8D1CA196D8F1}|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.tests\\unit\\domain\\storageunittests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|solutionrelative:warehouse.tests\\unit\\domain\\storageunittests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E669E9D6-B563-4249-9524-AD7D0859B5EE}|WareHouse.Tests\\WareHouse.Tests.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.tests\\warehouse.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -402,7 +426,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -414,242 +438,250 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CompletePickingCommand.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\CompletePickingCommand.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\Commands\\CompletePickingCommand.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\CompletePickingCommand.cs",
-              "RelativeToolTip": "WareHouse.Application\\Commands\\CompletePickingCommand.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAgwAkAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:25:41.324Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OrderAggregate.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\OrderAggregate.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Entities\\OrderAggregate.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\OrderAggregate.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Entities\\OrderAggregate.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAmwIUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:26:34.286Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PickingTaskRepository.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\Repositories\\PickingTaskRepository.cs",
-              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Data\\Repositories\\PickingTaskRepository.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\Repositories\\PickingTaskRepository.cs",
-              "RelativeToolTip": "WareHouse.Infrastructure\\Data\\Repositories\\PickingTaskRepository.cs",
-              "ViewState": "AgIAALwAAAAAAAAAAAAkwF0AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:10:43.82Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EnumConverter.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Enums\\EnumConverter.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Enums\\EnumConverter.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Enums\\EnumConverter.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Enums\\EnumConverter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAtAAAAAAAAAA==",
+              "Title": "QueryUnitOfWork.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\QueryUnitOfWork.cs",
+              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Data\\QueryUnitOfWork.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\QueryUnitOfWork.cs",
+              "RelativeToolTip": "WareHouse.Infrastructure\\Data\\QueryUnitOfWork.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAcwFcAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T21:55:32.619Z",
+              "WhenOpened": "2025-11-02T14:44:46.847Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "StartPickingCommand.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\StartPickingCommand.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\Commands\\StartPickingCommand.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\StartPickingCommand.cs",
-              "RelativeToolTip": "WareHouse.Application\\Commands\\StartPickingCommand.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAewDUAAAA+AAAAAAAAAA==",
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\Repositories\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Data\\Repositories\\ProductRepository.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\Repositories\\ProductRepository.cs",
+              "RelativeToolTip": "WareHouse.Infrastructure\\Data\\Repositories\\ProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:25:17.773Z",
+              "WhenOpened": "2025-11-01T20:53:40.178Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "OrderStatus.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Enums\\OrderStatus.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Enums\\OrderStatus.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Enums\\OrderStatus.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Enums\\OrderStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAARAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Data\\UnitOfWork.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\UnitOfWork.cs",
+              "RelativeToolTip": "WareHouse.Infrastructure\\Data\\UnitOfWork.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAADwv+IAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:30:27.733Z",
+              "WhenOpened": "2025-10-27T22:09:09.848Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Configuration\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Configuration\\DependencyInjection.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Configuration\\DependencyInjection.cs",
+              "RelativeToolTip": "WareHouse.Infrastructure\\Configuration\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:08:16.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GetProductStockQuery.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetProductStockQuery.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\Queries\\GetProductStockQuery.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetProductStockQuery.cs",
+              "RelativeToolTip": "WareHouse.Application\\Queries\\GetProductStockQuery.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAAEIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T21:15:33.998Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "PickingTask.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\PickingTask.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Entities\\PickingTask.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\PickingTask.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Entities\\PickingTask.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAuwC8AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:27:51.943Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "StorageUnitRepository.cs",
               "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\Repositories\\StorageUnitRepository.cs",
               "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Data\\Repositories\\StorageUnitRepository.cs",
               "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\Repositories\\StorageUnitRepository.cs",
               "RelativeToolTip": "WareHouse.Infrastructure\\Data\\Repositories\\StorageUnitRepository.cs",
-              "ViewState": "AgIAACQBAAAAAAAAAAAAwDIBAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAFQBAAAAAAAAAAAqwKwBAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-27T22:11:09.372Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "StorageUnit.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\StorageUnit.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Entities\\StorageUnit.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\StorageUnit.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Entities\\StorageUnit.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAKAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Program.cs",
+              "RelativeDocumentMoniker": "WareHouse.API\\Program.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Program.cs",
+              "RelativeToolTip": "WareHouse.API\\Program.cs",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAAALwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:28:28.042Z",
+              "WhenOpened": "2025-10-28T14:43:58.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Interfaces\\IProductRepository.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IProductRepository.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Interfaces\\IProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T20:52:39.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "StorageLocationDtoProduct.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\StorageLocationDtoProduct.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\DTOs\\StorageLocationDtoProduct.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\StorageLocationDtoProduct.cs",
+              "RelativeToolTip": "WareHouse.Application\\DTOs\\StorageLocationDtoProduct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T21:11:26.256Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "IStorageUnitRepository.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IStorageUnitRepository.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Interfaces\\IStorageUnitRepository.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IStorageUnitRepository.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Interfaces\\IStorageUnitRepository.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAQwA4AAAAXAAAAAAAAAA==",
+              "Title": "StorageLocationDto.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\StorageLocationDto.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\DTOs\\StorageLocationDto.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\StorageLocationDto.cs",
+              "RelativeToolTip": "WareHouse.Application\\DTOs\\StorageLocationDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:31:56.294Z",
+              "WhenOpened": "2025-11-01T21:00:31.282Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "IPickingTaskRepository.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IPickingTaskRepository.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Interfaces\\IPickingTaskRepository.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IPickingTaskRepository.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Interfaces\\IPickingTaskRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAARAAAAAAAAAA==",
+              "Title": "ProductStockDto.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\ProductStockDto.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\DTOs\\ProductStockDto.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\ProductStockDto.cs",
+              "RelativeToolTip": "WareHouse.Application\\DTOs\\ProductStockDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:31:30.727Z",
+              "WhenOpened": "2025-10-31T21:16:29.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "StockDtos.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\StockDtos.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\DTOs\\StockDtos.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\StockDtos.cs",
+              "RelativeToolTip": "WareHouse.Application\\DTOs\\StockDtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:27:45.674Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "PickingItem.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\PickingItem.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Entities\\PickingItem.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\PickingItem.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Entities\\PickingItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAABAAAAAAAAAA==",
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Interfaces\\IUnitOfWork.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IUnitOfWork.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Interfaces\\IUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:49:47.356Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "OrderRepository.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\Repositories\\OrderRepository.cs",
-              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Data\\Repositories\\OrderRepository.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\Repositories\\OrderRepository.cs",
-              "RelativeToolTip": "WareHouse.Infrastructure\\Data\\Repositories\\OrderRepository.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAqwLMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:10:22.251Z"
+              "WhenOpened": "2025-10-22T21:46:14.24Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IRepository.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Interfaces\\IRepository.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IRepository.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Interfaces\\IRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Title": "OrderStatus.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Enums\\OrderStatus.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Enums\\OrderStatus.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Enums\\OrderStatus.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Enums\\OrderStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:35:01.434Z"
+              "WhenOpened": "2025-10-22T21:30:27.733Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "IOrderRepository.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IOrderRepository.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Interfaces\\IOrderRepository.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IOrderRepository.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Interfaces\\IOrderRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAvAAAAAAAAAA==",
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Entities\\Product.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\Product.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Entities\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:30:48.394Z"
+              "WhenOpened": "2025-11-01T20:58:21.825Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "PickingService.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Services\\PickingService.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\Services\\PickingService.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Services\\PickingService.cs",
-              "RelativeToolTip": "WareHouse.Application\\Services\\PickingService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAABNAAAAAAAAAA==",
+              "Title": "StockController.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\StockController.cs",
+              "RelativeDocumentMoniker": "WareHouse.API\\Controllers\\StockController.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\StockController.cs",
+              "RelativeToolTip": "WareHouse.API\\Controllers\\StockController.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAcwJIAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:31:42.727Z"
+              "WhenOpened": "2025-10-28T14:37:02.205Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "PickingTaskDtos.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\PickingTaskDtos.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\DTOs\\PickingTaskDtos.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\PickingTaskDtos.cs",
-              "RelativeToolTip": "WareHouse.Application\\DTOs\\PickingTaskDtos.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAUwBsAAAA5AAAAAAAAAA==",
+              "Title": "StockService.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Services\\StockService.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\Services\\StockService.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Services\\StockService.cs",
+              "RelativeToolTip": "WareHouse.Application\\Services\\StockService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAcwC8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:27:01.516Z"
+              "WhenOpened": "2025-10-27T22:33:30.28Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "OrdersController.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\OrdersController.cs",
-              "RelativeDocumentMoniker": "WareHouse.API\\Controllers\\OrdersController.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\OrdersController.cs",
-              "RelativeToolTip": "WareHouse.API\\Controllers\\OrdersController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAUwDIAAAAlAAAAAAAAAA==",
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\DependencyInjection.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DependencyInjection.cs",
+              "RelativeToolTip": "WareHouse.Application\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T14:36:21.753Z"
+              "WhenOpened": "2025-10-27T22:33:52.29Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "OrderService.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Services\\OrderService.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\Services\\OrderService.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Services\\OrderService.cs",
-              "RelativeToolTip": "WareHouse.Application\\Services\\OrderService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAABAAAAAAAAAA==",
+              "Title": "IOrderService.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Interfaces\\IOrderService.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\Interfaces\\IOrderService.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Interfaces\\IOrderService.cs",
+              "RelativeToolTip": "WareHouse.Application\\Interfaces\\IOrderService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:30:45.975Z"
+              "WhenOpened": "2025-10-27T22:29:01.646Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -659,865 +691,25 @@
               "RelativeDocumentMoniker": "WareHouse.Application\\Queries\\GetStockLevelQuery.cs",
               "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetStockLevelQuery.cs",
               "RelativeToolTip": "WareHouse.Application\\Queries\\GetStockLevelQuery.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwDMAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAIwCYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-27T22:30:25.935Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "StockUpdateRequest.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\StockUpdateRequest.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\DTOs\\StockUpdateRequest.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\StockUpdateRequest.cs",
-              "RelativeToolTip": "WareHouse.Application\\DTOs\\StockUpdateRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T18:41:01.781Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 20,
-              "Title": "StockDtos.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\StockDtos.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\DTOs\\StockDtos.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\StockDtos.cs",
-              "RelativeToolTip": "WareHouse.Application\\DTOs\\StockDtos.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAYwAIAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:27:45.674Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "GetProductStockQuery.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetProductStockQuery.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\Queries\\GetProductStockQuery.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetProductStockQuery.cs",
-              "RelativeToolTip": "WareHouse.Application\\Queries\\GetProductStockQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T21:15:33.998Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "ProductStockDto.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\ProductStockDto.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\DTOs\\ProductStockDto.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\ProductStockDto.cs",
-              "RelativeToolTip": "WareHouse.Application\\DTOs\\ProductStockDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T21:16:29.078Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "StockController.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\StockController.cs",
-              "RelativeDocumentMoniker": "WareHouse.API\\Controllers\\StockController.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\StockController.cs",
-              "RelativeToolTip": "WareHouse.API\\Controllers\\StockController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAswCIAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T14:37:02.205Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "StockService.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Services\\StockService.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\Services\\StockService.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Services\\StockService.cs",
-              "RelativeToolTip": "WareHouse.Application\\Services\\StockService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:33:30.28Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "GetLowStockQuery.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetLowStockQuery.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\Queries\\GetLowStockQuery.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetLowStockQuery.cs",
-              "RelativeToolTip": "WareHouse.Application\\Queries\\GetLowStockQuery.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAgwC8AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T18:34:04.577Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "IUnitOfWork.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IUnitOfWork.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Interfaces\\IUnitOfWork.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IUnitOfWork.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Interfaces\\IUnitOfWork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:46:14.24Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "UpdateStockCommand.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\UpdateStockCommand.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\Commands\\UpdateStockCommand.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\UpdateStockCommand.cs",
-              "RelativeToolTip": "WareHouse.Application\\Commands\\UpdateStockCommand.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAowEUAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:26:20.74Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "KafkaConsumerService.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Messaging\\KafkaConsumerService.cs",
-              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Messaging\\KafkaConsumerService.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Messaging\\KafkaConsumerService.cs",
-              "RelativeToolTip": "WareHouse.Infrastructure\\Messaging\\KafkaConsumerService.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAiwJ8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:11:50.074Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "KafkaProducerService.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Messaging\\KafkaProducerService.cs",
-              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Messaging\\KafkaProducerService.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Messaging\\KafkaProducerService.cs",
-              "RelativeToolTip": "WareHouse.Infrastructure\\Messaging\\KafkaProducerService.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAuwD8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:11:29.674Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "DomainEventService.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Services\\DomainEventService.cs",
-              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Services\\DomainEventService.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Services\\DomainEventService.cs",
-              "RelativeToolTip": "WareHouse.Infrastructure\\Services\\DomainEventService.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAYwCAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:12:26.54Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "CacheService.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Services\\CacheService.cs",
-              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Services\\CacheService.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Services\\CacheService.cs",
-              "RelativeToolTip": "WareHouse.Infrastructure\\Services\\CacheService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:12:45.244Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\UnitOfWork.cs",
-              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Data\\UnitOfWork.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\UnitOfWork.cs",
-              "RelativeToolTip": "WareHouse.Infrastructure\\Data\\UnitOfWork.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAqwJ4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:09:09.848Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "IDatabaseConnectionFactory.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\IDatabaseConnectionFactory.cs",
-              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Data\\IDatabaseConnectionFactory.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\IDatabaseConnectionFactory.cs",
-              "RelativeToolTip": "WareHouse.Infrastructure\\Data\\IDatabaseConnectionFactory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T19:22:01.564Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "DatabaseSeeder.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\DatabaseSeeder.cs",
-              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Data\\DatabaseSeeder.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\DatabaseSeeder.cs",
-              "RelativeToolTip": "WareHouse.Infrastructure\\Data\\DatabaseSeeder.cs",
-              "ViewState": "AgIAAJgAAAAAAAAAAAAAAOsAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T15:12:03.494Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Configuration\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Configuration\\DependencyInjection.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Configuration\\DependencyInjection.cs",
-              "RelativeToolTip": "WareHouse.Infrastructure\\Configuration\\DependencyInjection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:08:16.075Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "IStockDomainService.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Services\\IStockDomainService.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Services\\IStockDomainService.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Services\\IStockDomainService.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Services\\IStockDomainService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:53:56.879Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "IOrderDomainService.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Services\\IOrderDomainService.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Services\\IOrderDomainService.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Services\\IOrderDomainService.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Services\\IOrderDomainService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:53:30.212Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "OrderEvents.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Events\\OrderEvents.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Events\\OrderEvents.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Events\\OrderEvents.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Events\\OrderEvents.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAIwEMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:29:57.942Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "IDomainEvent.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Events\\IDomainEvent.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Events\\IDomainEvent.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Events\\IDomainEvent.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Events\\IDomainEvent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:52:24.19Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "OrderLine.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\OrderLine.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Entities\\OrderLine.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\OrderLine.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Entities\\OrderLine.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAUwCsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:49:01.625Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "Entity.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Common\\Entity.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Common\\Entity.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Common\\Entity.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Common\\Entity.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwCwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T17:45:22.738Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "AggregateRoot.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Common\\AggregateRoot.cs",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\Common\\AggregateRoot.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Common\\AggregateRoot.cs",
-              "RelativeToolTip": "WareHouse.Domain\\Common\\AggregateRoot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T17:45:54.636Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\DependencyInjection.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DependencyInjection.cs",
-              "RelativeToolTip": "WareHouse.Application\\DependencyInjection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:33:52.29Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "GetPickingTasksQuery.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetPickingTasksQuery.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\Queries\\GetPickingTasksQuery.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetPickingTasksQuery.cs",
-              "RelativeToolTip": "WareHouse.Application\\Queries\\GetPickingTasksQuery.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAuwDIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:29:56.901Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "GetOrdersByStatusQuery.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetOrdersByStatusQuery.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\Queries\\GetOrdersByStatusQuery.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetOrdersByStatusQuery.cs",
-              "RelativeToolTip": "WareHouse.Application\\Queries\\GetOrdersByStatusQuery.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAAAEUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:29:39.069Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "GetOrderQuery.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetOrderQuery.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\Queries\\GetOrderQuery.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetOrderQuery.cs",
-              "RelativeToolTip": "WareHouse.Application\\Queries\\GetOrderQuery.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAAADwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:29:21.383Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "IOrderService.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Interfaces\\IOrderService.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\Interfaces\\IOrderService.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Interfaces\\IOrderService.cs",
-              "RelativeToolTip": "WareHouse.Application\\Interfaces\\IOrderService.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAgwBoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:29:01.646Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "OrderDtos.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\OrderDtos.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\DTOs\\OrderDtos.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\OrderDtos.cs",
-              "RelativeToolTip": "WareHouse.Application\\DTOs\\OrderDtos.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAwBgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:26:42.048Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "CancelPickingCommand.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\CancelPickingCommand.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\Commands\\CancelPickingCommand.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\CancelPickingCommand.cs",
-              "RelativeToolTip": "WareHouse.Application\\Commands\\CancelPickingCommand.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAAwEYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:26:00.719Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "ValidationBehavior.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Behaviors\\ValidationBehavior.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\Behaviors\\ValidationBehavior.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Behaviors\\ValidationBehavior.cs",
-              "RelativeToolTip": "WareHouse.Application\\Behaviors\\ValidationBehavior.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:21:51.799Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "LoggingBehavior.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Behaviors\\LoggingBehavior.cs",
-              "RelativeDocumentMoniker": "WareHouse.Application\\Behaviors\\LoggingBehavior.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Behaviors\\LoggingBehavior.cs",
-              "RelativeToolTip": "WareHouse.Application\\Behaviors\\LoggingBehavior.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:21:31.132Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Program.cs",
-              "RelativeDocumentMoniker": "WareHouse.API\\Program.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Program.cs",
-              "RelativeToolTip": "WareHouse.API\\Program.cs",
-              "ViewState": "AgIAAKkAAAAAAAAAAAAAwM0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T14:43:58.952Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "WebhookModels.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Models\\WebhookModels.cs",
-              "RelativeDocumentMoniker": "WareHouse.API\\Models\\WebhookModels.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Models\\WebhookModels.cs",
-              "RelativeToolTip": "WareHouse.API\\Models\\WebhookModels.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T14:39:31.486Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "ApiResponse.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Models\\ApiResponse.cs",
-              "RelativeDocumentMoniker": "WareHouse.API\\Models\\ApiResponse.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Models\\ApiResponse.cs",
-              "RelativeToolTip": "WareHouse.API\\Models\\ApiResponse.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAQwCYAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T14:39:09.748Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "RequestLoggingMiddleware.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Middleware\\RequestLoggingMiddleware.cs",
-              "RelativeDocumentMoniker": "WareHouse.API\\Middleware\\RequestLoggingMiddleware.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Middleware\\RequestLoggingMiddleware.cs",
-              "RelativeToolTip": "WareHouse.API\\Middleware\\RequestLoggingMiddleware.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T14:38:30.064Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "GlobalExceptionHandlerMiddleware.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Middleware\\GlobalExceptionHandlerMiddleware.cs",
-              "RelativeDocumentMoniker": "WareHouse.API\\Middleware\\GlobalExceptionHandlerMiddleware.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Middleware\\GlobalExceptionHandlerMiddleware.cs",
-              "RelativeToolTip": "WareHouse.API\\Middleware\\GlobalExceptionHandlerMiddleware.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T14:38:05.206Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "CorrelationIdMiddleware.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Middleware\\CorrelationIdMiddleware.cs",
-              "RelativeDocumentMoniker": "WareHouse.API\\Middleware\\CorrelationIdMiddleware.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Middleware\\CorrelationIdMiddleware.cs",
-              "RelativeToolTip": "WareHouse.API\\Middleware\\CorrelationIdMiddleware.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T14:38:49.69Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 59,
-              "Title": "PickingController.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\PickingController.cs",
-              "RelativeDocumentMoniker": "WareHouse.API\\Controllers\\PickingController.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\PickingController.cs",
-              "RelativeToolTip": "WareHouse.API\\Controllers\\PickingController.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAuwDwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T14:36:43.995Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 60,
-              "Title": "202410280002_NormalizeDatabase.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\Migrations\\202410280002_NormalizeDatabase.cs",
-              "RelativeDocumentMoniker": "WareHouse.Migrations\\Migrations\\202410280002_NormalizeDatabase.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\Migrations\\202410280002_NormalizeDatabase.cs",
-              "RelativeToolTip": "WareHouse.Migrations\\Migrations\\202410280002_NormalizeDatabase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T09:25:54.183Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 61,
-              "Title": "0001_CreateInitialTables.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\Migrations\\0001_CreateInitialTables.cs",
-              "RelativeDocumentMoniker": "WareHouse.Migrations\\Migrations\\0001_CreateInitialTables.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\Migrations\\0001_CreateInitialTables.cs",
-              "RelativeToolTip": "WareHouse.Migrations\\Migrations\\0001_CreateInitialTables.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAQwGEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T13:13:55.242Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 62,
-              "Title": "SQL_Seeds.txt",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\SQL_Seeds.txt",
-              "RelativeDocumentMoniker": "SQL_Seeds.txt",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\SQL_Seeds.txt",
-              "RelativeToolTip": "SQL_Seeds.txt",
-              "ViewState": "AgIAALcAAAAAAAAAAAAAAAkBAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-10-31T18:45:17.594Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 64,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "WareHouse.Migrations\\appsettings.Development.json",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\appsettings.Development.json",
-              "RelativeToolTip": "WareHouse.Migrations\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-29T13:30:12.293Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 63,
-              "Title": "VersionTable.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\VersionTable.cs",
-              "RelativeDocumentMoniker": "WareHouse.Migrations\\VersionTable.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\VersionTable.cs",
-              "RelativeToolTip": "WareHouse.Migrations\\VersionTable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T13:14:40.896Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 66,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\Program.cs",
-              "RelativeDocumentMoniker": "WareHouse.Migrations\\Program.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\Program.cs",
-              "RelativeToolTip": "WareHouse.Migrations\\Program.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwCwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T13:15:35.662Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 65,
-              "Title": "MigratorRunner.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\MigratorRunner.cs",
-              "RelativeDocumentMoniker": "WareHouse.Migrations\\MigratorRunner.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\MigratorRunner.cs",
-              "RelativeToolTip": "WareHouse.Migrations\\MigratorRunner.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAmwCYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T13:15:02.815Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 67,
-              "Title": "docker-compose.yml",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\docker-compose.yml",
-              "RelativeDocumentMoniker": "docker-compose.yml",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\docker-compose.yml",
-              "RelativeToolTip": "docker-compose.yml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAGoAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2025-10-28T15:06:50.724Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 68,
-              "Title": "HealthController.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\HealthController.cs",
-              "RelativeDocumentMoniker": "WareHouse.API\\Controllers\\HealthController.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\HealthController.cs",
-              "RelativeToolTip": "WareHouse.API\\Controllers\\HealthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T14:37:45.108Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 69,
-              "Title": "WareHouse.Application.csproj",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\WareHouse.Application.csproj",
-              "RelativeDocumentMoniker": "WareHouse.Application\\WareHouse.Application.csproj",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\WareHouse.Application.csproj",
-              "RelativeToolTip": "WareHouse.Application\\WareHouse.Application.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-21T20:36:28.632Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 70,
-              "Title": "WareHouse.Domain.csproj",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\WareHouse.Domain.csproj",
-              "RelativeDocumentMoniker": "WareHouse.Domain\\WareHouse.Domain.csproj",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\WareHouse.Domain.csproj",
-              "RelativeToolTip": "WareHouse.Domain\\WareHouse.Domain.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-21T20:24:43.308Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 71,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "WareHouse.API\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Properties\\launchSettings.json",
-              "RelativeToolTip": "WareHouse.API\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-28T14:42:08.549Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 72,
-              "Title": "OrdersControllerIntegrationTests.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Integration\\API\\OrdersControllerIntegrationTests.cs",
-              "RelativeDocumentMoniker": "WareHouse.Tests\\Integration\\API\\OrdersControllerIntegrationTests.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Integration\\API\\OrdersControllerIntegrationTests.cs",
-              "RelativeToolTip": "WareHouse.Tests\\Integration\\API\\OrdersControllerIntegrationTests.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAuwHkAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T16:23:32.052Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 73,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\appsettings.json",
-              "RelativeDocumentMoniker": "WareHouse.API\\appsettings.json",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\appsettings.json",
-              "RelativeToolTip": "WareHouse.API\\appsettings.json",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAgwFIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-28T14:39:45.096Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 74,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "WareHouse.API\\appsettings.Development.json",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\appsettings.Development.json",
-              "RelativeToolTip": "WareHouse.API\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-28T14:40:30.839Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 75,
-              "Title": "WareHouse.Infrastructure.csproj",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj",
-              "RelativeToolTip": "WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-21T20:37:22.339Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 76,
-              "Title": "WareHouse.Migrations.csproj",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\WareHouse.Migrations.csproj",
-              "RelativeDocumentMoniker": "WareHouse.Migrations\\WareHouse.Migrations.csproj",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\WareHouse.Migrations.csproj",
-              "RelativeToolTip": "WareHouse.Migrations\\WareHouse.Migrations.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-29T13:10:44.934Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 77,
-              "Title": "WareHouse.API.csproj",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\WareHouse.API.csproj",
-              "RelativeDocumentMoniker": "WareHouse.API\\WareHouse.API.csproj",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\WareHouse.API.csproj",
-              "RelativeToolTip": "WareHouse.API\\WareHouse.API.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-21T20:38:07.453Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 78,
-              "Title": "appsettings.Production.json",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\appsettings.Production.json",
-              "RelativeDocumentMoniker": "WareHouse.Migrations\\appsettings.Production.json",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\appsettings.Production.json",
-              "RelativeToolTip": "WareHouse.Migrations\\appsettings.Production.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-29T13:31:19.739Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 79,
-              "Title": "OrderAggregateTests.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Unit\\Domain\\OrderAggregateTests.cs",
-              "RelativeDocumentMoniker": "WareHouse.Tests\\Unit\\Domain\\OrderAggregateTests.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Unit\\Domain\\OrderAggregateTests.cs",
-              "RelativeToolTip": "WareHouse.Tests\\Unit\\Domain\\OrderAggregateTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJAAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T16:20:59.991Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 80,
-              "Title": "StartPickingCommandTests.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Unit\\Application\\Commands\\StartPickingCommandTests.cs",
-              "RelativeDocumentMoniker": "WareHouse.Tests\\Unit\\Application\\Commands\\StartPickingCommandTests.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Unit\\Application\\Commands\\StartPickingCommandTests.cs",
-              "RelativeToolTip": "WareHouse.Tests\\Unit\\Application\\Commands\\StartPickingCommandTests.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAqwHoAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T16:22:28.383Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 81,
-              "Title": "TestDataFactory.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\TestBase\\TestDataFactory.cs",
-              "RelativeDocumentMoniker": "WareHouse.Tests\\TestBase\\TestDataFactory.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\TestBase\\TestDataFactory.cs",
-              "RelativeToolTip": "WareHouse.Tests\\TestBase\\TestDataFactory.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAAAFgAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T16:24:58.317Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 82,
-              "Title": "OrderRepositoryTests.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Integration\\Infrastructure\\Repositories\\OrderRepositoryTests.cs",
-              "RelativeDocumentMoniker": "WareHouse.Tests\\Integration\\Infrastructure\\Repositories\\OrderRepositoryTests.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Integration\\Infrastructure\\Repositories\\OrderRepositoryTests.cs",
-              "RelativeToolTip": "WareHouse.Tests\\Integration\\Infrastructure\\Repositories\\OrderRepositoryTests.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAqwGcAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T16:24:17.368Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 83,
-              "Title": "WeatherForecast.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\WeatherForecast.cs",
-              "RelativeDocumentMoniker": "WareHouse.API\\WeatherForecast.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\WeatherForecast.cs",
-              "RelativeToolTip": "WareHouse.API\\WeatherForecast.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T19:06:46.701Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 84,
-              "Title": "WareHouse.API.http",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\WareHouse.API.http",
-              "RelativeDocumentMoniker": "WareHouse.API\\WareHouse.API.http",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\WareHouse.API.http",
-              "RelativeToolTip": "WareHouse.API\\WareHouse.API.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-10-28T19:06:25.18Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 86,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouseService\\appsettings.json",
-              "RelativeDocumentMoniker": "WareHouseService\\appsettings.json",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouseService\\appsettings.json",
-              "RelativeToolTip": "WareHouseService\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-28T17:37:20.491Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 85,
-              "Title": "appsettings.Production.json.json",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\appsettings.Production.json.json",
-              "RelativeDocumentMoniker": "WareHouse.API\\appsettings.Production.json.json",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\appsettings.Production.json.json",
-              "RelativeToolTip": "WareHouse.API\\appsettings.Production.json.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-28T14:43:43.409Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 89,
               "Title": "StartPickingCommandValidatorTests.cs",
               "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Unit\\Application\\Validators\\StartPickingCommandValidatorTests.cs",
               "RelativeDocumentMoniker": "WareHouse.Tests\\Unit\\Application\\Validators\\StartPickingCommandValidatorTests.cs",
               "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Unit\\Application\\Validators\\StartPickingCommandValidatorTests.cs",
               "RelativeToolTip": "WareHouse.Tests\\Unit\\Application\\Validators\\StartPickingCommandValidatorTests.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAgwA8AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAADwv0IAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-28T16:23:02.853Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 88,
-              "Title": "ApiServiceConfiguration.cs",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Configuration\\ApiServiceConfiguration.cs",
-              "RelativeDocumentMoniker": "WareHouse.API\\Configuration\\ApiServiceConfiguration.cs",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Configuration\\ApiServiceConfiguration.cs",
-              "RelativeToolTip": "WareHouse.API\\Configuration\\ApiServiceConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T14:35:15.333Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 87,
-              "Title": "WareHouseService.csproj",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouseService\\WareHouseService.csproj",
-              "RelativeDocumentMoniker": "WareHouseService\\WareHouseService.csproj",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouseService\\WareHouseService.csproj",
-              "RelativeToolTip": "WareHouseService\\WareHouseService.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-28T16:42:51.837Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 90,
-              "Title": "README.md",
-              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\README.md",
-              "RelativeDocumentMoniker": "README.md",
-              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\README.md",
-              "RelativeToolTip": "README.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-10-28T16:34:13.921Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 91,
+              "DocumentIndex": 21,
               "Title": "StorageUnitTests.cs",
               "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Unit\\Domain\\StorageUnitTests.cs",
               "RelativeDocumentMoniker": "WareHouse.Tests\\Unit\\Domain\\StorageUnitTests.cs",
@@ -1529,7 +721,919 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "OrderAggregateTests.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Unit\\Domain\\OrderAggregateTests.cs",
+              "RelativeDocumentMoniker": "WareHouse.Tests\\Unit\\Domain\\OrderAggregateTests.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Unit\\Domain\\OrderAggregateTests.cs",
+              "RelativeToolTip": "WareHouse.Tests\\Unit\\Domain\\OrderAggregateTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJAAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T16:20:59.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "StartPickingCommandTests.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Unit\\Application\\Commands\\StartPickingCommandTests.cs",
+              "RelativeDocumentMoniker": "WareHouse.Tests\\Unit\\Application\\Commands\\StartPickingCommandTests.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Unit\\Application\\Commands\\StartPickingCommandTests.cs",
+              "RelativeToolTip": "WareHouse.Tests\\Unit\\Application\\Commands\\StartPickingCommandTests.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAqwHoAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T16:22:28.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "PickingController.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\PickingController.cs",
+              "RelativeDocumentMoniker": "WareHouse.API\\Controllers\\PickingController.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\PickingController.cs",
+              "RelativeToolTip": "WareHouse.API\\Controllers\\PickingController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T14:36:43.995Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "WareHouse.API\\Controllers\\OrdersController.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "WareHouse.API\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwDIAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T14:36:21.753Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "EnumConverter.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Enums\\EnumConverter.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Enums\\EnumConverter.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Enums\\EnumConverter.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Enums\\EnumConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T21:55:32.619Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "PickingTaskRepository.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\Repositories\\PickingTaskRepository.cs",
+              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Data\\Repositories\\PickingTaskRepository.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\Repositories\\PickingTaskRepository.cs",
+              "RelativeToolTip": "WareHouse.Infrastructure\\Data\\Repositories\\PickingTaskRepository.cs",
+              "ViewState": "AgIAALwAAAAAAAAAAAAkwF0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:10:43.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "OrderAggregate.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\OrderAggregate.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Entities\\OrderAggregate.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\OrderAggregate.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Entities\\OrderAggregate.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAmwIUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T21:26:34.286Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "CompletePickingCommand.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\CompletePickingCommand.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\Commands\\CompletePickingCommand.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\CompletePickingCommand.cs",
+              "RelativeToolTip": "WareHouse.Application\\Commands\\CompletePickingCommand.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwAkAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:25:41.324Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "StartPickingCommand.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\StartPickingCommand.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\Commands\\StartPickingCommand.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\StartPickingCommand.cs",
+              "RelativeToolTip": "WareHouse.Application\\Commands\\StartPickingCommand.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAewDUAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:25:17.773Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "PickingTask.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\PickingTask.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Entities\\PickingTask.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\PickingTask.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Entities\\PickingTask.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAuwC8AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T21:27:51.943Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "StorageUnit.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\StorageUnit.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Entities\\StorageUnit.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\StorageUnit.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Entities\\StorageUnit.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T21:28:28.042Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "IStorageUnitRepository.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IStorageUnitRepository.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Interfaces\\IStorageUnitRepository.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IStorageUnitRepository.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Interfaces\\IStorageUnitRepository.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAQwA4AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T21:31:56.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "IPickingTaskRepository.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IPickingTaskRepository.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Interfaces\\IPickingTaskRepository.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IPickingTaskRepository.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Interfaces\\IPickingTaskRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T21:31:30.727Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "PickingItem.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\PickingItem.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Entities\\PickingItem.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\PickingItem.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Entities\\PickingItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T21:49:47.356Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "OrderRepository.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\Repositories\\OrderRepository.cs",
+              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Data\\Repositories\\OrderRepository.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\Repositories\\OrderRepository.cs",
+              "RelativeToolTip": "WareHouse.Infrastructure\\Data\\Repositories\\OrderRepository.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAqwLMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:10:22.251Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IRepository.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Interfaces\\IRepository.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IRepository.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Interfaces\\IRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T21:35:01.434Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "IOrderRepository.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IOrderRepository.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Interfaces\\IOrderRepository.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Interfaces\\IOrderRepository.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Interfaces\\IOrderRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T21:30:48.394Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "PickingService.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Services\\PickingService.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\Services\\PickingService.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Services\\PickingService.cs",
+              "RelativeToolTip": "WareHouse.Application\\Services\\PickingService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:31:42.727Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "PickingTaskDtos.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\PickingTaskDtos.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\DTOs\\PickingTaskDtos.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\PickingTaskDtos.cs",
+              "RelativeToolTip": "WareHouse.Application\\DTOs\\PickingTaskDtos.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAUwBsAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:27:01.516Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Services\\OrderService.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\Services\\OrderService.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Services\\OrderService.cs",
+              "RelativeToolTip": "WareHouse.Application\\Services\\OrderService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:30:45.975Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "StockUpdateRequest.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\StockUpdateRequest.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\DTOs\\StockUpdateRequest.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\StockUpdateRequest.cs",
+              "RelativeToolTip": "WareHouse.Application\\DTOs\\StockUpdateRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T18:41:01.781Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "GetLowStockQuery.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetLowStockQuery.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\Queries\\GetLowStockQuery.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetLowStockQuery.cs",
+              "RelativeToolTip": "WareHouse.Application\\Queries\\GetLowStockQuery.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwC8AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T18:34:04.577Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "UpdateStockCommand.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\UpdateStockCommand.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\Commands\\UpdateStockCommand.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\UpdateStockCommand.cs",
+              "RelativeToolTip": "WareHouse.Application\\Commands\\UpdateStockCommand.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowEUAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:26:20.74Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "KafkaConsumerService.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Messaging\\KafkaConsumerService.cs",
+              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Messaging\\KafkaConsumerService.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Messaging\\KafkaConsumerService.cs",
+              "RelativeToolTip": "WareHouse.Infrastructure\\Messaging\\KafkaConsumerService.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAiwJ8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:11:50.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "KafkaProducerService.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Messaging\\KafkaProducerService.cs",
+              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Messaging\\KafkaProducerService.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Messaging\\KafkaProducerService.cs",
+              "RelativeToolTip": "WareHouse.Infrastructure\\Messaging\\KafkaProducerService.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAuwD8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:11:29.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "DomainEventService.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Services\\DomainEventService.cs",
+              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Services\\DomainEventService.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Services\\DomainEventService.cs",
+              "RelativeToolTip": "WareHouse.Infrastructure\\Services\\DomainEventService.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwCAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:12:26.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "CacheService.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Services\\CacheService.cs",
+              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Services\\CacheService.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Services\\CacheService.cs",
+              "RelativeToolTip": "WareHouse.Infrastructure\\Services\\CacheService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:12:45.244Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "IDatabaseConnectionFactory.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\IDatabaseConnectionFactory.cs",
+              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Data\\IDatabaseConnectionFactory.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\IDatabaseConnectionFactory.cs",
+              "RelativeToolTip": "WareHouse.Infrastructure\\Data\\IDatabaseConnectionFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T19:22:01.564Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "DatabaseSeeder.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\DatabaseSeeder.cs",
+              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Data\\DatabaseSeeder.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\DatabaseSeeder.cs",
+              "RelativeToolTip": "WareHouse.Infrastructure\\Data\\DatabaseSeeder.cs",
+              "ViewState": "AgIAAJgAAAAAAAAAAAAAAOsAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T15:12:03.494Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "IStockDomainService.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Services\\IStockDomainService.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Services\\IStockDomainService.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Services\\IStockDomainService.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Services\\IStockDomainService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T21:53:56.879Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "IOrderDomainService.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Services\\IOrderDomainService.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Services\\IOrderDomainService.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Services\\IOrderDomainService.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Services\\IOrderDomainService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T21:53:30.212Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "OrderEvents.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Events\\OrderEvents.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Events\\OrderEvents.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Events\\OrderEvents.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Events\\OrderEvents.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAIwEMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T21:29:57.942Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "IDomainEvent.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Events\\IDomainEvent.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Events\\IDomainEvent.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Events\\IDomainEvent.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Events\\IDomainEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T21:52:24.19Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "OrderLine.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\OrderLine.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Entities\\OrderLine.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\OrderLine.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Entities\\OrderLine.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAUwCsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T21:49:01.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "Entity.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Common\\Entity.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Common\\Entity.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Common\\Entity.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Common\\Entity.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwCwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T17:45:22.738Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "AggregateRoot.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Common\\AggregateRoot.cs",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\Common\\AggregateRoot.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Common\\AggregateRoot.cs",
+              "RelativeToolTip": "WareHouse.Domain\\Common\\AggregateRoot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T17:45:54.636Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "GetPickingTasksQuery.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetPickingTasksQuery.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\Queries\\GetPickingTasksQuery.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetPickingTasksQuery.cs",
+              "RelativeToolTip": "WareHouse.Application\\Queries\\GetPickingTasksQuery.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAuwDIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:29:56.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "GetOrdersByStatusQuery.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetOrdersByStatusQuery.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\Queries\\GetOrdersByStatusQuery.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetOrdersByStatusQuery.cs",
+              "RelativeToolTip": "WareHouse.Application\\Queries\\GetOrdersByStatusQuery.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAAEUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:29:39.069Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "GetOrderQuery.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetOrderQuery.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\Queries\\GetOrderQuery.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Queries\\GetOrderQuery.cs",
+              "RelativeToolTip": "WareHouse.Application\\Queries\\GetOrderQuery.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAADwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:29:21.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "OrderDtos.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\OrderDtos.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\DTOs\\OrderDtos.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\DTOs\\OrderDtos.cs",
+              "RelativeToolTip": "WareHouse.Application\\DTOs\\OrderDtos.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAwBgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:26:42.048Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "CancelPickingCommand.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\CancelPickingCommand.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\Commands\\CancelPickingCommand.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Commands\\CancelPickingCommand.cs",
+              "RelativeToolTip": "WareHouse.Application\\Commands\\CancelPickingCommand.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAwEYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:26:00.719Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "ValidationBehavior.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Behaviors\\ValidationBehavior.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\Behaviors\\ValidationBehavior.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Behaviors\\ValidationBehavior.cs",
+              "RelativeToolTip": "WareHouse.Application\\Behaviors\\ValidationBehavior.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:21:51.799Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "LoggingBehavior.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Behaviors\\LoggingBehavior.cs",
+              "RelativeDocumentMoniker": "WareHouse.Application\\Behaviors\\LoggingBehavior.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\Behaviors\\LoggingBehavior.cs",
+              "RelativeToolTip": "WareHouse.Application\\Behaviors\\LoggingBehavior.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T22:21:31.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "WebhookModels.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Models\\WebhookModels.cs",
+              "RelativeDocumentMoniker": "WareHouse.API\\Models\\WebhookModels.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Models\\WebhookModels.cs",
+              "RelativeToolTip": "WareHouse.API\\Models\\WebhookModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T14:39:31.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "ApiResponse.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Models\\ApiResponse.cs",
+              "RelativeDocumentMoniker": "WareHouse.API\\Models\\ApiResponse.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Models\\ApiResponse.cs",
+              "RelativeToolTip": "WareHouse.API\\Models\\ApiResponse.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAQwCYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T14:39:09.748Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "RequestLoggingMiddleware.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Middleware\\RequestLoggingMiddleware.cs",
+              "RelativeDocumentMoniker": "WareHouse.API\\Middleware\\RequestLoggingMiddleware.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Middleware\\RequestLoggingMiddleware.cs",
+              "RelativeToolTip": "WareHouse.API\\Middleware\\RequestLoggingMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T14:38:30.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "GlobalExceptionHandlerMiddleware.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Middleware\\GlobalExceptionHandlerMiddleware.cs",
+              "RelativeDocumentMoniker": "WareHouse.API\\Middleware\\GlobalExceptionHandlerMiddleware.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Middleware\\GlobalExceptionHandlerMiddleware.cs",
+              "RelativeToolTip": "WareHouse.API\\Middleware\\GlobalExceptionHandlerMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T14:38:05.206Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "CorrelationIdMiddleware.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Middleware\\CorrelationIdMiddleware.cs",
+              "RelativeDocumentMoniker": "WareHouse.API\\Middleware\\CorrelationIdMiddleware.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Middleware\\CorrelationIdMiddleware.cs",
+              "RelativeToolTip": "WareHouse.API\\Middleware\\CorrelationIdMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T14:38:49.69Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "202410280002_NormalizeDatabase.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\Migrations\\202410280002_NormalizeDatabase.cs",
+              "RelativeDocumentMoniker": "WareHouse.Migrations\\Migrations\\202410280002_NormalizeDatabase.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\Migrations\\202410280002_NormalizeDatabase.cs",
+              "RelativeToolTip": "WareHouse.Migrations\\Migrations\\202410280002_NormalizeDatabase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T09:25:54.183Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "0001_CreateInitialTables.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\Migrations\\0001_CreateInitialTables.cs",
+              "RelativeDocumentMoniker": "WareHouse.Migrations\\Migrations\\0001_CreateInitialTables.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\Migrations\\0001_CreateInitialTables.cs",
+              "RelativeToolTip": "WareHouse.Migrations\\Migrations\\0001_CreateInitialTables.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAQwGEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T13:13:55.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "SQL_Seeds.txt",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\SQL_Seeds.txt",
+              "RelativeDocumentMoniker": "SQL_Seeds.txt",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\SQL_Seeds.txt",
+              "RelativeToolTip": "SQL_Seeds.txt",
+              "ViewState": "AgIAALcAAAAAAAAAAAAAAAkBAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-10-31T18:45:17.594Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "WareHouse.Migrations\\appsettings.Development.json",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\appsettings.Development.json",
+              "RelativeToolTip": "WareHouse.Migrations\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-29T13:30:12.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "VersionTable.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\VersionTable.cs",
+              "RelativeDocumentMoniker": "WareHouse.Migrations\\VersionTable.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\VersionTable.cs",
+              "RelativeToolTip": "WareHouse.Migrations\\VersionTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T13:14:40.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\Program.cs",
+              "RelativeDocumentMoniker": "WareHouse.Migrations\\Program.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\Program.cs",
+              "RelativeToolTip": "WareHouse.Migrations\\Program.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwCwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T13:15:35.662Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "MigratorRunner.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\MigratorRunner.cs",
+              "RelativeDocumentMoniker": "WareHouse.Migrations\\MigratorRunner.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\MigratorRunner.cs",
+              "RelativeToolTip": "WareHouse.Migrations\\MigratorRunner.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAmwCYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T13:15:02.815Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "docker-compose.yml",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\docker-compose.yml",
+              "RelativeDocumentMoniker": "docker-compose.yml",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\docker-compose.yml",
+              "RelativeToolTip": "docker-compose.yml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAGoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2025-10-28T15:06:50.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "HealthController.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\HealthController.cs",
+              "RelativeDocumentMoniker": "WareHouse.API\\Controllers\\HealthController.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Controllers\\HealthController.cs",
+              "RelativeToolTip": "WareHouse.API\\Controllers\\HealthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T14:37:45.108Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "WareHouse.Application.csproj",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\WareHouse.Application.csproj",
+              "RelativeDocumentMoniker": "WareHouse.Application\\WareHouse.Application.csproj",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Application\\WareHouse.Application.csproj",
+              "RelativeToolTip": "WareHouse.Application\\WareHouse.Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-21T20:36:28.632Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "WareHouse.Domain.csproj",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\WareHouse.Domain.csproj",
+              "RelativeDocumentMoniker": "WareHouse.Domain\\WareHouse.Domain.csproj",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\WareHouse.Domain.csproj",
+              "RelativeToolTip": "WareHouse.Domain\\WareHouse.Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-21T20:24:43.308Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "WareHouse.API\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Properties\\launchSettings.json",
+              "RelativeToolTip": "WareHouse.API\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-28T14:42:08.549Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 82,
+              "Title": "OrdersControllerIntegrationTests.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Integration\\API\\OrdersControllerIntegrationTests.cs",
+              "RelativeDocumentMoniker": "WareHouse.Tests\\Integration\\API\\OrdersControllerIntegrationTests.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Integration\\API\\OrdersControllerIntegrationTests.cs",
+              "RelativeToolTip": "WareHouse.Tests\\Integration\\API\\OrdersControllerIntegrationTests.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAuwHkAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T16:23:32.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 83,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\appsettings.json",
+              "RelativeDocumentMoniker": "WareHouse.API\\appsettings.json",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\appsettings.json",
+              "RelativeToolTip": "WareHouse.API\\appsettings.json",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwFIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-28T14:39:45.096Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 84,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "WareHouse.API\\appsettings.Development.json",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\appsettings.Development.json",
+              "RelativeToolTip": "WareHouse.API\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-28T14:40:30.839Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 85,
+              "Title": "WareHouse.Infrastructure.csproj",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj",
+              "RelativeToolTip": "WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-21T20:37:22.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 86,
+              "Title": "WareHouse.Migrations.csproj",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\WareHouse.Migrations.csproj",
+              "RelativeDocumentMoniker": "WareHouse.Migrations\\WareHouse.Migrations.csproj",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\WareHouse.Migrations.csproj",
+              "RelativeToolTip": "WareHouse.Migrations\\WareHouse.Migrations.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-29T13:10:44.934Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 87,
+              "Title": "WareHouse.API.csproj",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\WareHouse.API.csproj",
+              "RelativeDocumentMoniker": "WareHouse.API\\WareHouse.API.csproj",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\WareHouse.API.csproj",
+              "RelativeToolTip": "WareHouse.API\\WareHouse.API.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-21T20:38:07.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 88,
+              "Title": "appsettings.Production.json",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\appsettings.Production.json",
+              "RelativeDocumentMoniker": "WareHouse.Migrations\\appsettings.Production.json",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\appsettings.Production.json",
+              "RelativeToolTip": "WareHouse.Migrations\\appsettings.Production.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-29T13:31:19.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 89,
+              "Title": "TestDataFactory.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\TestBase\\TestDataFactory.cs",
+              "RelativeDocumentMoniker": "WareHouse.Tests\\TestBase\\TestDataFactory.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\TestBase\\TestDataFactory.cs",
+              "RelativeToolTip": "WareHouse.Tests\\TestBase\\TestDataFactory.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAAAFgAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T16:24:58.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 90,
+              "Title": "OrderRepositoryTests.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Integration\\Infrastructure\\Repositories\\OrderRepositoryTests.cs",
+              "RelativeDocumentMoniker": "WareHouse.Tests\\Integration\\Infrastructure\\Repositories\\OrderRepositoryTests.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\Integration\\Infrastructure\\Repositories\\OrderRepositoryTests.cs",
+              "RelativeToolTip": "WareHouse.Tests\\Integration\\Infrastructure\\Repositories\\OrderRepositoryTests.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAqwGcAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T16:24:17.368Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 91,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "WareHouse.API\\WeatherForecast.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\WeatherForecast.cs",
+              "RelativeToolTip": "WareHouse.API\\WeatherForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T19:06:46.701Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 92,
+              "Title": "WareHouse.API.http",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\WareHouse.API.http",
+              "RelativeDocumentMoniker": "WareHouse.API\\WareHouse.API.http",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\WareHouse.API.http",
+              "RelativeToolTip": "WareHouse.API\\WareHouse.API.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-10-28T19:06:25.18Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 94,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouseService\\appsettings.json",
+              "RelativeDocumentMoniker": "WareHouseService\\appsettings.json",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouseService\\appsettings.json",
+              "RelativeToolTip": "WareHouseService\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-28T17:37:20.491Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 93,
+              "Title": "appsettings.Production.json.json",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\appsettings.Production.json.json",
+              "RelativeDocumentMoniker": "WareHouse.API\\appsettings.Production.json.json",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\appsettings.Production.json.json",
+              "RelativeToolTip": "WareHouse.API\\appsettings.Production.json.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-28T14:43:43.409Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 96,
+              "Title": "ApiServiceConfiguration.cs",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Configuration\\ApiServiceConfiguration.cs",
+              "RelativeDocumentMoniker": "WareHouse.API\\Configuration\\ApiServiceConfiguration.cs",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Configuration\\ApiServiceConfiguration.cs",
+              "RelativeToolTip": "WareHouse.API\\Configuration\\ApiServiceConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T14:35:15.333Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 95,
+              "Title": "WareHouseService.csproj",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouseService\\WareHouseService.csproj",
+              "RelativeDocumentMoniker": "WareHouseService\\WareHouseService.csproj",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouseService\\WareHouseService.csproj",
+              "RelativeToolTip": "WareHouseService\\WareHouseService.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-28T16:42:51.837Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 97,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-10-28T16:34:13.921Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 98,
               "Title": "WareHouse.Tests.csproj",
               "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Tests\\WareHouse.Tests.csproj",
               "RelativeDocumentMoniker": "WareHouse.Tests\\WareHouse.Tests.csproj",
@@ -1541,7 +1645,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 93,
+              "DocumentIndex": 99,
               "Title": "ApiPipelineConfiguration.cs",
               "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.API\\Configuration\\ApiPipelineConfiguration.cs",
               "RelativeDocumentMoniker": "WareHouse.API\\Configuration\\ApiPipelineConfiguration.cs",
@@ -1553,7 +1657,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 94,
+              "DocumentIndex": 100,
               "Title": "Class1.cs",
               "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Class1.cs",
               "RelativeDocumentMoniker": "WareHouse.Domain\\Class1.cs",
@@ -1565,7 +1669,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 95,
+              "DocumentIndex": 101,
               "Title": "Address.cs",
               "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\ValueObjects\\Address.cs",
               "RelativeDocumentMoniker": "WareHouse.Domain\\ValueObjects\\Address.cs",
@@ -1577,7 +1681,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 96,
+              "DocumentIndex": 102,
               "Title": "Money.cs",
               "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\ValueObjects\\Money.cs",
               "RelativeDocumentMoniker": "WareHouse.Domain\\ValueObjects\\Money.cs",
@@ -1589,7 +1693,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 97,
+              "DocumentIndex": 103,
               "Title": "DomainException.cs",
               "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Exceptions\\DomainException.cs",
               "RelativeDocumentMoniker": "WareHouse.Domain\\Exceptions\\DomainException.cs",

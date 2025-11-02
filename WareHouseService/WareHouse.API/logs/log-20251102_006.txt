@@ -1,0 +1,10 @@
+2025-11-02 17:52:28.535 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-02 17:52:28.577 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-02 17:52:28.582 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-11-02 17:52:46.974 +03:00 [INF] Incoming request: GET /api/Stock/products/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+2025-11-02 17:52:47.008 +03:00 [INF] Getting stock level for product "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+2025-11-02 17:52:47.021 +03:00 [INF] Handling command/query: GetProductStockQuery {"ProductId":"aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa","$type":"GetProductStockQuery"}
+2025-11-02 17:52:47.033 +03:00 [INF] Getting stock level for product "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+2025-11-02 17:52:47.327 +03:00 [INF] Found 1 storage units for product "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"
+2025-11-02 17:52:47.333 +03:00 [INF] Handled command/query: GetProductStockQuery
+2025-11-02 17:52:47.350 +03:00 [INF] Request completed: GET /api/Stock/products/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa - 200 in 377.5853ms

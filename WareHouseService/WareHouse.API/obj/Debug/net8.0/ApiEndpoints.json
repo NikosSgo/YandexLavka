@@ -337,7 +337,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WareHouse.Application.DTOs.StockLevelDto",
+        "Type": "WareHouse.Application.DTOs.ProductStockDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

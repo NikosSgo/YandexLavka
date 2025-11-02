@@ -16,9 +16,3 @@ public class StockLevelDto
     public List<StorageLocationDto> StorageLocations { get; set; } = new();
 }
 
-public class StorageLocationDto
-{
-    public string Location { get; set; } = string.Empty;
-    public int Quantity { get; set; }
-    public int AvailableQuantity { get; set; }
-}

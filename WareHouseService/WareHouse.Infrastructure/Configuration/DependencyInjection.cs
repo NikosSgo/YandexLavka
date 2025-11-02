@@ -1,5 +1,4 @@
-﻿// WareHouse.Infrastructure/Configuration/DependencyInjection.cs
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WareHouse.Domain.Interfaces;
 using WareHouse.Infrastructure.Data;
@@ -17,13 +16,14 @@ public static class DependencyInjection
         services.AddSingleton<IDatabaseConnectionFactory>(provider =>
             new DatabaseConnectionFactory(configuration.GetConnectionString("DefaultConnection")));
 
-        // Unit of Work
+        // Unit of Work (теперь работает для запросов и команд)
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-        // Repositories (для обычного использования без транзакций)
+        // Репозитории для прямого использования (опционально)
         services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddScoped<IPickingTaskRepository, PickingTaskRepository>();
         services.AddScoped<IStorageUnitRepository, StorageUnitRepository>();
+        services.AddScoped<IProductRepository, ProductRepository>();
 
         // Services
         services.AddScoped<IDomainEventService, DomainEventService>();
