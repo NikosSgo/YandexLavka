@@ -1,0 +1,41 @@
+2025-11-03 00:34:54.101 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-03 00:34:54.142 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-03 00:34:54.145 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-11-03 00:35:28.069 +03:00 [INF] Incoming request: GET /api/Picking/tasks/66666666-6666-6666-6666-666666666666
+2025-11-03 00:35:28.102 +03:00 [INF] Getting picking task "66666666-6666-6666-6666-666666666666"
+2025-11-03 00:35:28.112 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":null,"Zone":null,"$type":"GetPickingTasksQuery"}
+2025-11-03 00:35:28.122 +03:00 [INF] Getting picking tasks. Status: null, Zone: null
+2025-11-03 00:35:28.236 +03:00 [INF] Found 8 picking tasks
+2025-11-03 00:35:28.242 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-11-03 00:35:28.263 +03:00 [INF] Request completed: GET /api/Picking/tasks/66666666-6666-6666-6666-666666666666 - 200 in 195.2228ms
+2025-11-03 00:37:50.710 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-03 00:37:50.756 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-03 00:37:50.760 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-11-03 00:38:03.966 +03:00 [INF] Incoming request: GET /api/Picking/tasks/66666666-6666-6666-6666-666666666666
+2025-11-03 00:38:04.001 +03:00 [INF] Getting picking task "66666666-6666-6666-6666-666666666666"
+2025-11-03 00:38:04.018 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":null,"Zone":null,"$type":"GetPickingTasksQuery"}
+2025-11-03 00:38:04.032 +03:00 [INF] Getting picking tasks. Status: null, Zone: null
+2025-11-03 00:38:04.144 +03:00 [INF] Found 8 picking tasks
+2025-11-03 00:38:04.150 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-11-03 00:38:04.172 +03:00 [INF] Request completed: GET /api/Picking/tasks/66666666-6666-6666-6666-666666666666 - 200 in 206.9115ms
+2025-11-03 00:39:23.762 +03:00 [INF] Incoming request: GET /api/Picking/tasks/22222222-2222-2222-2222-222222222222
+2025-11-03 00:39:23.769 +03:00 [INF] Getting picking task "22222222-2222-2222-2222-222222222222"
+2025-11-03 00:39:23.772 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":null,"Zone":null,"$type":"GetPickingTasksQuery"}
+2025-11-03 00:39:23.782 +03:00 [INF] Getting picking tasks. Status: null, Zone: null
+2025-11-03 00:39:23.809 +03:00 [INF] Found 8 picking tasks
+2025-11-03 00:39:23.813 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-11-03 00:39:23.815 +03:00 [INF] Request completed: GET /api/Picking/tasks/22222222-2222-2222-2222-222222222222 - 200 in 52.8912ms
+2025-11-03 00:40:01.570 +03:00 [INF] Incoming request: GET /api/Picking/tasks/66666666-6666-6666-6666-666666666666
+2025-11-03 00:40:01.576 +03:00 [INF] Getting picking task "66666666-6666-6666-6666-666666666666"
+2025-11-03 00:40:01.579 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":null,"Zone":null,"$type":"GetPickingTasksQuery"}
+2025-11-03 00:40:01.586 +03:00 [INF] Getting picking tasks. Status: null, Zone: null
+2025-11-03 00:40:01.614 +03:00 [INF] Found 8 picking tasks
+2025-11-03 00:40:01.616 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-11-03 00:40:01.618 +03:00 [INF] Request completed: GET /api/Picking/tasks/66666666-6666-6666-6666-666666666666 - 200 in 48.206ms
+2025-11-03 00:40:55.023 +03:00 [INF] Incoming request: GET /api/Picking/tasks
+2025-11-03 00:40:55.038 +03:00 [INF] Getting picking tasks. Status: Completed, Zone: C,freezer
+2025-11-03 00:40:55.041 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":"Completed","Zone":"C,freezer","$type":"GetPickingTasksQuery"}
+2025-11-03 00:40:55.046 +03:00 [INF] Getting picking tasks. Status: Completed, Zone: C,freezer
+2025-11-03 00:40:55.065 +03:00 [INF] Found 0 picking tasks
+2025-11-03 00:40:55.068 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-11-03 00:40:55.071 +03:00 [INF] Request completed: GET /api/Picking/tasks - 200 in 48.2505ms

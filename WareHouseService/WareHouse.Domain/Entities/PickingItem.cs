@@ -15,13 +15,16 @@ public class PickingItem : Entity
     public string Barcode { get; private set; }
     public bool IsPicked { get; private set; }
 
+    // ✅ ВЫЧИСЛЯЕМОЕ СВОЙСТВО - ДОЛЖНО РАБОТАТЬ КОРРЕКТНО
+    //public bool IsPicked => QuantityPicked >= Quantity;
+
     // Навигационное свойство
     public PickingTask PickingTask { get; private set; }
 
-    private PickingItem() { }
+    public PickingItem() { }
 
     public PickingItem(Guid pickingTaskId, Guid productId, string productName, string sku, int quantity,
-        string storageLocation, string barcode)
+        string storageLocation, string barcode, int quantityPicked = 0, bool isPicked = false)
     {
         PickingTaskId = pickingTaskId;
         ProductId = productId;
@@ -30,8 +33,8 @@ public class PickingItem : Entity
         Quantity = quantity;
         StorageLocation = storageLocation;
         Barcode = barcode;
-        IsPicked = false;
-        QuantityPicked = 0;
+        IsPicked = isPicked;
+        QuantityPicked = quantityPicked;
     }
 
     public void MarkAsPicked(int quantityPicked)

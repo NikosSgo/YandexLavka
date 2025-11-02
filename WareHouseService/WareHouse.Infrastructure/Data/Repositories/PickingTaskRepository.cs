@@ -34,25 +34,53 @@ public class PickingTaskRepository : IPickingTaskRepository
     {
         var connection = await GetConnectionAsync();
 
-        var taskResult = await connection.QueryFirstOrDefaultAsync<dynamic>(
-            "SELECT * FROM picking_tasks WHERE id = @TaskId",
+
+        // ✅ ИСПРАВЛЕННЫЙ ЗАПРОС С ПРАВИЛЬНЫМ МАППИНГОМ
+        var query = @"
+            SELECT 
+                pt.id as Id,
+                pt.order_id as OrderId,
+                pt.assigned_picker as AssignedPicker,
+                pt.status as Status,
+                pt.zone as Zone,
+                pt.created_at as CreatedAt,
+                pt.completed_at as CompletedAt
+            FROM picking_tasks pt
+            WHERE pt.id = @TaskId";
+
+        var taskResult = await connection.QueryFirstOrDefaultAsync<dynamic>(query,
             new { TaskId = taskId },
             _transaction);
 
-        if (taskResult == null) return null;
+        if (taskResult == null)
+        {
 
-        var itemsResults = await connection.QueryAsync<dynamic>(@"
-        SELECT 
-            pi.*,
-            p.name as product_name,
-            p.sku as sku
-        FROM picking_items pi
-        LEFT JOIN products p ON pi.product_id = p.id
-        WHERE pi.picking_task_id = @TaskId",
-            new { TaskId = taskId },
+            return null;
+        }
+
+       
+
+        // ✅ ИСПРАВЛЕННЫЙ ЗАПРОС ДЛЯ ITEMS С quantity_picked
+        var itemsQuery = @"
+            SELECT 
+                pi.picking_task_id as PickingTaskId,
+                pi.product_id as ProductId,
+                pi.quantity as Quantity,
+                pi.storage_location as StorageLocation,
+                pi.barcode as Barcode,
+                p.name as ProductName,
+                p.sku as Sku,
+                COALESCE(ol.quantity_picked, 0) as QuantityPicked
+            FROM picking_items pi
+            LEFT JOIN products p ON pi.product_id = p.id
+            LEFT JOIN order_lines ol ON @TaskOrderId = ol.order_id AND pi.product_id = ol.product_id
+            WHERE pi.picking_task_id = @TaskId";
+
+        var itemsResults = await connection.QueryAsync<dynamic>(itemsQuery,
+            new { TaskId = taskId, TaskOrderId = taskResult.OrderId },
             _transaction);
 
-        var items = itemsResults.Select(MapToPickingItem).Where(x => x != null).ToList();
+        var items = itemsResults.Select(row => MapToPickingItem(row)).Where(x => x != null).ToList();
 
         var task = MapToPickingTask(taskResult);
         task.SetPickingItems(items);
@@ -97,20 +125,31 @@ public class PickingTaskRepository : IPickingTaskRepository
     {
         var connection = await GetConnectionAsync();
 
-        var tasks = await connection.QueryAsync<PickingTask>(
+        // ✅ ИСПРАВЛЕННЫЙ ЗАПРОС С ПРАВИЛЬНЫМ МАППИНГОМ
+        var taskResults = await connection.QueryAsync<dynamic>(
             "SELECT * FROM picking_tasks WHERE assigned_picker = @PickerId ORDER BY created_at DESC",
             new { PickerId = pickerId },
             _transaction);
 
         var result = new List<PickingTask>();
-        foreach (var task in tasks)
+        foreach (var taskResult in taskResults)
         {
-            var items = await connection.QueryAsync<PickingItem>(
-                "SELECT * FROM picking_items WHERE picking_task_id = @TaskId",
-                new { TaskId = task.Id },
+            var itemsResults = await connection.QueryAsync<dynamic>(@"
+                SELECT 
+                    pi.*,
+                    p.name as product_name,
+                    p.sku as sku,
+                    COALESCE(ol.quantity_picked, 0) as quantity_picked
+                FROM picking_items pi
+                LEFT JOIN products p ON pi.product_id = p.id
+                LEFT JOIN order_lines ol ON @OrderId = ol.order_id AND pi.product_id = ol.product_id
+                WHERE pi.picking_task_id = @TaskId",
+                new { TaskId = taskResult.id, OrderId = taskResult.order_id },
                 _transaction);
 
-            task.SetPickingItems(items.AsList());
+            var items = itemsResults.Select(MapToPickingItem).Where(x => x != null).ToList();
+            var task = MapToPickingTask(taskResult);
+            task.SetPickingItems(items);
             result.Add(task);
         }
 
@@ -121,20 +160,30 @@ public class PickingTaskRepository : IPickingTaskRepository
     {
         var connection = await GetConnectionAsync();
 
-        var tasks = await connection.QueryAsync<PickingTask>(
+        var taskResults = await connection.QueryAsync<dynamic>(
             "SELECT * FROM picking_tasks WHERE status = @Status ORDER BY created_at",
             new { Status = status.ToString() },
             _transaction);
 
         var result = new List<PickingTask>();
-        foreach (var task in tasks)
+        foreach (var taskResult in taskResults)
         {
-            var items = await connection.QueryAsync<PickingItem>(
-                "SELECT * FROM picking_items WHERE picking_task_id = @TaskId",
-                new { TaskId = task.Id },
+            var itemsResults = await connection.QueryAsync<dynamic>(@"
+                SELECT 
+                    pi.*,
+                    p.name as product_name,
+                    p.sku as sku,
+                    COALESCE(ol.quantity_picked, 0) as quantity_picked
+                FROM picking_items pi
+                LEFT JOIN products p ON pi.product_id = p.id
+                LEFT JOIN order_lines ol ON @OrderId = ol.order_id AND pi.product_id = ol.product_id
+                WHERE pi.picking_task_id = @TaskId",
+                new { TaskId = taskResult.id, OrderId = taskResult.order_id },
                 _transaction);
 
-            task.SetPickingItems(items.AsList());
+            var items = itemsResults.Select(MapToPickingItem).Where(x => x != null).ToList();
+            var task = MapToPickingTask(taskResult);
+            task.SetPickingItems(items);
             result.Add(task);
         }
 
@@ -145,22 +194,32 @@ public class PickingTaskRepository : IPickingTaskRepository
     {
         var connection = await GetConnectionAsync();
 
-        var tasks = await connection.QueryAsync<PickingTask>(@"
+        var taskResults = await connection.QueryAsync<dynamic>(@"
             SELECT * FROM picking_tasks 
-            WHERE zone = @Zone AND status IN ('Created', 'InProgress')
+            WHERE zone = @Zone AND status IN ('Created', 'InProgress', 'Completed')
             ORDER BY created_at",
             new { Zone = zone },
             _transaction);
 
         var result = new List<PickingTask>();
-        foreach (var task in tasks)
+        foreach (var taskResult in taskResults)
         {
-            var items = await connection.QueryAsync<PickingItem>(
-                "SELECT * FROM picking_items WHERE picking_task_id = @TaskId",
-                new { TaskId = task.Id },
+            var itemsResults = await connection.QueryAsync<dynamic>(@"
+                SELECT 
+                    pi.*,
+                    p.name as product_name,
+                    p.sku as sku,
+                    COALESCE(ol.quantity_picked, 0) as quantity_picked
+                FROM picking_items pi
+                LEFT JOIN products p ON pi.product_id = p.id
+                LEFT JOIN order_lines ol ON @OrderId = ol.order_id AND pi.product_id = ol.product_id
+                WHERE pi.picking_task_id = @TaskId",
+                new { TaskId = taskResult.id, OrderId = taskResult.order_id },
                 _transaction);
 
-            task.SetPickingItems(items.AsList());
+            var items = itemsResults.Select(MapToPickingItem).Where(x => x != null).ToList();
+            var task = MapToPickingTask(taskResult);
+            task.SetPickingItems(items);
             result.Add(task);
         }
 
@@ -255,20 +314,29 @@ public class PickingTaskRepository : IPickingTaskRepository
     {
         var connection = await GetConnectionAsync();
 
-        var tasks = await connection.QueryAsync<PickingTask>(
+        var taskResults = await connection.QueryAsync<dynamic>(
             "SELECT * FROM picking_tasks",
             transaction: _transaction);
 
         var result = new List<PickingTask>();
-
-        foreach (var task in tasks)
+        foreach (var taskResult in taskResults)
         {
-            var items = await connection.QueryAsync<PickingItem>(
-                "SELECT * FROM picking_items WHERE picking_task_id = @TaskId",
-                new { TaskId = task.Id },
+            var itemsResults = await connection.QueryAsync<dynamic>(@"
+                SELECT 
+                    pi.*,
+                    p.name as product_name,
+                    p.sku as sku,
+                    COALESCE(ol.quantity_picked, 0) as quantity_picked
+                FROM picking_items pi
+                LEFT JOIN products p ON pi.product_id = p.id
+                LEFT JOIN order_lines ol ON @OrderId = ol.order_id AND pi.product_id = ol.product_id
+                WHERE pi.picking_task_id = @TaskId",
+                new { TaskId = taskResult.id, OrderId = taskResult.order_id },
                 _transaction);
 
-            task.SetPickingItems(items.AsList());
+            var items = itemsResults.Select(MapToPickingItem).Where(x => x != null).ToList();
+            var task = MapToPickingTask(taskResult);
+            task.SetPickingItems(items);
             result.Add(task);
         }
 
@@ -320,7 +388,9 @@ public class PickingTaskRepository : IPickingTaskRepository
                 sku: result.sku ?? "Unknown SKU",
                 quantity: result.quantity,
                 storageLocation: result.storage_location,
-                barcode: result.barcode
+                barcode: result.barcode,
+                quantityPicked: result.quantity_picked ?? 0,
+                isPicked: result.quantity_picked >= result.quantity
             );
         }
         catch (Exception ex)
