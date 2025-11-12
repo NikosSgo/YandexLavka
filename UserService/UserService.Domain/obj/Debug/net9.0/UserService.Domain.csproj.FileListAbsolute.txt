@@ -1,0 +1,12 @@
+/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/bin/Debug/net9.0/UserService.Domain.deps.json
+/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/bin/Debug/net9.0/UserService.Domain.dll
+/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/bin/Debug/net9.0/UserService.Domain.pdb
+/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/obj/Debug/net9.0/UserService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/obj/Debug/net9.0/UserService.Domain.AssemblyInfoInputs.cache
+/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/obj/Debug/net9.0/UserService.Domain.AssemblyInfo.cs
+/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/obj/Debug/net9.0/UserService.Domain.csproj.CoreCompileInputs.cache
+/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/obj/Debug/net9.0/UserService.Domain.sourcelink.json
+/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/obj/Debug/net9.0/UserService.Domain.dll
+/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/obj/Debug/net9.0/refint/UserService.Domain.dll
+/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/obj/Debug/net9.0/UserService.Domain.pdb
+/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/obj/Debug/net9.0/ref/UserService.Domain.dll
