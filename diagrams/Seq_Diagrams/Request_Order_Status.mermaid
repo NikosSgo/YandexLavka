@@ -1,0 +1,31 @@
+sequenceDiagram
+    participant Client as Client (через Auth Proxy)
+    participant Controller as WareHouseController
+    participant QueryHandler as OrderStatusQueryHandler
+    participant OrderRepo as IOrderRepository
+    participant TaskRepo as IPickingTaskRepository
+    participant Cache as Redis Cache
+
+    Note over Client, Cache: Сценарий запроса статуса заказа
+
+    Client->>Controller: GET /api/orders/{orderId}/status
+    
+    Controller->>QueryHandler: Send(new OrderStatusQuery(orderId))
+    
+    QueryHandler->>Cache: Get($"order_status_{orderId}")
+    
+    alt Данные в кэше
+        Cache-->>QueryHandler: OrderStatusDto
+    else Данных нет в кэше
+        QueryHandler->>OrderRepo: GetById(orderId)
+        OrderRepo-->>QueryHandler: OrderAggregate
+        
+        QueryHandler->>TaskRepo: GetForOrder(orderId)
+        TaskRepo-->>QueryHandler: PickingTask
+        
+        QueryHandler->>QueryHandler: Собирает OrderStatusDto
+        QueryHandler->>Cache: Set($"order_status_{orderId}", dto, TTL)
+    end
+    
+    QueryHandler-->>Controller: OrderStatusDto
+    Controller-->>Client: 200 OK с данными статуса

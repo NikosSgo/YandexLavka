@@ -1,0 +1,32 @@
+sequenceDiagram
+    participant CoreService as Core (Orders) Service
+    participant Kafka as Kafka Message Broker
+    participant Consumer as Kafka Consumer
+    participant Handler as OrderCancelledHandler
+    participant OrderRepo as IOrderRepository
+    participant TaskRepo as IPickingTaskRepository
+    participant StorageRepo as IStorageUnitRepository
+    participant Domain as OrderAggregate
+
+    Note over CoreService, Domain: Сценарий отмены заказа
+
+    CoreService->>Kafka: Публикует OrderCancelledEvent
+    Kafka->>Consumer: Доставляет сообщение
+    Consumer->>Handler: Process(OrderCancelledEvent)
+    
+    Handler->>OrderRepo: GetById(orderId)
+    OrderRepo-->>Handler: OrderAggregate
+    
+    Handler->>TaskRepo: GetActiveForOrder(orderId)
+    TaskRepo-->>Handler: PickingTask (если есть)
+    
+    alt Есть активная сборка
+        Handler->>TaskRepo: Cancel(pickingTask)
+        Handler->>StorageRepo: ReleaseReservedItems(orderId)
+    end
+    
+    Handler->>Domain: OrderAggregate.Cancel()
+    Domain->>Domain: Статус → "Cancelled"
+    
+    Handler->>OrderRepo: Update(order)
+    Handler-->>Consumer: Подтверждает обработку

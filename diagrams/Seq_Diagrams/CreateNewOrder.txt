@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant CoreService as Core (Orders) Service
+    participant Kafka as Kafka Message Broker
+    participant Consumer as Kafka Consumer
+    participant Handler as OrderStatusChangedHandler
+    participant Repository as IOrderRepository
+    participant Domain as OrderAggregate
+
+    Note over CoreService, Domain: Сценарий создания нового заказа
+
+    CoreService->>Kafka: Публикует OrderCreatedEvent (orders.topic)
+    Kafka->>Consumer: Доставляет сообщение
+    Consumer->>Handler: Вызывает Process(OrderCreatedEvent)
+    
+    Handler->>Handler: Валидация данных события
+    Handler->>Repository: CreateOrder(orderId, items)
+    Repository->>Domain: Создает новый OrderAggregate
+    Domain->>Domain: Устанавливает статус "Received"
+    Repository->>Repository: Сохраняет в DB WareHouse
+    Repository-->>Handler: Возвращает созданный заказ
+    Handler-->>Consumer: Подтверждает обработку

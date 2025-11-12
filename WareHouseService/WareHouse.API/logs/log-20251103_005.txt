@@ -1,0 +1,87 @@
+2025-11-03 00:45:25.356 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-03 00:45:25.393 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-03 00:45:25.398 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-11-03 00:45:44.785 +03:00 [INF] Incoming request: GET /api/Picking/tasks
+2025-11-03 00:45:44.823 +03:00 [INF] Getting picking tasks. Status: Completed, Zone: C,freezer
+2025-11-03 00:45:44.834 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":"Completed","Zone":"C,freezer","$type":"GetPickingTasksQuery"}
+2025-11-03 00:45:44.846 +03:00 [INF] Getting picking tasks. Status: Completed, Zone: C,freezer
+2025-11-03 00:45:44.946 +03:00 [INF] Found 1 picking tasks
+2025-11-03 00:45:44.953 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-11-03 00:45:44.973 +03:00 [INF] Request completed: GET /api/Picking/tasks - 200 in 189.7201ms
+2025-11-03 00:46:18.480 +03:00 [INF] Incoming request: GET /api/Picking/pickers/picker-sarah/tasks
+2025-11-03 00:46:18.493 +03:00 [INF] Getting tasks for picker picker-sarah
+2025-11-03 00:46:18.498 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":null,"Zone":null,"$type":"GetPickingTasksQuery"}
+2025-11-03 00:46:18.504 +03:00 [INF] Getting picking tasks. Status: null, Zone: null
+2025-11-03 00:46:18.537 +03:00 [INF] Found 8 picking tasks
+2025-11-03 00:46:18.541 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-11-03 00:46:18.544 +03:00 [INF] Request completed: GET /api/Picking/pickers/picker-sarah/tasks - 200 in 63.3695ms
+2025-11-03 00:46:39.463 +03:00 [INF] Incoming request: GET /api/Picking/pickers/picker-mary/tasks
+2025-11-03 00:46:39.469 +03:00 [INF] Getting tasks for picker picker-mary
+2025-11-03 00:46:39.473 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":null,"Zone":null,"$type":"GetPickingTasksQuery"}
+2025-11-03 00:46:39.480 +03:00 [INF] Getting picking tasks. Status: null, Zone: null
+2025-11-03 00:46:39.507 +03:00 [INF] Found 8 picking tasks
+2025-11-03 00:46:39.510 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-11-03 00:46:39.512 +03:00 [INF] Request completed: GET /api/Picking/pickers/picker-mary/tasks - 200 in 48.9737ms
+2025-11-03 00:48:07.667 +03:00 [INF] Incoming request: GET /api/Orders
+2025-11-03 00:48:07.676 +03:00 [INF] Getting orders with status Cancelled
+2025-11-03 00:48:07.680 +03:00 [INF] Handling command/query: GetOrdersByStatusQuery {"Status":"Cancelled","$type":"GetOrdersByStatusQuery"}
+2025-11-03 00:48:07.685 +03:00 [INF] Getting orders with status Cancelled
+2025-11-03 00:48:07.725 +03:00 [INF] Handled command/query: GetOrdersByStatusQuery
+2025-11-03 00:48:07.730 +03:00 [INF] Request completed: GET /api/Orders - 200 in 62.8332ms
+2025-11-03 16:02:22.054 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-03 16:02:22.190 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-03 16:02:22.206 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-11-03 16:03:22.248 +03:00 [INF] Incoming request: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff1/cancel
+2025-11-03 16:03:22.393 +03:00 [INF] Cancelling order "ffffffff-ffff-ffff-ffff-fffffffffff1"
+2025-11-03 16:03:22.459 +03:00 [INF] Handling command/query: CancelPickingCommand {"OrderId":"ffffffff-ffff-ffff-ffff-fffffffffff1","Reason":"string","$type":"CancelPickingCommand"}
+2025-11-03 16:03:22.520 +03:00 [INF] Transaction started successfully
+2025-11-03 16:03:22.527 +03:00 [INF] Cancelling picking for order "ffffffff-ffff-ffff-ffff-fffffffffff1". Reason: string
+2025-11-03 16:03:23.206 +03:00 [INF] Transaction rolled back successfully
+2025-11-03 16:03:23.224 +03:00 [ERR] An unhandled exception has occurred: Cannot cancel order in Completed status
+WareHouse.Domain.Exceptions.DomainException: Cannot cancel order in Completed status
+   at WareHouse.Domain.Entities.OrderAggregate.Cancel(String reason) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Domain\Entities\OrderAggregate.cs:line 120
+   at WareHouse.Application.Commands.CancelPickingCommandHandler.Handle(CancelPickingCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\CancelPickingCommand.cs:line 49
+   at WareHouse.Application.Commands.CancelPickingCommandHandler.Handle(CancelPickingCommand request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Commands\CancelPickingCommand.cs:line 68
+   at WareHouse.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\ValidationBehavior.cs:line 36
+   at WareHouse.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\LoggingBehavior.cs:line 22
+   at WareHouse.API.Controllers.OrdersController.CancelOrder(Guid orderId, CancelOrderRequest request) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Controllers\OrdersController.cs:line 81
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at WareHouse.API.Middleware.CorrelationIdMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\CorrelationIdMiddleware.cs:line 27
+   at WareHouse.API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\RequestLoggingMiddleware.cs:line 23
+   at WareHouse.API.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\GlobalExceptionHandlerMiddleware.cs:line 27
+2025-11-03 16:03:59.348 +03:00 [INF] Incoming request: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff6/cancel
+2025-11-03 16:03:59.376 +03:00 [INF] Cancelling order "ffffffff-ffff-ffff-ffff-fffffffffff6"
+2025-11-03 16:03:59.384 +03:00 [INF] Handling command/query: CancelPickingCommand {"OrderId":"ffffffff-ffff-ffff-ffff-fffffffffff6","Reason":"string","$type":"CancelPickingCommand"}
+2025-11-03 16:03:59.399 +03:00 [INF] Transaction started successfully
+2025-11-03 16:03:59.402 +03:00 [INF] Cancelling picking for order "ffffffff-ffff-ffff-ffff-fffffffffff6". Reason: string
+2025-11-03 16:03:59.537 +03:00 [INF] Transaction committed successfully
+2025-11-03 16:03:59.541 +03:00 [INF] Picking cancelled for order "ffffffff-ffff-ffff-ffff-fffffffffff6"
+2025-11-03 16:03:59.546 +03:00 [INF] Handled command/query: CancelPickingCommand
+2025-11-03 16:03:59.557 +03:00 [INF] Request completed: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff6/cancel - 200 in 209.3617ms
+2025-11-03 16:13:18.080 +03:00 [INF] Incoming request: GET /api/Health/detailed
+2025-11-03 16:13:18.099 +03:00 [INF] Detailed health check requested
+2025-11-03 16:13:18.108 +03:00 [INF] Request completed: GET /api/Health/detailed - 200 in 28.4727ms
+2025-11-03 16:14:23.841 +03:00 [INF] Incoming request: GET /api/Picking/pickers/picker_john/tasks
+2025-11-03 16:14:23.888 +03:00 [INF] Getting tasks for picker picker_john
+2025-11-03 16:14:23.899 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":null,"Zone":null,"$type":"GetPickingTasksQuery"}
+2025-11-03 16:14:23.918 +03:00 [INF] Getting picking tasks. Status: null, Zone: null
+2025-11-03 16:14:23.987 +03:00 [INF] Found 8 picking tasks
+2025-11-03 16:14:23.997 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-11-03 16:14:24.014 +03:00 [INF] Request completed: GET /api/Picking/pickers/picker_john/tasks - 200 in 173.2161ms
+2025-11-03 16:14:48.743 +03:00 [INF] Incoming request: GET /api/Picking/pickers/picker-john/tasks
+2025-11-03 16:14:48.762 +03:00 [INF] Getting tasks for picker picker-john
+2025-11-03 16:14:48.789 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":null,"Zone":null,"$type":"GetPickingTasksQuery"}
+2025-11-03 16:14:48.810 +03:00 [INF] Getting picking tasks. Status: null, Zone: null
+2025-11-03 16:14:48.870 +03:00 [INF] Found 8 picking tasks
+2025-11-03 16:14:48.876 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-11-03 16:14:48.894 +03:00 [INF] Request completed: GET /api/Picking/pickers/picker-john/tasks - 200 in 150.2987ms

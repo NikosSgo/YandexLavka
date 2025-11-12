@@ -1,0 +1,37 @@
+sequenceDiagram
+    participant Client as Client (через Auth Proxy)
+    participant Controller as WareHouseController
+    participant CommandHandler as StartPickingCommandHandler
+    participant OrderRepo as IOrderRepository
+    participant TaskRepo as IPickingTaskRepository
+    participant StorageRepo as IStorageUnitRepository
+    participant KafkaProducer as Kafka Producer
+    participant Domain as Domain Objects
+
+    Note over Client, Domain: Сценарий начала сборки заказа
+
+    Client->>Controller: POST /api/picking/start {orderId}
+    
+    Controller->>Controller: Валидация DTO
+    Controller->>CommandHandler: Send(new StartPickingCommand(orderId))
+    
+    CommandHandler->>OrderRepo: GetById(orderId)
+    OrderRepo-->>CommandHandler: OrderAggregate
+    
+    CommandHandler->>StorageRepo: GetStorageUnitsForOrder(orderId)
+    StorageRepo-->>CommandHandler: List<StorageUnit>
+    
+    CommandHandler->>Domain: OrderAggregate.StartPicking()
+    Domain->>Domain: Статус → "Picking"
+    
+    CommandHandler->>Domain: PickingTask.Create(orderId, items, locations)
+    Domain->>Domain: Создает задание на сборку
+    
+    CommandHandler->>TaskRepo: Add(pickingTask)
+    CommandHandler->>OrderRepo: Update(order)
+    
+    CommandHandler->>KafkaProducer: Publish(OrderPickingStartedEvent)
+    KafkaProducer->>Kafka: Публикует в warehouse-events.topic
+    
+    CommandHandler-->>Controller: PickingStartedResult
+    Controller-->>Client: 200 OK с данными задания

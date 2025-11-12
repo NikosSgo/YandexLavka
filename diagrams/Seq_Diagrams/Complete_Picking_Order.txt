@@ -1,0 +1,37 @@
+sequenceDiagram
+    participant Client as Client (через Auth Proxy)
+    participant Controller as WareHouseController
+    participant CommandHandler as CompletePickingCommandHandler
+    participant OrderRepo as IOrderRepository
+    participant TaskRepo as IPickingTaskRepository
+    participant StorageRepo as IStorageUnitRepository
+    participant KafkaProducer as Kafka Producer
+    participant Domain as Domain Objects
+
+    Note over Client, Domain: Сценарий завершения сборки
+
+    Client->>Controller: POST /api/picking/complete {orderId, pickedItems}
+    
+    Controller->>CommandHandler: Send(new CompletePickingCommand(orderId, pickedItems))
+    
+    CommandHandler->>OrderRepo: GetById(orderId)
+    OrderRepo-->>CommandHandler: OrderAggregate
+    
+    CommandHandler->>TaskRepo: GetActiveForOrder(orderId)
+    TaskRepo-->>CommandHandler: PickingTask
+    
+    CommandHandler->>Domain: OrderAggregate.CompletePicking(pickedItems)
+    Domain->>Domain: Статус → "Picked"
+    Domain->>Domain: Валидирует собранные количества
+    
+    CommandHandler->>StorageRepo: ReserveItems(pickedItems)
+    StorageRepo->>StorageRepo: Обновляет остатки на складе
+    
+    CommandHandler->>TaskRepo: Complete(pickingTask)
+    CommandHandler->>OrderRepo: Update(order)
+    
+    CommandHandler->>KafkaProducer: Publish(OrderPickedEvent)
+    KafkaProducer->>Kafka: Публикует в warehouse-events.topic
+    
+    CommandHandler-->>Controller: PickingCompletedResult
+    Controller-->>Client: 200 OK
