@@ -1,19 +1,20 @@
 namespace UserService.Domain.Entities;
 
 using UserService.Domain.Common;
+using UserService.Domain.ValueObjects;
 
 public class User : Entity
 {
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
-    public string Phone { get; private set; }
-    public string Email { get; private set; }
+    public Phone Phone { get; private set; }
+    public Email Email { get; private set; }
 
     private readonly List<Address> _addresses = new();
     public IReadOnlyCollection<Address> Addresses => _addresses.AsReadOnly();
     private const int MaxAddressCount = 5;
 
-    public User(string firstName, string lastName, string phone, string email)
+    public User(string firstName, string lastName, Phone phone, Email email)
         : base()
     {
         FirstName = firstName;
@@ -22,13 +23,13 @@ public class User : Entity
         Email = email;
     }
 
-    public void ChangePhone(string newPhone)
+    public void ChangePhone(Phone newPhone)
     {
         Phone = newPhone;
         UpdateTimestamps();
     }
 
-    public void ChangeEmail(string newEmail)
+    public void ChangeEmail(Email newEmail)
     {
         Email = newEmail;
         UpdateTimestamps();
