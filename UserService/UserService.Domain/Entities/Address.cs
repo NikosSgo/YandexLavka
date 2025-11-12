@@ -1,7 +1,5 @@
 namespace UserService.Domain.Entities;
 
-using UserService.Domain.Common;
-
 public class Address : Entity
 {
     public string Street { get; private set; }

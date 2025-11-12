@@ -1,6 +1,5 @@
 namespace UserService.Domain.Entities;
 
-using UserService.Domain.Common;
 using UserService.Domain.ValueObjects;
 
 public class User : Entity
