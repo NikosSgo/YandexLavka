@@ -16,6 +16,12 @@ public class User : Entity
     public User(string firstName, string lastName, Phone phone, Email email)
         : base()
     {
+        if (string.IsNullOrWhiteSpace(firstName))
+            throw new ArgumentException("First name cannot be empty", nameof(firstName));
+
+        if (string.IsNullOrWhiteSpace(lastName))
+            throw new ArgumentException("Last name cannot be empty", nameof(lastName));
+
         FirstName = firstName;
         LastName = lastName;
         Phone = phone;
@@ -36,6 +42,12 @@ public class User : Entity
 
     public void UpdateName(string firstName, string lastName)
     {
+        if (string.IsNullOrWhiteSpace(firstName))
+            throw new ArgumentException("First name cannot be empty", nameof(firstName));
+
+        if (string.IsNullOrWhiteSpace(lastName))
+            throw new ArgumentException("Last name cannot be empty", nameof(lastName));
+
         FirstName = firstName;
         LastName = lastName;
         UpdateTimestamps();
@@ -51,6 +63,13 @@ public class User : Entity
         bool isPrimary = false
     )
     {
+        if (_addresses.Count >= MaxAddressCount)
+        {
+            throw new InvalidOperationException(
+                $"Cannot add more than {MaxAddressCount} addresses"
+            );
+        }
+
         if (isPrimary || _addresses.Count == 0)
         {
             foreach (var addr in _addresses.Where(a => a.IsPrimary))

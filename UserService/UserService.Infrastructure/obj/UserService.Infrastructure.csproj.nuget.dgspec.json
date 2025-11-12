@@ -4,14 +4,97 @@
     "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Infrastructure/UserService.Infrastructure.csproj": {}
   },
   "projects": {
-    "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Infrastructure/UserService.Infrastructure.csproj": {
+    "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Application/UserService.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Infrastructure/UserService.Infrastructure.csproj",
-        "projectName": "UserService.Infrastructure",
-        "projectPath": "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Infrastructure/UserService.Infrastructure.csproj",
+        "projectUniqueName": "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Application/UserService.Application.csproj",
+        "projectName": "UserService.Application",
+        "projectPath": "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Application/UserService.Application.csproj",
         "packagesPath": "/home/niko/.nuget/packages/",
-        "outputPath": "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Infrastructure/obj/",
+        "outputPath": "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/niko/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/UserService.Domain.csproj": {
+                "projectPath": "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/UserService.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.2, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.2, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.9, 9.0.9]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.110/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/UserService.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/UserService.Domain.csproj",
+        "projectName": "UserService.Domain",
+        "projectPath": "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/UserService.Domain.csproj",
+        "packagesPath": "/home/niko/.nuget/packages/",
+        "outputPath": "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/niko/.nuget/NuGet/NuGet.Config"
@@ -43,6 +126,100 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.9, 9.0.9]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.110/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Infrastructure/UserService.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Infrastructure/UserService.Infrastructure.csproj",
+        "projectName": "UserService.Infrastructure",
+        "projectPath": "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Infrastructure/UserService.Infrastructure.csproj",
+        "packagesPath": "/home/niko/.nuget/packages/",
+        "outputPath": "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/niko/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Application/UserService.Application.csproj": {
+                "projectPath": "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Application/UserService.Application.csproj"
+              },
+              "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/UserService.Domain.csproj": {
+                "projectPath": "/home/niko/projects/education/backend/project/YandexLavka/UserService/UserService.Domain/UserService.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
