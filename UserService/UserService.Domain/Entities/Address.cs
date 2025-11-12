@@ -37,9 +37,9 @@ public class Address : Entity
         return $"{Street}, {City}, {State}, {Country}, {ZipCode}";
     }
 
-    public void SetAsPrimary()
+    public void SetPrimary(bool isPrimary)
     {
-        IsPrimary = true;
+        IsPrimary = isPrimary;
         UpdateTimestamps();
     }
 
