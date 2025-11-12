@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|solutionrelative:warehouse.infrastructure\\data\\repositories\\pickingtaskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.domain\\entities\\pickingitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|solutionrelative:warehouse.domain\\entities\\pickingitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.domain\\entities\\pickingtask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|solutionrelative:warehouse.domain\\entities\\pickingtask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.infrastructure\\data\\repositories\\storageunitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|solutionrelative:warehouse.infrastructure\\data\\repositories\\storageunitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.domain\\entities\\pickingitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7927210-1A18-4DD4-9606-5805DBCA89FE}|WareHouse.Domain\\WareHouse.Domain.csproj|solutionrelative:warehouse.domain\\entities\\pickingitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6347C6A-AD38-4E0A-95CF-3CCEA48E47BB}|WareHouse.Infrastructure\\WareHouse.Infrastructure.csproj|c:\\backend_project\\yandexlavka\\warehouseservice\\warehouse.infrastructure\\data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -444,27 +444,26 @@
               "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Data\\Repositories\\PickingTaskRepository.cs",
               "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\Repositories\\PickingTaskRepository.cs",
               "RelativeToolTip": "WareHouse.Infrastructure\\Data\\Repositories\\PickingTaskRepository.cs",
-              "ViewState": "AgIAALwAAAAAAAAAAAAcwMYAAABRAAAAAAAAAA==",
+              "ViewState": "AgIAANgAAAAAAAAAAAAIwMYAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-27T22:10:43.82Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "PickingTask.cs",
               "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\PickingTask.cs",
               "RelativeDocumentMoniker": "WareHouse.Domain\\Entities\\PickingTask.cs",
               "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\PickingTask.cs",
               "RelativeToolTip": "WareHouse.Domain\\Entities\\PickingTask.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAkwBQAAABJAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAiwBQAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:27:51.943Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T21:27:51.943Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "StorageUnitRepository.cs",
               "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Infrastructure\\Data\\Repositories\\StorageUnitRepository.cs",
               "RelativeDocumentMoniker": "WareHouse.Infrastructure\\Data\\Repositories\\StorageUnitRepository.cs",
@@ -472,21 +471,19 @@
               "RelativeToolTip": "WareHouse.Infrastructure\\Data\\Repositories\\StorageUnitRepository.cs",
               "ViewState": "AgIAAJgBAAAAAAAAAAAnwKEBAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:11:09.372Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-27T22:11:09.372Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "PickingItem.cs",
               "DocumentMoniker": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\PickingItem.cs",
               "RelativeDocumentMoniker": "WareHouse.Domain\\Entities\\PickingItem.cs",
               "ToolTip": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\Entities\\PickingItem.cs",
               "RelativeToolTip": "WareHouse.Domain\\Entities\\PickingItem.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACIAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:49:47.356Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T21:49:47.356Z"
             },
             {
               "$type": "Document",
@@ -498,8 +495,7 @@
               "RelativeToolTip": "WareHouse.Infrastructure\\Data\\UnitOfWork.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAywDoAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:09:09.848Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-27T22:09:09.848Z"
             },
             {
               "$type": "Document",
@@ -511,8 +507,7 @@
               "RelativeToolTip": "WareHouse.Application\\Queries\\GetPickingTasksQuery.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAQwDQAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:29:56.901Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-27T22:29:56.901Z"
             },
             {
               "$type": "Document",
@@ -524,8 +519,7 @@
               "RelativeToolTip": "WareHouse.Domain\\Interfaces\\IPickingTaskRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:31:30.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T21:31:30.727Z"
             },
             {
               "$type": "Document",
@@ -537,8 +531,7 @@
               "RelativeToolTip": "WareHouse.API\\Controllers\\PickingController.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAuwDcAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T14:36:43.995Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T14:36:43.995Z"
             },
             {
               "$type": "Document",
@@ -550,8 +543,7 @@
               "RelativeToolTip": "WareHouse.Infrastructure\\Data\\Repositories\\OrderRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAALMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:10:22.251Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-27T22:10:22.251Z"
             },
             {
               "$type": "Document",
@@ -563,8 +555,7 @@
               "RelativeToolTip": "WareHouse.Infrastructure\\Data\\Repositories\\ProductRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T20:53:40.178Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-01T20:53:40.178Z"
             },
             {
               "$type": "Document",
@@ -576,8 +567,7 @@
               "RelativeToolTip": "WareHouse.Application\\DTOs\\PickingTaskDtos.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAiwD0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T22:27:01.516Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-27T22:27:01.516Z"
             },
             {
               "$type": "Document",
@@ -589,8 +579,7 @@
               "RelativeToolTip": "WareHouse.Domain\\Enums\\OrderStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T21:30:27.733Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T21:30:27.733Z"
             },
             {
               "$type": "Document",
@@ -602,8 +591,7 @@
               "RelativeToolTip": "WareHouse.Infrastructure\\Data\\QueryUnitOfWork.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAcwFcAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-02T14:44:46.847Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-02T14:44:46.847Z"
             },
             {
               "$type": "Document",

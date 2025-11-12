@@ -1,33 +1,3 @@
-2025-11-03 00:45:25.356 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
-2025-11-03 00:45:25.393 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
-2025-11-03 00:45:25.398 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
-2025-11-03 00:45:44.785 +03:00 [INF] Incoming request: GET /api/Picking/tasks
-2025-11-03 00:45:44.823 +03:00 [INF] Getting picking tasks. Status: Completed, Zone: C,freezer
-2025-11-03 00:45:44.834 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":"Completed","Zone":"C,freezer","$type":"GetPickingTasksQuery"}
-2025-11-03 00:45:44.846 +03:00 [INF] Getting picking tasks. Status: Completed, Zone: C,freezer
-2025-11-03 00:45:44.946 +03:00 [INF] Found 1 picking tasks
-2025-11-03 00:45:44.953 +03:00 [INF] Handled command/query: GetPickingTasksQuery
-2025-11-03 00:45:44.973 +03:00 [INF] Request completed: GET /api/Picking/tasks - 200 in 189.7201ms
-2025-11-03 00:46:18.480 +03:00 [INF] Incoming request: GET /api/Picking/pickers/picker-sarah/tasks
-2025-11-03 00:46:18.493 +03:00 [INF] Getting tasks for picker picker-sarah
-2025-11-03 00:46:18.498 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":null,"Zone":null,"$type":"GetPickingTasksQuery"}
-2025-11-03 00:46:18.504 +03:00 [INF] Getting picking tasks. Status: null, Zone: null
-2025-11-03 00:46:18.537 +03:00 [INF] Found 8 picking tasks
-2025-11-03 00:46:18.541 +03:00 [INF] Handled command/query: GetPickingTasksQuery
-2025-11-03 00:46:18.544 +03:00 [INF] Request completed: GET /api/Picking/pickers/picker-sarah/tasks - 200 in 63.3695ms
-2025-11-03 00:46:39.463 +03:00 [INF] Incoming request: GET /api/Picking/pickers/picker-mary/tasks
-2025-11-03 00:46:39.469 +03:00 [INF] Getting tasks for picker picker-mary
-2025-11-03 00:46:39.473 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":null,"Zone":null,"$type":"GetPickingTasksQuery"}
-2025-11-03 00:46:39.480 +03:00 [INF] Getting picking tasks. Status: null, Zone: null
-2025-11-03 00:46:39.507 +03:00 [INF] Found 8 picking tasks
-2025-11-03 00:46:39.510 +03:00 [INF] Handled command/query: GetPickingTasksQuery
-2025-11-03 00:46:39.512 +03:00 [INF] Request completed: GET /api/Picking/pickers/picker-mary/tasks - 200 in 48.9737ms
-2025-11-03 00:48:07.667 +03:00 [INF] Incoming request: GET /api/Orders
-2025-11-03 00:48:07.676 +03:00 [INF] Getting orders with status Cancelled
-2025-11-03 00:48:07.680 +03:00 [INF] Handling command/query: GetOrdersByStatusQuery {"Status":"Cancelled","$type":"GetOrdersByStatusQuery"}
-2025-11-03 00:48:07.685 +03:00 [INF] Getting orders with status Cancelled
-2025-11-03 00:48:07.725 +03:00 [INF] Handled command/query: GetOrdersByStatusQuery
-2025-11-03 00:48:07.730 +03:00 [INF] Request completed: GET /api/Orders - 200 in 62.8332ms
 2025-11-03 16:02:22.054 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
 2025-11-03 16:02:22.190 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
 2025-11-03 16:02:22.206 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
