@@ -1,0 +1,219 @@
+version: '3.9'
+
+services:
+  userservice-postgres:
+    image: postgres:16-alpine
+    container_name: userservice-postgres
+    environment:
+      POSTGRES_DB: UserServiceDb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - userservice-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - lavka-network
+
+  userservice-api:
+    build:
+      context: ./UserService
+      dockerfile: UserService.API/Dockerfile
+    container_name: userservice-api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__DefaultConnection: Host=userservice-postgres;Port=5432;Database=UserServiceDb;Username=postgres;Password=postgres
+    depends_on:
+      userservice-postgres:
+        condition: service_healthy
+    networks:
+      - lavka-network
+    restart: unless-stopped
+
+  warehouse-postgres:
+    image: postgres:15
+    container_name: warehouse-postgres
+    environment:
+      POSTGRES_DB: WareHouseDb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST_AUTH_METHOD: md5
+      POSTGRES_INITDB_ARGS: --auth md5
+    ports:
+      - "5433:5432"
+    volumes:
+      - warehouse-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - lavka-network
+
+  warehouse-redis:
+    image: redis:7-alpine
+    container_name: warehouse-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - lavka-network
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    container_name: lavka-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    networks:
+      - lavka-network
+
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: lavka-kafka
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_INTERNAL://0.0.0.0:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka:29092
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT_INTERNAL
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+    ports:
+      - "9092:9092"
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+      - kafka-logs:/var/lib/kafka/logs
+    healthcheck:
+      test: ["CMD-SHELL", "kafka-topics --bootstrap-server kafka:29092 --list"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 40s
+    networks:
+      - lavka-network
+
+  kafka-topics-init:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: lavka-kafka-topics-init
+    depends_on:
+      kafka:
+        condition: service_healthy
+    command: >
+      bash -c "
+        echo 'Waiting for Kafka to be ready...'
+        cub kafka-ready -b kafka:29092 1 60
+        echo 'Creating Kafka topics...'
+        kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic orders --partitions 1 --replication-factor 1 &&
+        kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic warehouse-commands --partitions 1 --replication-factor 1 &&
+        kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic warehouse-events --partitions 1 --replication-factor 1 &&
+        kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic picking-tasks --partitions 1 --replication-factor 1 &&
+        kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic stock-updates --partitions 1 --replication-factor 1 &&
+        echo 'All topics created successfully!'
+      "
+    networks:
+      - lavka-network
+    restart: "no"
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: lavka-kafka-ui
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+    ports:
+      - "8081:8080"
+    networks:
+      - lavka-network
+
+  warehouse-service-api:
+    build:
+      context: ./WareHouseService
+      dockerfile: WareHouse.API/Dockerfile
+    container_name: warehouse-service-api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__DefaultConnection: Host=warehouse-postgres;Port=5432;Database=WareHouseDb;Username=postgres;Password=password
+      Kafka__BootstrapServers: kafka:29092
+      ConnectionStrings__Redis: warehouse-redis:6379
+    depends_on:
+      warehouse-postgres:
+        condition: service_healthy
+      warehouse-redis:
+        condition: service_started
+      kafka:
+        condition: service_healthy
+    networks:
+      - lavka-network
+    restart: unless-stopped
+
+  warehouse-pgadmin:
+    image: dpage/pgadmin4
+    container_name: warehouse-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@warehouse.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8082:80"
+    depends_on:
+      warehouse-postgres:
+        condition: service_healthy
+    networks:
+      - lavka-network
+
+  apigateway:
+    build:
+      context: ./ApiGateway
+      dockerfile: Dockerfile
+    container_name: lavka-api-gateway
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    depends_on:
+      userservice-api:
+        condition: service_started
+      warehouse-service-api:
+        condition: service_started
+    ports:
+      - "8080:8080"
+    networks:
+      - lavka-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: lavka-frontend
+    depends_on:
+      - apigateway
+    ports:
+      - "3000:80"
+    networks:
+      - lavka-network
+    restart: unless-stopped
+
+volumes:
+  userservice-postgres-data:
+  warehouse-postgres-data:
+  kafka-data:
+  kafka-logs:
+
+networks:
+  lavka-network:
+    driver: bridge
+

@@ -17,6 +17,11 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - warehouse-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   # Redis for caching
   redis:
@@ -27,77 +32,6 @@ services:
     networks:
       - warehouse-network
 
-  # Zookeeper (for Kafka)
-  zookeeper:
-    image: confluentinc/cp-zookeeper:7.4.0
-    container_name: warehouse-zookeeper
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
-    ports:
-      - "2181:2181"
-    networks:
-      - warehouse-network
-
-  # Kafka
-  kafka:
-    image: confluentinc/cp-kafka:7.4.0
-    container_name: warehouse-kafka
-    depends_on:
-      - zookeeper
-    environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka:29092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT_INTERNAL
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      # Auto creating topics on start
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
-      KAFKA_CREATE_TOPICS: "orders:1:1,warehouse-commands:1:1,warehouse-events:1:1,picking-tasks:1:1,stock-updates:1:1"
-    ports:
-      - "9092:9092"
-    networks:
-      - warehouse-network
-
-  # Kafka Topics Initializer (creates topics if auto-create doesn't work)
-  kafka-topics-init:
-    image: confluentinc/cp-kafka:7.4.0
-    container_name: warehouse-kafka-topics-init
-    depends_on:
-      - kafka
-    command: |
-      bash -c "
-        echo 'Waiting for Kafka to be ready...'
-        cub kafka-ready -b kafka:29092 1 60
-        
-        echo 'Creating Kafka topics...'
-        kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic orders --partitions 1 --replication-factor 1
-        kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic warehouse-commands --partitions 1 --replication-factor 1
-        kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic warehouse-events --partitions 1 --replication-factor 1
-        kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic picking-tasks --partitions 1 --replication-factor 1
-        kafka-topics --create --if-not-exists --bootstrap-server kafka:29092 --topic stock-updates --partitions 1 --replication-factor 1
-        
-        echo 'All topics created successfully!'
-        kafka-topics --list --bootstrap-server kafka:29092
-      "
-    networks:
-      - warehouse-network
-
-  # Kafka UI (for topics monitoring)
-  kafka-ui:
-    image: provectuslabs/kafka-ui:latest
-    container_name: warehouse-kafka-ui
-    depends_on:
-      - kafka
-    environment:
-      KAFKA_CLUSTERS_0_NAME: local
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
-      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
-    ports:
-      - "8081:8080"
-    networks:
-      - warehouse-network
 
   # PGAdmin for managing DB
   pgadmin:
@@ -107,11 +41,36 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@warehouse.com
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
-      - "8080:80"
+      - "8082:80"
     depends_on:
       - postgres
     networks:
       - warehouse-network
+
+  # API Service
+  api:
+    build:
+      context: .
+      dockerfile: WareHouse.API/Dockerfile
+    container_name: warehouse-service-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=WareHouseDb;Username=postgres;Password=password
+      - Kafka__BootstrapServers=host.docker.internal:9092
+      - ConnectionStrings__Redis=redis:6379
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    networks:
+      - warehouse-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
 
 volumes:
   postgres_data:

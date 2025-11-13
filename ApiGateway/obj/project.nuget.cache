@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "dgSpecHash": "cFluoVVB1YY=",
+  "success": true,
+  "projectFilePath": "/home/niko/projects/education/backend/YandexLavka/ApiGateway/ApiGateway.csproj",
+  "expectedPackageFiles": [
+    "/home/niko/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/home/niko/.nuget/packages/microsoft.openapi/1.6.22/microsoft.openapi.1.6.22.nupkg.sha512",
+    "/home/niko/.nuget/packages/microsoft.openapi.readers/1.6.19/microsoft.openapi.readers.1.6.19.nupkg.sha512",
+    "/home/niko/.nuget/packages/microsoft.visualstudio.threading/17.11.20/microsoft.visualstudio.threading.17.11.20.nupkg.sha512",
+    "/home/niko/.nuget/packages/microsoft.visualstudio.threading.analyzers/17.11.20/microsoft.visualstudio.threading.analyzers.17.11.20.nupkg.sha512",
+    "/home/niko/.nuget/packages/microsoft.visualstudio.validation/17.8.8/microsoft.visualstudio.validation.17.8.8.nupkg.sha512",
+    "/home/niko/.nuget/packages/sharpyaml/2.1.1/sharpyaml.2.1.1.nupkg.sha512",
+    "/home/niko/.nuget/packages/swashbuckle.aspnetcore/7.2.0/swashbuckle.aspnetcore.7.2.0.nupkg.sha512",
+    "/home/niko/.nuget/packages/swashbuckle.aspnetcore.swagger/7.2.0/swashbuckle.aspnetcore.swagger.7.2.0.nupkg.sha512",
+    "/home/niko/.nuget/packages/swashbuckle.aspnetcore.swaggergen/7.2.0/swashbuckle.aspnetcore.swaggergen.7.2.0.nupkg.sha512",
+    "/home/niko/.nuget/packages/swashbuckle.aspnetcore.swaggerui/7.2.0/swashbuckle.aspnetcore.swaggerui.7.2.0.nupkg.sha512",
+    "/home/niko/.nuget/packages/system.io.hashing/8.0.0/system.io.hashing.8.0.0.nupkg.sha512",
+    "/home/niko/.nuget/packages/yarp.reverseproxy/2.3.0/yarp.reverseproxy.2.3.0.nupkg.sha512",
+    "/home/niko/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.9/microsoft.aspnetcore.app.ref.9.0.9.nupkg.sha512"
+  ],
+  "logs": []
+}

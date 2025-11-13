@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\WareHouse.Migrations.csproj": {}
+    "/home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Migrations/WareHouse.Migrations.csproj": {}
   },
   "projects": {
-    "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\WareHouse.Domain.csproj": {
+    "/home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Domain/WareHouse.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\WareHouse.Domain.csproj",
+        "projectUniqueName": "/home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Domain/WareHouse.Domain.csproj",
         "projectName": "WareHouse.Domain",
-        "projectPath": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\WareHouse.Domain.csproj",
-        "packagesPath": "C:\\Users\\Данил\\.nuget\\packages\\",
-        "outputPath": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\obj\\",
+        "projectPath": "/home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Domain/WareHouse.Domain.csproj",
+        "packagesPath": "/home/niko/.nuget/packages/",
+        "outputPath": "/home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Domain/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Данил\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/niko/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -69,15 +63,11 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.19, 8.0.19]"
+              "version": "[8.0.20, 8.0.20]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.19, 8.0.19]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.19, 8.0.19]"
+              "version": "[8.0.20, 8.0.20]"
             }
           ],
           "frameworkReferences": {
@@ -85,40 +75,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.110/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\WareHouse.Migrations.csproj": {
+    "/home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Migrations/WareHouse.Migrations.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\WareHouse.Migrations.csproj",
+        "projectUniqueName": "/home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Migrations/WareHouse.Migrations.csproj",
         "projectName": "WareHouse.Migrations",
-        "projectPath": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\WareHouse.Migrations.csproj",
-        "packagesPath": "C:\\Users\\Данил\\.nuget\\packages\\",
-        "outputPath": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Migrations\\obj\\",
+        "projectPath": "/home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Migrations/WareHouse.Migrations.csproj",
+        "packagesPath": "/home/niko/.nuget/packages/",
+        "outputPath": "/home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Migrations/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Данил\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/niko/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\WareHouse.Domain.csproj": {
-                "projectPath": "C:\\Backend_Project\\YandexLavka\\WareHouseService\\WareHouse.Domain\\WareHouse.Domain.csproj"
+              "/home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Domain/WareHouse.Domain.csproj": {
+                "projectPath": "/home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Domain/WareHouse.Domain.csproj"
               }
             }
           }
@@ -133,7 +117,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -183,12 +167,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.9, 9.0.9]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.110/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

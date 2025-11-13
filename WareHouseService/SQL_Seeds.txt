@@ -1,6 +1,6 @@
--- 1. Вставляем больше продуктов
+-- 1. Р’СЃС‚Р°РІР»СЏРµРј Р±РѕР»СЊС€Рµ РїСЂРѕРґСѓРєС‚РѕРІ
 INSERT INTO products (id, name, sku, description, category, unit_price, weight_kg, requires_refrigeration, created_at, updated_at) VALUES
--- Молочные продукты (холодильник)
+-- РњРѕР»РѕС‡РЅС‹Рµ РїСЂРѕРґСѓРєС‚С‹ (С…РѕР»РѕРґРёР»СЊРЅРёРє)
 ('11111111-1111-1111-1111-111111111111', 'Milk', 'MILK-001', 'Fresh whole milk 1L', 'Dairy', 2.50, 1.05, true, NOW(), NOW()),
 ('22222222-2222-2222-2222-222222222222', 'Yogurt', 'YOG-001', 'Natural yogurt 500g', 'Dairy', 1.80, 0.52, true, NOW(), NOW()),
 ('33333333-3333-3333-3333-333333333333', 'Cheese', 'CHS-001', 'Cheddar cheese 200g', 'Dairy', 3.20, 0.21, true, NOW(), NOW()),
@@ -8,7 +8,7 @@ INSERT INTO products (id, name, sku, description, category, unit_price, weight_k
 ('55555555-5555-5555-5555-555555555555', 'Cream', 'CREAM-001', 'Whipping cream 200ml', 'Dairy', 2.20, 0.21, true, NOW(), NOW()),
 ('66666666-6666-6666-6666-666666666666', 'Eggs', 'EGGS-001', 'Free-range eggs 6pcs', 'Dairy', 3.50, 0.35, true, NOW(), NOW()),
 
--- Хлебобулочные (зона A)
+-- РҐР»РµР±РѕР±СѓР»РѕС‡РЅС‹Рµ (Р·РѕРЅР° A)
 ('77777777-7777-7777-7777-777777777777', 'Bread', 'BREAD-001', 'Whole wheat bread', 'Bakery', 1.20, 0.45, false, NOW(), NOW()),
 ('88888888-8888-8888-8888-888888888888', 'Croissant', 'CROISS-001', 'Butter croissant', 'Bakery', 0.80, 0.12, false, NOW(), NOW()),
 ('99999999-9999-9999-9999-999999999999', 'Baguette', 'BAG-001', 'French baguette', 'Bakery', 1.50, 0.35, false, NOW(), NOW()),
@@ -16,7 +16,7 @@ INSERT INTO products (id, name, sku, description, category, unit_price, weight_k
 ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'Muffin', 'MUFFIN-001', 'Blueberry muffin', 'Bakery', 1.30, 0.10, false, NOW(), NOW()),
 ('cccccccc-cccc-cccc-cccc-cccccccccccc', 'Cookies', 'COOKIES-001', 'Chocolate chip cookies', 'Bakery', 2.50, 0.30, false, NOW(), NOW()),
 
--- Напитки (зона B)
+-- РќР°РїРёС‚РєРё (Р·РѕРЅР° B)
 ('dddddddd-dddd-dddd-dddd-dddddddddddd', 'Water', 'WATER-001', 'Mineral water 0.5L', 'Beverages', 0.50, 0.52, false, NOW(), NOW()),
 ('eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee', 'Juice', 'JUICE-001', 'Orange juice 1L', 'Beverages', 2.00, 1.05, true, NOW(), NOW()),
 ('ffffffff-ffff-ffff-ffff-ffffffffffff', 'Soda', 'SODA-001', 'Cola 0.33L', 'Beverages', 1.00, 0.35, true, NOW(), NOW()),
@@ -24,30 +24,30 @@ INSERT INTO products (id, name, sku, description, category, unit_price, weight_k
 ('22222222-3333-4444-5555-666666666666', 'Coffee', 'COFFEE-001', 'Black coffee 0.25L', 'Beverages', 1.50, 0.26, false, NOW(), NOW()),
 ('33333333-4444-5555-6666-777777777777', 'Energy Drink', 'ENERGY-001', 'Energy drink 0.5L', 'Beverages', 1.80, 0.52, false, NOW(), NOW()),
 
--- Консервы (зона C)
+-- РљРѕРЅСЃРµСЂРІС‹ (Р·РѕРЅР° C)
 ('44444444-5555-6666-7777-888888888888', 'Beans', 'BEANS-001', 'Canned beans 400g', 'Canned Food', 1.30, 0.42, false, NOW(), NOW()),
 ('55555555-6666-7777-8888-999999999999', 'Corn', 'CORN-001', 'Canned corn 300g', 'Canned Food', 1.10, 0.32, false, NOW(), NOW()),
 ('66666666-7777-8888-9999-aaaaaaaaaaaa', 'Tomatoes', 'TOMATOES-001', 'Canned tomatoes 400g', 'Canned Food', 1.40, 0.42, false, NOW(), NOW()),
 ('77777777-8888-9999-aaaa-bbbbbbbbbbbb', 'Tuna', 'TUNA-001', 'Canned tuna 150g', 'Canned Food', 2.50, 0.16, false, NOW(), NOW()),
 ('88888888-9999-aaaa-bbbb-cccccccccccc', 'Soup', 'SOUP-001', 'Canned chicken soup', 'Canned Food', 1.80, 0.40, false, NOW(), NOW()),
 
--- Заморозка (морозилка)
+-- Р—Р°РјРѕСЂРѕР·РєР° (РјРѕСЂРѕР·РёР»РєР°)
 ('99999999-aaaa-bbbb-cccc-dddddddddddd', 'Ice Cream', 'ICE-001', 'Vanilla ice cream 500ml', 'Frozen', 3.50, 0.55, true, NOW(), NOW()),
 ('aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee', 'Frozen Pizza', 'PIZZA-001', 'Pepperoni pizza', 'Frozen', 4.20, 0.85, true, NOW(), NOW()),
 ('bbbbbbbb-cccc-dddd-eeee-ffffffffffff', 'Frozen Vegetables', 'VEG-001', 'Mixed frozen vegetables', 'Frozen', 2.80, 0.45, true, NOW(), NOW()),
 ('cccccccc-dddd-eeee-ffff-111111111111', 'Frozen Berries', 'BERRIES-001', 'Mixed frozen berries', 'Frozen', 3.20, 0.35, true, NOW(), NOW()),
 ('dddddddd-eeee-ffff-1111-222222222222', 'Frozen Fish', 'FISH-001', 'Frozen salmon fillet', 'Frozen', 5.50, 0.30, true, NOW(), NOW()),
 
--- Бакалея (зона D)
+-- Р‘Р°РєР°Р»РµСЏ (Р·РѕРЅР° D)
 ('eeeeeeee-ffff-1111-2222-333333333333', 'Pasta', 'PASTA-001', 'Spaghetti 500g', 'Grocery', 1.20, 0.52, false, NOW(), NOW()),
 ('ffffffff-1111-2222-3333-444444444444', 'Rice', 'RICE-001', 'Basmati rice 1kg', 'Grocery', 2.50, 1.02, false, NOW(), NOW()),
 ('11111111-3333-4444-5555-666666666666', 'Flour', 'FLOUR-001', 'Wheat flour 1kg', 'Grocery', 1.80, 1.02, false, NOW(), NOW()),
 ('22222222-4444-5555-6666-777777777777', 'Sugar', 'SUGAR-001', 'White sugar 1kg', 'Grocery', 1.50, 1.02, false, NOW(), NOW()),
 ('33333333-5555-6666-7777-888888888888', 'Oil', 'OIL-001', 'Olive oil 0.5L', 'Grocery', 4.20, 0.52, false, NOW(), NOW());
 
--- 2. Вставляем больше складских единиц
+-- 2. Р’СЃС‚Р°РІР»СЏРµРј Р±РѕР»СЊС€Рµ СЃРєР»Р°РґСЃРєРёС… РµРґРёРЅРёС†
 INSERT INTO storage_units (id, product_id, quantity, reserved_quantity, location, zone, last_restocked) VALUES
--- Зона A (хлебобулочные)
+-- Р—РѕРЅР° A (С…Р»РµР±РѕР±СѓР»РѕС‡РЅС‹Рµ)
 ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa1', '77777777-7777-7777-7777-777777777777', 25, 0, 'A-01-01', 'A', NOW()),
 ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa2', '88888888-8888-8888-8888-888888888888', 40, 0, 'A-01-02', 'A', NOW()),
 ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa3', '99999999-9999-9999-9999-999999999999', 15, 0, 'A-01-03', 'A', NOW()),
@@ -55,7 +55,7 @@ INSERT INTO storage_units (id, product_id, quantity, reserved_quantity, location
 ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa5', 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 35, 0, 'A-01-05', 'A', NOW()),
 ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa6', 'cccccccc-cccc-cccc-cccc-cccccccccccc', 20, 0, 'A-01-06', 'A', NOW()),
 
--- Зона B (напитки)
+-- Р—РѕРЅР° B (РЅР°РїРёС‚РєРё)
 ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb1', 'dddddddd-dddd-dddd-dddd-dddddddddddd', 50, 0, 'B-02-01', 'B', NOW()),
 ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb2', 'eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee', 20, 0, 'B-02-02', 'B', NOW()),
 ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb3', 'ffffffff-ffff-ffff-ffff-ffffffffffff', 30, 0, 'B-02-03', 'B', NOW()),
@@ -63,21 +63,21 @@ INSERT INTO storage_units (id, product_id, quantity, reserved_quantity, location
 ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb5', '22222222-3333-4444-5555-666666666666', 18, 0, 'B-02-05', 'B', NOW()),
 ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb6', '33333333-4444-5555-6666-777777777777', 22, 0, 'B-02-06', 'B', NOW()),
 
--- Зона C (консервы)
+-- Р—РѕРЅР° C (РєРѕРЅСЃРµСЂРІС‹)
 ('cccccccc-cccc-cccc-cccc-ccccccccccc1', '44444444-5555-6666-7777-888888888888', 35, 0, 'C-03-01', 'C', NOW()),
 ('cccccccc-cccc-cccc-cccc-ccccccccccc2', '55555555-6666-7777-8888-999999999999', 28, 0, 'C-03-02', 'C', NOW()),
 ('cccccccc-cccc-cccc-cccc-ccccccccccc3', '66666666-7777-8888-9999-aaaaaaaaaaaa', 32, 0, 'C-03-03', 'C', NOW()),
 ('cccccccc-cccc-cccc-cccc-ccccccccccc4', '77777777-8888-9999-aaaa-bbbbbbbbbbbb', 15, 0, 'C-03-04', 'C', NOW()),
 ('cccccccc-cccc-cccc-cccc-ccccccccccc5', '88888888-9999-aaaa-bbbb-cccccccccccc', 20, 0, 'C-03-05', 'C', NOW()),
 
--- Зона D (бакалея)
+-- Р—РѕРЅР° D (Р±Р°РєР°Р»РµСЏ)
 ('dddddddd-dddd-dddd-dddd-ddddddddddd1', 'eeeeeeee-ffff-1111-2222-333333333333', 40, 0, 'D-04-01', 'D', NOW()),
 ('dddddddd-dddd-dddd-dddd-ddddddddddd2', 'ffffffff-1111-2222-3333-444444444444', 25, 0, 'D-04-02', 'D', NOW()),
 ('dddddddd-dddd-dddd-dddd-ddddddddddd3', '11111111-3333-4444-5555-666666666666', 30, 0, 'D-04-03', 'D', NOW()),
 ('dddddddd-dddd-dddd-dddd-ddddddddddd4', '22222222-4444-5555-6666-777777777777', 35, 0, 'D-04-04', 'D', NOW()),
 ('dddddddd-dddd-dddd-dddd-ddddddddddd5', '33333333-5555-6666-7777-888888888888', 18, 0, 'D-04-05', 'D', NOW()),
 
--- Холодильник (молочные)
+-- РҐРѕР»РѕРґРёР»СЊРЅРёРє (РјРѕР»РѕС‡РЅС‹Рµ)
 ('eeeeeeee-eeee-eeee-eeee-eeeeeeeeeee1', '11111111-1111-1111-1111-111111111111', 18, 0, 'COOL-01-01', 'cooler', NOW()),
 ('eeeeeeee-eeee-eeee-eeee-eeeeeeeeeee2', '22222222-2222-2222-2222-222222222222', 22, 0, 'COOL-01-02', 'cooler', NOW()),
 ('eeeeeeee-eeee-eeee-eeee-eeeeeeeeeee3', '33333333-3333-3333-3333-333333333333', 12, 0, 'COOL-01-03', 'cooler', NOW()),
@@ -85,157 +85,157 @@ INSERT INTO storage_units (id, product_id, quantity, reserved_quantity, location
 ('eeeeeeee-eeee-eeee-eeee-eeeeeeeeeee5', '55555555-5555-5555-5555-555555555555', 10, 0, 'COOL-01-05', 'cooler', NOW()),
 ('eeeeeeee-eeee-eeee-eeee-eeeeeeeeeee6', '66666666-6666-6666-6666-666666666666', 24, 0, 'COOL-01-06', 'cooler', NOW()),
 
--- Морозилка
+-- РњРѕСЂРѕР·РёР»РєР°
 ('ffffffff-ffff-ffff-ffff-fffffffffff1', '99999999-aaaa-bbbb-cccc-dddddddddddd', 8, 0, 'FREEZ-01-01', 'freezer', NOW()),
 ('ffffffff-ffff-ffff-ffff-fffffffffff2', 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee', 6, 0, 'FREEZ-01-02', 'freezer', NOW()),
 ('ffffffff-ffff-ffff-ffff-fffffffffff3', 'bbbbbbbb-cccc-dddd-eeee-ffffffffffff', 12, 0, 'FREEZ-01-03', 'freezer', NOW()),
 ('ffffffff-ffff-ffff-ffff-fffffffffff4', 'cccccccc-dddd-eeee-ffff-111111111111', 10, 0, 'FREEZ-01-04', 'freezer', NOW()),
 ('ffffffff-ffff-ffff-ffff-fffffffffff5', 'dddddddd-eeee-ffff-1111-222222222222', 4, 0, 'FREEZ-01-05', 'freezer', NOW());
 
--- 3. Вставляем больше заказов
+-- 3. Р’СЃС‚Р°РІР»СЏРµРј Р±РѕР»СЊС€Рµ Р·Р°РєР°Р·РѕРІ
 INSERT INTO orders (id, customer_id, status, created_at, picking_started_at, picking_completed_at) VALUES
--- Заказ 1-5: Получены, готовы к сборке
+-- Р—Р°РєР°Р· 1-5: РџРѕР»СѓС‡РµРЅС‹, РіРѕС‚РѕРІС‹ Рє СЃР±РѕСЂРєРµ
 ('ffffffff-ffff-ffff-ffff-fffffffffff1', 'customer-001', 'Received', NOW() - INTERVAL '5 hours', NULL, NULL),
 ('ffffffff-ffff-ffff-ffff-fffffffffff2', 'customer-002', 'Received', NOW() - INTERVAL '4 hours', NULL, NULL),
 ('ffffffff-ffff-ffff-ffff-fffffffffff3', 'customer-003', 'Received', NOW() - INTERVAL '3 hours', NULL, NULL),
 ('ffffffff-ffff-ffff-ffff-fffffffffff4', 'customer-004', 'Received', NOW() - INTERVAL '2 hours', NULL, NULL),
 ('ffffffff-ffff-ffff-ffff-fffffffffff5', 'customer-005', 'Received', NOW() - INTERVAL '1 hour', NULL, NULL),
 
--- Заказ 6-10: В процессе сборки (интервал 10 минут)
+-- Р—Р°РєР°Р· 6-10: Р’ РїСЂРѕС†РµСЃСЃРµ СЃР±РѕСЂРєРё (РёРЅС‚РµСЂРІР°Р» 10 РјРёРЅСѓС‚)
 ('ffffffff-ffff-ffff-ffff-fffffffffff6', 'customer-006', 'Picking', NOW() - INTERVAL '50 minutes', NOW() - INTERVAL '40 minutes', NULL),
 ('ffffffff-ffff-ffff-ffff-fffffffffff7', 'customer-007', 'Picking', NOW() - INTERVAL '40 minutes', NOW() - INTERVAL '30 minutes', NULL),
 ('ffffffff-ffff-ffff-ffff-fffffffffff8', 'customer-008', 'Picking', NOW() - INTERVAL '30 minutes', NOW() - INTERVAL '20 minutes', NULL),
 ('ffffffff-ffff-ffff-ffff-fffffffffff9', 'customer-009', 'Picking', NOW() - INTERVAL '20 minutes', NOW() - INTERVAL '10 minutes', NULL),
 ('ffffffff-ffff-ffff-ffff-ffffffffff10', 'customer-010', 'Picking', NOW() - INTERVAL '10 minutes', NOW() - INTERVAL '5 minutes', NULL),
 
--- Заказ 11-15: Собранные (интервал 10-15 минут)
+-- Р—Р°РєР°Р· 11-15: РЎРѕР±СЂР°РЅРЅС‹Рµ (РёРЅС‚РµСЂРІР°Р» 10-15 РјРёРЅСѓС‚)
 ('ffffffff-ffff-ffff-ffff-ffffffffff11', 'customer-011', 'Picked', NOW() - INTERVAL '2 hours', NOW() - INTERVAL '1 hour 45 minutes', NOW() - INTERVAL '1 hour 30 minutes'),
 ('ffffffff-ffff-ffff-ffff-ffffffffff12', 'customer-012', 'Picked', NOW() - INTERVAL '1 hour 50 minutes', NOW() - INTERVAL '1 hour 35 minutes', NOW() - INTERVAL '1 hour 20 minutes'),
 ('ffffffff-ffff-ffff-ffff-ffffffffff13', 'customer-013', 'Picked', NOW() - INTERVAL '1 hour 40 minutes', NOW() - INTERVAL '1 hour 25 minutes', NOW() - INTERVAL '1 hour 10 minutes'),
 ('ffffffff-ffff-ffff-ffff-ffffffffff14', 'customer-014', 'Picked', NOW() - INTERVAL '1 hour 30 minutes', NOW() - INTERVAL '1 hour 15 minutes', NOW() - INTERVAL '1 hour'),
 ('ffffffff-ffff-ffff-ffff-ffffffffff15', 'customer-015', 'Picked', NOW() - INTERVAL '1 hour 20 minutes', NOW() - INTERVAL '1 hour 5 minutes', NOW() - INTERVAL '50 minutes'),
 
--- Заказ 16-20: Завершенные (интервал 10-15 минут)
+-- Р—Р°РєР°Р· 16-20: Р—Р°РІРµСЂС€РµРЅРЅС‹Рµ (РёРЅС‚РµСЂРІР°Р» 10-15 РјРёРЅСѓС‚)
 ('ffffffff-ffff-ffff-ffff-ffffffffff16', 'customer-016', 'Completed', NOW() - INTERVAL '3 hours', NOW() - INTERVAL '2 hours 45 minutes', NOW() - INTERVAL '2 hours 30 minutes'),
 ('ffffffff-ffff-ffff-ffff-ffffffffff17', 'customer-017', 'Completed', NOW() - INTERVAL '2 hours 50 minutes', NOW() - INTERVAL '2 hours 35 minutes', NOW() - INTERVAL '2 hours 20 minutes'),
 ('ffffffff-ffff-ffff-ffff-ffffffffff18', 'customer-018', 'Completed', NOW() - INTERVAL '2 hours 40 minutes', NOW() - INTERVAL '2 hours 25 minutes', NOW() - INTERVAL '2 hours 10 minutes'),
 ('ffffffff-ffff-ffff-ffff-ffffffffff19', 'customer-019', 'Completed', NOW() - INTERVAL '2 hours 30 minutes', NOW() - INTERVAL '2 hours 15 minutes', NOW() - INTERVAL '2 hours'),
 ('ffffffff-ffff-ffff-ffff-ffffffffff20', 'customer-020', 'Completed', NOW() - INTERVAL '2 hours 20 minutes', NOW() - INTERVAL '2 hours 5 minutes', NOW() - INTERVAL '1 hour 50 minutes'),
 
--- Заказ 21-22: Отмененные
+-- Р—Р°РєР°Р· 21-22: РћС‚РјРµРЅРµРЅРЅС‹Рµ
 ('ffffffff-ffff-ffff-ffff-ffffffffff21', 'customer-021', 'Cancelled', NOW() - INTERVAL '3 hours', NULL, NULL),
 ('ffffffff-ffff-ffff-ffff-ffffffffff22', 'customer-022', 'Cancelled', NOW() - INTERVAL '2 hours', NULL, NULL);
 
--- 4. Вставляем больше строк заказов (по 3-5 товаров на заказ)
+-- 4. Р’СЃС‚Р°РІР»СЏРµРј Р±РѕР»СЊС€Рµ СЃС‚СЂРѕРє Р·Р°РєР°Р·РѕРІ (РїРѕ 3-5 С‚РѕРІР°СЂРѕРІ РЅР° Р·Р°РєР°Р·)
 INSERT INTO order_lines (order_id, product_id, quantity_ordered, quantity_picked, unit_price) VALUES
--- Заказ 1 (Received)
+-- Р—Р°РєР°Р· 1 (Received)
 ('ffffffff-ffff-ffff-ffff-fffffffffff1', '11111111-1111-1111-1111-111111111111', 2, 0, 2.50),
 ('ffffffff-ffff-ffff-ffff-fffffffffff1', '77777777-7777-7777-7777-777777777777', 1, 0, 1.20),
 ('ffffffff-ffff-ffff-ffff-fffffffffff1', 'dddddddd-dddd-dddd-dddd-dddddddddddd', 3, 0, 0.50),
 ('ffffffff-ffff-ffff-ffff-fffffffffff1', '44444444-5555-6666-7777-888888888888', 2, 0, 1.30),
 
--- Заказ 2 (Received)
+-- Р—Р°РєР°Р· 2 (Received)
 ('ffffffff-ffff-ffff-ffff-fffffffffff2', '22222222-2222-2222-2222-222222222222', 3, 0, 1.80),
 ('ffffffff-ffff-ffff-ffff-fffffffffff2', '88888888-8888-8888-8888-888888888888', 4, 0, 0.80),
 ('ffffffff-ffff-ffff-ffff-fffffffffff2', 'eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee', 1, 0, 2.00),
 ('ffffffff-ffff-ffff-ffff-fffffffffff2', '55555555-6666-7777-8888-999999999999', 2, 0, 1.10),
 
--- Заказ 3 (Received)
+-- Р—Р°РєР°Р· 3 (Received)
 ('ffffffff-ffff-ffff-ffff-fffffffffff3', '33333333-3333-3333-3333-333333333333', 1, 0, 3.20),
 ('ffffffff-ffff-ffff-ffff-fffffffffff3', '99999999-9999-9999-9999-999999999999', 2, 0, 1.50),
 ('ffffffff-ffff-ffff-ffff-fffffffffff3', 'ffffffff-ffff-ffff-ffff-ffffffffffff', 4, 0, 1.00),
 ('ffffffff-ffff-ffff-ffff-fffffffffff3', '66666666-7777-8888-9999-aaaaaaaaaaaa', 1, 0, 1.40),
 
--- Заказ 4 (Received)
+-- Р—Р°РєР°Р· 4 (Received)
 ('ffffffff-ffff-ffff-ffff-fffffffffff4', '44444444-4444-4444-4444-444444444444', 1, 0, 2.80),
 ('ffffffff-ffff-ffff-ffff-fffffffffff4', 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 6, 0, 1.00),
 ('ffffffff-ffff-ffff-ffff-fffffffffff4', '11111111-2222-3333-4444-555555555555', 2, 0, 1.20),
 ('ffffffff-ffff-ffff-ffff-fffffffffff4', '77777777-8888-9999-aaaa-bbbbbbbbbbbb', 3, 0, 2.50),
 
--- Заказ 5 (Received)
+-- Р—Р°РєР°Р· 5 (Received)
 ('ffffffff-ffff-ffff-ffff-fffffffffff5', '55555555-5555-5555-5555-555555555555', 2, 0, 2.20),
 ('ffffffff-ffff-ffff-ffff-fffffffffff5', 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 4, 0, 1.30),
 ('ffffffff-ffff-ffff-ffff-fffffffffff5', '22222222-3333-4444-5555-666666666666', 3, 0, 1.50),
 ('ffffffff-ffff-ffff-ffff-fffffffffff5', '88888888-9999-aaaa-bbbb-cccccccccccc', 1, 0, 1.80),
 
--- Заказ 6 (Picking)
+-- Р—Р°РєР°Р· 6 (Picking)
 ('ffffffff-ffff-ffff-ffff-fffffffffff6', '66666666-6666-6666-6666-666666666666', 1, 0, 3.50),
 ('ffffffff-ffff-ffff-ffff-fffffffffff6', 'cccccccc-cccc-cccc-cccc-cccccccccccc', 2, 1, 2.50),
 ('ffffffff-ffff-ffff-ffff-fffffffffff6', '33333333-4444-5555-6666-777777777777', 3, 2, 1.80),
 ('ffffffff-ffff-ffff-ffff-fffffffffff6', '99999999-aaaa-bbbb-cccc-dddddddddddd', 1, 0, 3.50),
 
--- Заказ 7 (Picking)
+-- Р—Р°РєР°Р· 7 (Picking)
 ('ffffffff-ffff-ffff-ffff-fffffffffff7', '77777777-7777-7777-7777-777777777777', 2, 1, 1.20),
 ('ffffffff-ffff-ffff-ffff-fffffffffff7', 'dddddddd-dddd-dddd-dddd-dddddddddddd', 4, 3, 0.50),
 ('ffffffff-ffff-ffff-ffff-fffffffffff7', '44444444-5555-6666-7777-888888888888', 1, 0, 1.30),
 ('ffffffff-ffff-ffff-ffff-fffffffffff7', 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee', 1, 0, 4.20),
 
--- Заказ 8 (Picking)
+-- Р—Р°РєР°Р· 8 (Picking)
 ('ffffffff-ffff-ffff-ffff-fffffffffff8', '88888888-8888-8888-8888-888888888888', 3, 2, 0.80),
 ('ffffffff-ffff-ffff-ffff-fffffffffff8', 'eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee', 2, 1, 2.00),
 ('ffffffff-ffff-ffff-ffff-fffffffffff8', '55555555-6666-7777-8888-999999999999', 2, 1, 1.10),
 ('ffffffff-ffff-ffff-ffff-fffffffffff8', 'bbbbbbbb-cccc-dddd-eeee-ffffffffffff', 1, 0, 2.80),
 
--- Заказ 9 (Picking)
+-- Р—Р°РєР°Р· 9 (Picking)
 ('ffffffff-ffff-ffff-ffff-fffffffffff9', '99999999-9999-9999-9999-999999999999', 1, 0, 1.50),
 ('ffffffff-ffff-ffff-ffff-fffffffffff9', 'ffffffff-ffff-ffff-ffff-ffffffffffff', 5, 3, 1.00),
 ('ffffffff-ffff-ffff-ffff-fffffffffff9', '66666666-7777-8888-9999-aaaaaaaaaaaa', 2, 1, 1.40),
 ('ffffffff-ffff-ffff-ffff-fffffffffff9', 'cccccccc-dddd-eeee-ffff-111111111111', 1, 0, 3.20),
 
--- Заказ 10 (Picking)
+-- Р—Р°РєР°Р· 10 (Picking)
 ('ffffffff-ffff-ffff-ffff-ffffffffff10', 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 4, 2, 1.00),
 ('ffffffff-ffff-ffff-ffff-ffffffffff10', '11111111-2222-3333-4444-555555555555', 3, 2, 1.20),
 ('ffffffff-ffff-ffff-ffff-ffffffffff10', '77777777-8888-9999-aaaa-bbbbbbbbbbbb', 2, 1, 2.50),
 ('ffffffff-ffff-ffff-ffff-ffffffffff10', 'dddddddd-eeee-ffff-1111-222222222222', 1, 0, 5.50),
 
--- Заказ 11 (Picked)
+-- Р—Р°РєР°Р· 11 (Picked)
 ('ffffffff-ffff-ffff-ffff-ffffffffff11', 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 3, 3, 1.30),
 ('ffffffff-ffff-ffff-ffff-ffffffffff11', '22222222-3333-4444-5555-666666666666', 2, 2, 1.50),
 ('ffffffff-ffff-ffff-ffff-ffffffffff11', '88888888-9999-aaaa-bbbb-cccccccccccc', 1, 1, 1.80),
 ('ffffffff-ffff-ffff-ffff-ffffffffff11', 'eeeeeeee-ffff-1111-2222-333333333333', 2, 2, 1.20),
 
--- Заказ 12 (Picked)
+-- Р—Р°РєР°Р· 12 (Picked)
 ('ffffffff-ffff-ffff-ffff-ffffffffff12', 'cccccccc-cccc-cccc-cccc-cccccccccccc', 1, 1, 2.50),
 ('ffffffff-ffff-ffff-ffff-ffffffffff12', '33333333-4444-5555-6666-777777777777', 4, 4, 1.80),
 ('ffffffff-ffff-ffff-ffff-ffffffffff12', '99999999-aaaa-bbbb-cccc-dddddddddddd', 2, 2, 3.50),
 ('ffffffff-ffff-ffff-ffff-ffffffffff12', 'ffffffff-1111-2222-3333-444444444444', 1, 1, 2.50),
 
--- Заказ 13 (Picked)
+-- Р—Р°РєР°Р· 13 (Picked)
 ('ffffffff-ffff-ffff-ffff-ffffffffff13', 'dddddddd-dddd-dddd-dddd-dddddddddddd', 6, 6, 0.50),
 ('ffffffff-ffff-ffff-ffff-ffffffffff13', '44444444-5555-6666-7777-888888888888', 2, 2, 1.30),
 ('ffffffff-ffff-ffff-ffff-ffffffffff13', 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee', 1, 1, 4.20),
 ('ffffffff-ffff-ffff-ffff-ffffffffff13', '11111111-3333-4444-5555-666666666666', 1, 1, 1.80),
 
--- Заказ 14 (Picked)
+-- Р—Р°РєР°Р· 14 (Picked)
 ('ffffffff-ffff-ffff-ffff-ffffffffff14', 'eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee', 3, 3, 2.00),
 ('ffffffff-ffff-ffff-ffff-ffffffffff14', '55555555-6666-7777-8888-999999999999', 2, 2, 1.10),
 ('ffffffff-ffff-ffff-ffff-ffffffffff14', 'bbbbbbbb-cccc-dddd-eeee-ffffffffffff', 1, 1, 2.80),
 ('ffffffff-ffff-ffff-ffff-ffffffffff14', '22222222-4444-5555-6666-777777777777', 2, 2, 1.50),
 
--- Заказ 15 (Picked)
+-- Р—Р°РєР°Р· 15 (Picked)
 ('ffffffff-ffff-ffff-ffff-ffffffffff15', 'ffffffff-ffff-ffff-ffff-ffffffffffff', 4, 4, 1.00),
 ('ffffffff-ffff-ffff-ffff-ffffffffff15', '66666666-7777-8888-9999-aaaaaaaaaaaa', 1, 1, 1.40),
 ('ffffffff-ffff-ffff-ffff-ffffffffff15', 'cccccccc-dddd-eeee-ffff-111111111111', 2, 2, 3.20),
 ('ffffffff-ffff-ffff-ffff-ffffffffff15', '33333333-5555-6666-7777-888888888888', 1, 1, 4.20);
 
--- 5. Вставляем больше заданий на сборку (ИСПРАВЛЕНО - используем UUID с цифрами)
+-- 5. Р’СЃС‚Р°РІР»СЏРµРј Р±РѕР»СЊС€Рµ Р·Р°РґР°РЅРёР№ РЅР° СЃР±РѕСЂРєСѓ (РРЎРџР РђР’Р›Р•РќРћ - РёСЃРїРѕР»СЊР·СѓРµРј UUID СЃ С†РёС„СЂР°РјРё)
 INSERT INTO picking_tasks (id, order_id, assigned_picker, status, zone, created_at, completed_at) VALUES
--- Задания для заказов в процессе сборки
+-- Р—Р°РґР°РЅРёСЏ РґР»СЏ Р·Р°РєР°Р·РѕРІ РІ РїСЂРѕС†РµСЃСЃРµ СЃР±РѕСЂРєРё
 ('11111111-1111-1111-1111-111111111111', 'ffffffff-ffff-ffff-ffff-fffffffffff6', 'picker-john', 'InProgress', 'A,B,cooler', NOW() - INTERVAL '40 minutes', NULL),
 ('22222222-2222-2222-2222-222222222222', 'ffffffff-ffff-ffff-ffff-fffffffffff7', 'picker-mary', 'InProgress', 'A,C,freezer', NOW() - INTERVAL '30 minutes', NULL),
 ('33333333-3333-3333-3333-333333333333', 'ffffffff-ffff-ffff-ffff-fffffffffff8', 'picker-david', 'InProgress', 'B,D,cooler', NOW() - INTERVAL '20 minutes', NULL),
 ('44444444-4444-4444-4444-444444444444', 'ffffffff-ffff-ffff-ffff-fffffffffff9', 'picker-sarah', 'InProgress', 'A,B,C,D', NOW() - INTERVAL '10 minutes', NULL),
 
 
--- Задания для собранных заказов (завершенные)
--- Завершенные задания сборки с интервалом 10-15 минут
+-- Р—Р°РґР°РЅРёСЏ РґР»СЏ СЃРѕР±СЂР°РЅРЅС‹С… Р·Р°РєР°Р·РѕРІ (Р·Р°РІРµСЂС€РµРЅРЅС‹Рµ)
+-- Р—Р°РІРµСЂС€РµРЅРЅС‹Рµ Р·Р°РґР°РЅРёСЏ СЃР±РѕСЂРєРё СЃ РёРЅС‚РµСЂРІР°Р»РѕРј 10-15 РјРёРЅСѓС‚
 ('55555555-5555-5555-5555-555555555555', 'ffffffff-ffff-ffff-ffff-ffffffffff11', 'picker-john', 'Completed', 'A,B,D', NOW() - INTERVAL '1 hour 45 minutes', NOW() - INTERVAL '1 hour 30 minutes'),
 ('66666666-6666-6666-6666-666666666666', 'ffffffff-ffff-ffff-ffff-ffffffffff12', 'picker-mary', 'Completed', 'C,freezer', NOW() - INTERVAL '1 hour 35 minutes', NOW() - INTERVAL '1 hour 20 minutes'),
 ('77777777-7777-7777-7777-777777777777', 'ffffffff-ffff-ffff-ffff-ffffffffff13', 'picker-david', 'Completed', 'B,cooler', NOW() - INTERVAL '1 hour 25 minutes', NOW() - INTERVAL '1 hour 10 minutes');
 
--- 6. Вставляем больше элементов заданий сборки (ИСПРАВЛЕНО - используем правильные UUID)
+-- 6. Р’СЃС‚Р°РІР»СЏРµРј Р±РѕР»СЊС€Рµ СЌР»РµРјРµРЅС‚РѕРІ Р·Р°РґР°РЅРёР№ СЃР±РѕСЂРєРё (РРЎРџР РђР’Р›Р•РќРћ - РёСЃРїРѕР»СЊР·СѓРµРј РїСЂР°РІРёР»СЊРЅС‹Рµ UUID)
 INSERT INTO picking_items (picking_task_id, product_id, quantity, storage_location, barcode) VALUES
--- Элементы для активных заданий
+-- Р­Р»РµРјРµРЅС‚С‹ РґР»СЏ Р°РєС‚РёРІРЅС‹С… Р·Р°РґР°РЅРёР№
 ('11111111-1111-1111-1111-111111111111', 'cccccccc-cccc-cccc-cccc-cccccccccccc', 2, 'A-01-06', 'BC-COOKIES-001'),
 ('11111111-1111-1111-1111-111111111111', '33333333-4444-5555-6666-777777777777', 3, 'B-02-06', 'BC-ENERGY-001'),
 ('11111111-1111-1111-1111-111111111111', '99999999-aaaa-bbbb-cccc-dddddddddddd', 1, 'FREEZ-01-01', 'BC-ICE-001'),
@@ -250,7 +250,7 @@ INSERT INTO picking_items (picking_task_id, product_id, quantity, storage_locati
 ('33333333-3333-3333-3333-333333333333', '55555555-6666-7777-8888-999999999999', 2, 'C-03-02', 'BC-CORN-001'),
 ('33333333-3333-3333-3333-333333333333', 'bbbbbbbb-cccc-dddd-eeee-ffffffffffff', 1, 'FREEZ-01-03', 'BC-VEG-001'),
 
--- Элементы для завершенных заданий
+-- Р­Р»РµРјРµРЅС‚С‹ РґР»СЏ Р·Р°РІРµСЂС€РµРЅРЅС‹С… Р·Р°РґР°РЅРёР№
 ('55555555-5555-5555-5555-555555555555', 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 3, 'A-01-05', 'BC-MUFFIN-001'),
 ('55555555-5555-5555-5555-555555555555', '22222222-3333-4444-5555-666666666666', 2, 'B-02-05', 'BC-COFFEE-001'),
 ('55555555-5555-5555-5555-555555555555', '88888888-9999-aaaa-bbbb-cccccccccccc', 1, 'C-03-05', 'BC-SOUP-001'),

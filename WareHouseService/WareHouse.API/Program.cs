@@ -1,14 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Confluent.Kafka;
+using Microsoft.EntityFrameworkCore;
+using Npgsql;
 using Serilog;
 using WareHouse.API.Configuration;
 using WareHouse.API.Middleware;
 using WareHouse.Infrastructure.Data;
-using Npgsql;
-using Confluent.Kafka; // Добавляем using для Kafka
 
-Log.Logger = new LoggerConfiguration()
-    .WriteTo.Console()
-    .CreateBootstrapLogger();
+Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateBootstrapLogger();
 
 try
 {
@@ -16,13 +14,36 @@ try
 
     var builder = WebApplication.CreateBuilder(args);
 
-    // ✅ ИСПОЛЬЗУЕМ ПРАВИЛЬНЫЙ CONNECTION STRING С ПОРТОМ 5433 И ПАРОЛЕМ
-    var mainConnectionString = "Host=localhost;Port=5433;Database=WareHouseDb;Username=postgres;Password=password;";
-    builder.Configuration["ConnectionStrings:DefaultConnection"] = mainConnectionString;
+    // ✅ ПРАВИЛЬНОЕ ПОЛУЧЕНИЕ CONNECTION STRING С ПРИОРИТЕТОМ ДЛЯ ПЕРЕМЕННЫХ ОКРУЖЕНИЯ
+    var mainConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-    Console.WriteLine($"🔧 Database: WareHouseDb (localhost:5433)");
+    // ДЛЯ ОТЛАДКИ: выводим все источники конфигурации
+    Console.WriteLine("🔧 CONFIGURATION SOURCES:");
+    Console.WriteLine($"   - ConnectionString from config: {mainConnectionString}");
+    Console.WriteLine(
+        $"   - Environment ConnectionString: {Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection")}"
+    );
+    Console.WriteLine(
+        $"   - ASPNETCORE_ENVIRONMENT: {Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}"
+    );
 
-    // ✅ ТЕСТИРУЕМ ПОДКЛЮЧЕНИЕ К POSTGRESQL
+    // ✅ ПРОВЕРЯЕМ, ЕСТЬ ЛИ ПЕРЕМЕННЫЕ ОКРУЖЕНИЯ И ПЕРЕОПРЕДЕЛЯЕМ
+    var envConnectionString = Environment.GetEnvironmentVariable(
+        "ConnectionStrings__DefaultConnection"
+    );
+    if (!string.IsNullOrEmpty(envConnectionString))
+    {
+        mainConnectionString = envConnectionString;
+        Console.WriteLine("✅ USING ENVIRONMENT VARIABLE FOR DATABASE CONNECTION");
+    }
+    else
+    {
+        Console.WriteLine("⚠️ USING APPSETTINGS.JSON FOR DATABASE CONNECTION");
+    }
+
+    Console.WriteLine($"🔧 Final Database Connection: {mainConnectionString}");
+
+    // ✅ ТЕСТИРУЕМ ПОДКЛЮЧЕНИЕ К POSTGRESQL (упрощенная версия)
     Console.WriteLine("🔌 TESTING DATABASE CONNECTION...");
     try
     {
@@ -30,19 +51,17 @@ try
         await connection.OpenAsync();
         Console.WriteLine("✅ DATABASE CONNECTION SUCCESS!");
 
-        var cmd = new NpgsqlCommand("SELECT current_database(), current_user, inet_server_port()", connection);
-        using var reader = await cmd.ExecuteReaderAsync();
-        if (await reader.ReadAsync())
-        {
-            Console.WriteLine($"📊 Database: {reader.GetString(0)}");
-            Console.WriteLine($"👤 User: {reader.GetString(1)}");
-            Console.WriteLine($"🔌 Port: {reader.GetInt32(2)}");
-        }
+        // Простая проверка что база отвечает
+        var cmd = new NpgsqlCommand("SELECT version()", connection);
+        var version = await cmd.ExecuteScalarAsync();
+        Console.WriteLine($"📊 Database Version: {version}");
+
         await connection.CloseAsync();
     }
     catch (Exception ex)
     {
         Console.WriteLine($"❌ DATABASE CONNECTION FAILED: {ex.Message}");
+        Console.WriteLine($"💡 Connection string used: {mainConnectionString}");
         throw;
     }
 
@@ -51,14 +70,14 @@ try
     bool kafkaAvailable = false;
     try
     {
-        var bootstrapServers = builder.Configuration["Kafka:BootstrapServers"] ?? "localhost:9092";
+        // ИСПРАВЛЕНО: для Docker используем kafka:29092
+        var bootstrapServers = builder.Configuration["Kafka:BootstrapServers"] ?? "kafka:29092";
         Console.WriteLine($"🔧 Kafka Bootstrap Servers: {bootstrapServers}");
 
         var config = new AdminClientConfig
         {
             BootstrapServers = bootstrapServers,
-            // ✅ ПРАВИЛЬНЫЕ СВОЙСТВА ДЛЯ AdminClientConfig
-            SocketTimeoutMs = 10000
+            SocketTimeoutMs = 10000,
         };
 
         using var adminClient = new AdminClientBuilder(config).Build();
@@ -69,11 +88,15 @@ try
         if (metadata.Brokers.Any())
         {
             kafkaAvailable = true;
-            Console.WriteLine($"✅ KAFKA CONNECTION SUCCESS! Found {metadata.Brokers.Count} broker(s)");
+            Console.WriteLine(
+                $"✅ KAFKA CONNECTION SUCCESS! Found {metadata.Brokers.Count} broker(s)"
+            );
 
             foreach (var broker in metadata.Brokers)
             {
-                Console.WriteLine($"   📡 Broker: {broker.Host}:{broker.Port} (ID: {broker.BrokerId})");
+                Console.WriteLine(
+                    $"   📡 Broker: {broker.Host}:{broker.Port} (ID: {broker.BrokerId})"
+                );
             }
 
             // Проверяем существующие топики
@@ -82,7 +105,7 @@ try
 
             if (topics.Any())
             {
-                foreach (var topic in topics.Take(10)) // Показываем первые 10 топиков
+                foreach (var topic in topics.Take(10))
                 {
                     Console.WriteLine($"   📝 Topic: {topic}");
                 }
@@ -93,17 +116,21 @@ try
             }
 
             // ✅ ПРОВЕРЯЕМ НАЛИЧИЕ НУЖНЫХ НАМ ТОПИКОВ
-            var requiredTopics = new[] { "orders", "warehouse-commands", "warehouse-events", "picking-tasks", "stock-updates" };
+            var requiredTopics = new[]
+            {
+                "orders",
+                "warehouse-commands",
+                "warehouse-events",
+                "picking-tasks",
+                "stock-updates",
+            };
             var missingTopics = requiredTopics.Except(topics).ToList();
 
             if (missingTopics.Any())
             {
-                Console.WriteLine($"⚠️  Missing required topics: {string.Join(", ", missingTopics)}");
-                Console.WriteLine("💡 Consider creating these topics manually:");
-                foreach (var topic in missingTopics)
-                {
-                    Console.WriteLine($"   docker exec -it warehouse-kafka kafka-topics --create --topic {topic} --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1");
-                }
+                Console.WriteLine(
+                    $"⚠️  Missing required topics: {string.Join(", ", missingTopics)}"
+                );
             }
             else
             {
@@ -119,38 +146,27 @@ try
     {
         Console.WriteLine($"❌ KAFKA CONNECTION FAILED: {ex.Message}");
         Console.WriteLine("⚠️ Application will start without Kafka support");
-
-        // Для отладки выводим больше информации об ошибке
-        if (ex.InnerException != null)
-        {
-            Console.WriteLine($"   📖 Inner Exception: {ex.InnerException.Message}");
-        }
-
-        // Выводим возможные причины
-        Console.WriteLine("💡 Possible solutions:");
-        Console.WriteLine("   1. Ensure Kafka is running: docker ps | grep kafka");
-        Console.WriteLine("   2. Check if Kafka is ready: docker logs warehouse-kafka");
-        Console.WriteLine("   3. Wait a few seconds and restart the application");
     }
 
     // Configure Serilog
-    builder.Host.UseSerilog((context, services, configuration) => configuration
-        .ReadFrom.Configuration(context.Configuration)
-        .ReadFrom.Services(services)
-        .Enrich.FromLogContext()
-        .WriteTo.Console()
-        .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day));
+    builder.Host.UseSerilog(
+        (context, services, configuration) =>
+            configuration
+                .ReadFrom.Configuration(context.Configuration)
+                .ReadFrom.Services(services)
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
+                .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
+    );
 
     // Configuration
     builder.Services.AddApiServices(builder.Configuration);
 
     var app = builder.Build();
 
-    // ✅ ИНИЦИАЛИЗАЦИЯ БАЗЫ ДАННЫХ 
+    // ✅ ИНИЦИАЛИЗАЦИЯ БАЗЫ ДАННЫХ
     using (var scope = app.Services.CreateScope())
     {
-        var seederConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
         Console.WriteLine("🌱 SEEDING DATABASE WITH TEST DATA...");
         try
         {
@@ -188,10 +204,10 @@ try
     app.MapControllers();
 
     Console.WriteLine("🎉 WAREHOUSE APPLICATION STARTED SUCCESSFULLY!");
-    Console.WriteLine("📍 API Documentation: https://localhost:7001/api-docs");
-    Console.WriteLine("📍 Health Checks: https://localhost:7001/health");
-    Console.WriteLine("📍 PostgreSQL: localhost:5433");
-    Console.WriteLine($"📍 Kafka: {(kafkaAvailable ? "localhost:9092 ✅" : "DISABLED ❌")}");
+    Console.WriteLine("📍 API Documentation: http://localhost:8080/api-docs");
+    Console.WriteLine("📍 Health Checks: http://localhost:8080/health");
+    Console.WriteLine("📍 PostgreSQL: postgres:5432");
+    Console.WriteLine($"📍 Kafka: {(kafkaAvailable ? "kafka:29092 ✅" : "DISABLED ❌")}");
 
     app.Run();
 }
@@ -204,3 +220,4 @@ finally
 {
     Log.CloseAndFlush();
 }
+
