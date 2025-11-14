@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   userservice-postgres:
     image: postgres:16-alpine
@@ -73,6 +71,9 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
     ports:
       - "2181:2181"
+    volumes:
+      - zookeeper-data:/var/lib/zookeeper/data
+      - zookeeper-log:/var/lib/zookeeper/log
     networks:
       - lavka-network
 
@@ -162,17 +163,21 @@ services:
       - lavka-network
     restart: unless-stopped
 
-  warehouse-pgadmin:
+  pgadmin:
     image: dpage/pgadmin4
     container_name: warehouse-pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@warehouse.com
+      PGADMIN_DEFAULT_EMAIL: admin@pgadmin.com
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
       - "8082:80"
     depends_on:
       warehouse-postgres:
         condition: service_healthy
+      userservice-postgres:
+        condition: service_healthy
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
     networks:
       - lavka-network
 
@@ -198,11 +203,14 @@ services:
     build:
       context: ./Frontend
       dockerfile: Dockerfile
+    volumes:
+    - ./Frontend:/app
+    - /app/node_modules
     container_name: lavka-frontend
     depends_on:
       - apigateway
     ports:
-      - "3000:80"
+      - "3000:5173"
     networks:
       - lavka-network
     restart: unless-stopped
@@ -212,6 +220,9 @@ volumes:
   warehouse-postgres-data:
   kafka-data:
   kafka-logs:
+  zookeeper-data:
+  zookeeper-log:
+  pgadmin-data:
 
 networks:
   lavka-network:
