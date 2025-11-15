@@ -64,4 +64,3 @@ docker compose up -d
 
 Проблема: Kafka топики не создаются
 docker compose logs kafka-topics-init
-docker compose restart kafka-topics-init
