@@ -69,6 +69,7 @@ app.UseSwaggerUI(options =>
     options.SwaggerEndpoint("/swagger/gateway/swagger.json", "Gateway Aggregate");
     options.SwaggerEndpoint("/swagger/users/v1/swagger.json", "User Service API v1");
     options.SwaggerEndpoint("/swagger/warehouse/v1/swagger.json", "Warehouse Service API v1");
+    options.SwaggerEndpoint("/swagger/auth/v1/swagger.json", "Auth Service API v1");
     options.DefaultModelsExpandDepth(-1);
 });
 
@@ -91,7 +92,8 @@ app.MapGet("/swagger/gateway/swagger.json", async (IHttpClientFactory httpClient
     var sources = new (string ServiceName, string Url)[]
     {
         ("User Service", "http://userservice-api:8080/swagger/v1/swagger.json"),
-        ("WareHouse Service", "http://warehouse-service-api:8080/swagger/v1/swagger.json")
+        ("WareHouse Service", "http://warehouse-service-api:8080/swagger/v1/swagger.json"),
+        ("Auth Service", "http://authservice-api:8080/swagger/v1/swagger.json")
     };
 
     var aggregateDocument = new OpenApiDocument

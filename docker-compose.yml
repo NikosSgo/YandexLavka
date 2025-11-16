@@ -55,6 +55,25 @@ services:
     networks:
       - lavka-network
 
+  authservice-postgres:
+    image: postgres:16-alpine
+    container_name: authservice-postgres
+    environment:
+      POSTGRES_DB: AuthServiceDb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+    volumes:
+      - authservice-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - lavka-network
+
   warehouse-redis:
     image: redis:7-alpine
     container_name: warehouse-redis
@@ -176,10 +195,28 @@ services:
         condition: service_healthy
       userservice-postgres:
         condition: service_healthy
+      authservice-postgres:
+        condition: service_healthy
     volumes:
       - pgadmin-data:/var/lib/pgadmin
     networks:
       - lavka-network
+
+  authservice-api:
+    build:
+      context: ./AuthService
+      dockerfile: AuthService.API/Dockerfile
+    container_name: authservice-api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__DefaultConnection: Host=authservice-postgres;Port=5432;Database=AuthServiceDb;Username=postgres;Password=postgres
+    depends_on:
+      authservice-postgres:
+        condition: service_healthy
+    networks:
+      - lavka-network
+    restart: unless-stopped
 
   apigateway:
     build:
@@ -192,6 +229,8 @@ services:
       userservice-api:
         condition: service_started
       warehouse-service-api:
+        condition: service_started
+      authservice-api:
         condition: service_started
     ports:
       - "8080:8080"
@@ -218,6 +257,7 @@ services:
 volumes:
   userservice-postgres-data:
   warehouse-postgres-data:
+  authservice-postgres-data:
   kafka-data:
   kafka-logs:
   zookeeper-data:

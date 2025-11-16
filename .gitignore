@@ -1,1 +1,16 @@
 .*.bkp
+
+# Secrets and environment variables
+.env
+.env.local
+.env.*.local
+*.secrets.json
+appsettings.Production.json
+appsettings.*.secrets.json
+
+# IDE
+.vs/
+.idea/
+*.user
+*.suo
+*.sln.docstates
