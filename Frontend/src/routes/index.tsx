@@ -3,6 +3,7 @@ import App from "../App";
 import { userRoutes } from "./users";
 import { wareHouseRoutes } from "./warehouse";
 import { deliveryRoutes } from "./delivery";
+import { authRoutes } from "./auth";
 
 
 const routes: RouteObject[] = [
@@ -12,7 +13,8 @@ const routes: RouteObject[] = [
     children: [
       ...userRoutes,
       ...wareHouseRoutes,
-      ...deliveryRoutes
+      ...deliveryRoutes,
+      ...authRoutes,
     ],
   },
 ];
