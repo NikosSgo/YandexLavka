@@ -1,11 +1,11 @@
 import type { RouteObject } from "react-router-dom";
 import UserPage from "../../pages/users";
-import Assortment from "../../pages/users/main";
-import ProfilePage from "../../pages/users/main/ProfilePage";
 import { ProtectedRoute } from "../../components/ProtectedRoute";
-import CreateProfilePage from "../../pages/users/main/CreateProfilePage";
 import OrdersPage from "../../pages/users/main/OrdersPage";
-import AddressesPage from "../../pages/users/main/AddressesPage";
+import AddressesPage from "../../pages/users/main/profile/addresses/AddressesPage";
+import Assortment from "../../pages/users/main/Assortment";
+import ProfilePage from "../../pages/users/main/profile/ProfilePage";
+import CreateProfilePage from "../../pages/users/main/profile/CreateProfilePage";
 
 export const userRoutes: RouteObject[] = [
   {

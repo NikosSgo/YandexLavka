@@ -90,9 +90,6 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
     ports:
       - "2181:2181"
-    volumes:
-      - zookeeper-data:/var/lib/zookeeper/data
-      - zookeeper-log:/var/lib/zookeeper/log
     networks:
       - lavka-network
 
@@ -260,8 +257,6 @@ volumes:
   authservice-postgres-data:
   kafka-data:
   kafka-logs:
-  zookeeper-data:
-  zookeeper-log:
   pgadmin-data:
 
 networks:

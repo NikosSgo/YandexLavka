@@ -1,4 +1,4 @@
-import Basket from "../basket";
+import Basket from "./basket";
 import CategoryList from "./CategoryList";
 
 export default function Assortment() {

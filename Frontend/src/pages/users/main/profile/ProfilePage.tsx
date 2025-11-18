@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useUser } from '../../../hooks/useUser';
-import { useAuth } from '../../../hooks/useAuth';
+import { useAuth } from '../../../../hooks/useAuth';
+import { useUser } from '../../../../hooks/useUser';
 
 export default function ProfilePage() {
   const { isAuthenticated, account } = useAuth();

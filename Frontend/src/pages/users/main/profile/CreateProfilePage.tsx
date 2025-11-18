@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../../hooks/useAuth';
-import { useUser } from '../../../hooks/useUser';
+import { useAuth } from '../../../../hooks/useAuth';
+import { useUser } from '../../../../hooks/useUser';
 
 export default function CreateProfilePage() {
   const { account, isLoading: authLoading } = useAuth();
@@ -14,6 +14,7 @@ export default function CreateProfilePage() {
     phone: '',
     email: '',
   });
+
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
