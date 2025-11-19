@@ -1,0 +1,23 @@
+import axios from 'axios';
+import { env } from '@shared/config/env';
+import { authStorage } from '@shared/lib/storage/authStorage';
+
+export const httpClient = axios.create({
+  baseURL: env.apiUrl,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+httpClient.interceptors.request.use((config) => {
+  const token = authStorage.getToken();
+
+  if (token) {
+    config.headers = config.headers ?? {};
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+
+  return config;
+});
+
+
