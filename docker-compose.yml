@@ -74,6 +74,16 @@ services:
     networks:
       - lavka-network
 
+  orderservice-mongo:
+    image: mongo:7.0
+    container_name: orderservice-mongo
+    ports:
+      - "27018:27017"
+    volumes:
+      - orderservice-mongo-data:/data/db
+    networks:
+      - lavka-network
+
   warehouse-redis:
     image: redis:7-alpine
     container_name: warehouse-redis
@@ -212,6 +222,26 @@ services:
       - lavka-network
     restart: unless-stopped
 
+  orderservice-api:
+    build:
+      context: ./OrderService
+      dockerfile: OrderService.API/Dockerfile
+    container_name: orderservice-api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+      Mongo__ConnectionString: mongodb://orderservice-mongo:27017
+      Mongo__Database: lavka-orders
+      Mongo__OrdersCollection: orders
+    depends_on:
+      orderservice-mongo:
+        condition: service_started
+    ports:
+      - "8085:8080"
+    networks:
+      - lavka-network
+    restart: unless-stopped
+
   apigateway:
     build:
       context: ./ApiGateway
@@ -225,6 +255,8 @@ services:
       warehouse-service-api:
         condition: service_started
       authservice-api:
+        condition: service_started
+      orderservice-api:
         condition: service_started
     ports:
       - "8090:8080"
@@ -253,6 +285,7 @@ volumes:
   warehouse-postgres-data:
   authservice-postgres-data:
   pgadmin-data:
+  orderservice-mongo-data:
 
 networks:
   lavka-network:

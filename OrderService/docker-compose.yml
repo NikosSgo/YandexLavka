@@ -1,0 +1,38 @@
+services:
+  orderservice-mongo:
+    image: mongo:7.0
+    container_name: orderservice-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - orderservice-mongo-data:/data/db
+    networks:
+      - orderservice-network
+
+  orderservice-api:
+    build:
+      context: .
+      dockerfile: OrderService.API/Dockerfile
+    container_name: orderservice-api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+      Mongo__ConnectionString: mongodb://orderservice-mongo:27017
+      Mongo__Database: lavka-orders
+      Mongo__OrdersCollection: orders
+    depends_on:
+      orderservice-mongo:
+        condition: service_started
+    ports:
+      - "8085:8080"
+    networks:
+      - orderservice-network
+    restart: unless-stopped
+
+volumes:
+  orderservice-mongo-data:
+
+networks:
+  orderservice-network:
+    driver: bridge
+
