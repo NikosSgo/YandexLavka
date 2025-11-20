@@ -8,9 +8,59 @@
 appsettings.Production.json
 appsettings.*.secrets.json
 
-# IDE
+# Logs and diagnostics
+logs/
+*.log
+*.stackdump
+*.nlog
+*.trace
+*.etl
+TestResults/
+BenchmarkDotNet.Artifacts/
+coverage/
+*.coverage
+*.coveragexml
+
+# OS generated
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE / tooling
 .vs/
 .idea/
+.vscode/
+!.vscode/extensions.json
 *.user
+*.rsuser
 *.suo
 *.sln.docstates
+*.code-workspace
+
+# .NET build artifacts
+[Bb]in/
+[Oo]bj/
+[Pp]ublish/
+[Rr]eleases/
+artifacts/
+*.nuget.props
+*.nuget.targets
+*.snupkg
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+AppPackages/
+
+# Frontend / Node
+node_modules/
+dist/
+dist-ssr/
+*.tsbuildinfo
+
+# Misc tooling
+.terraform/
+.idea_modules/
+.history/
+.cache/
+
