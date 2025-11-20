@@ -6,6 +6,7 @@ import { RegisterPage } from '@pages/auth/register';
 import { ProfilePage } from '@pages/profile/view';
 import { CreateProfilePage } from '@pages/profile/create';
 import { AddressesPage } from '@pages/profile/addresses';
+import { ProfileEditPage } from '@pages/profile/edit';
 import { OrdersPage } from '@pages/orders/list';
 import { DeliveryPage } from '@pages/delivery';
 import { WarehousePage } from '@pages/warehouse';
@@ -44,6 +45,14 @@ export const appRouter = createBrowserRouter([
             element: (
               <ProtectedRoute>
                 <ProfilePage />
+              </ProtectedRoute>
+            ),
+          },
+          {
+            path: 'edit',
+            element: (
+              <ProtectedRoute>
+                <ProfileEditPage />
               </ProtectedRoute>
             ),
           },

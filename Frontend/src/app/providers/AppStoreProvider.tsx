@@ -3,11 +3,14 @@ import { AuthViewModel } from '@features/auth/model/authViewModel';
 import { ProfileViewModel } from '@features/profile/model/profileViewModel';
 import { UserRepository } from '@entities/user/model/userRepository';
 import { OrderListViewModel } from '@features/orders/model/orderListViewModel';
+import { CatalogViewModel } from '@features/catalog/model/catalogViewModel';
+import { ProductRepository } from '@entities/product/model/productRepository';
 
 class AppStore {
   readonly auth = new AuthViewModel();
   readonly profile = new ProfileViewModel(new UserRepository(), this.auth);
   readonly orders = new OrderListViewModel();
+  readonly catalog = new CatalogViewModel(new ProductRepository());
 }
 
 const AppStoreContext = createContext<AppStore | null>(null);
@@ -43,6 +46,11 @@ export function useProfileStore(): ProfileViewModel {
 // eslint-disable-next-line react-refresh/only-export-components
 export function useOrdersStore(): OrderListViewModel {
   return useAppStore().orders;
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function useCatalogStore(): CatalogViewModel {
+  return useAppStore().catalog;
 }
 
 

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { httpClient } from '@shared/api/httpClient';
 import type {
   Address,
@@ -19,10 +20,17 @@ class UserApi {
   }
 
   async getUserByEmail(email: string): Promise<User> {
-    const { data } = await httpClient.get<User>(
-      `/api/users/by-email/${encodeURIComponent(email)}`,
-    );
-    return data;
+    try {
+      const { data } = await httpClient.get<User>(
+        `/api/users/by-email/${encodeURIComponent(email)}`,
+      );
+      return data;
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.response?.status === 404) {
+        throw new Error('Профиль не найден');
+      }
+      throw error;
+    }
   }
 
   async createProfile(payload: CreateUserRequest): Promise<User> {

@@ -10,6 +10,11 @@ public abstract class Entity
     // ✅ ДОБАВЬТЕ КОНСТРУКТОР ПО УМОЛЧАНИЮ
     protected Entity()
     {
+        if (Id == Guid.Empty)
+        {
+            Id = Guid.NewGuid();
+        }
+
         CreatedAt = DateTime.UtcNow;
         UpdatedAt = DateTime.UtcNow;
     }

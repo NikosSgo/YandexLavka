@@ -284,8 +284,13 @@ public class StorageUnitRepository : IStorageUnitRepository
     public async Task<IReadOnlyList<StorageUnit>> GetAllAsync()
     {
         var connection = await GetConnectionAsync();
-        var results = await connection.QueryAsync<dynamic>(
-            "SELECT * FROM storage_units",
+        var results = await connection.QueryAsync<dynamic>(@"
+            SELECT
+                su.*,
+                p.name as product_name,
+                p.sku
+            FROM storage_units su
+            LEFT JOIN products p ON su.product_id = p.id",
             transaction: _transaction);
 
         return results.Select(MapToStorageUnit).Where(x => x != null).ToList();

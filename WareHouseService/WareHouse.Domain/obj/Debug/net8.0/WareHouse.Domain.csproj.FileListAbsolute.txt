@@ -24,3 +24,16 @@ C:/Backend_Project/YandexLavka/WareHouseService/WareHouse.Domain/obj/Debug/net8.
 /home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Domain/obj/Debug/net8.0/refint/WareHouse.Domain.dll
 /home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Domain/obj/Debug/net8.0/WareHouse.Domain.pdb
 /home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Domain/obj/Debug/net8.0/ref/WareHouse.Domain.dll
+/src/WareHouseService/WareHouse.Domain/bin/Debug/net8.0/WareHouse.Domain.deps.json
+/src/WareHouseService/WareHouse.Domain/bin/Debug/net8.0/WareHouse.Domain.dll
+/src/WareHouseService/WareHouse.Domain/bin/Debug/net8.0/WareHouse.Domain.pdb
+/src/WareHouseService/WareHouse.Domain/obj/Debug/net8.0/WareHouse.Domain.csproj.AssemblyReference.cache
+/src/WareHouseService/WareHouse.Domain/obj/Debug/net8.0/WareHouse.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/src/WareHouseService/WareHouse.Domain/obj/Debug/net8.0/WareHouse.Domain.AssemblyInfoInputs.cache
+/src/WareHouseService/WareHouse.Domain/obj/Debug/net8.0/WareHouse.Domain.AssemblyInfo.cs
+/src/WareHouseService/WareHouse.Domain/obj/Debug/net8.0/WareHouse.Domain.csproj.CoreCompileInputs.cache
+/src/WareHouseService/WareHouse.Domain/obj/Debug/net8.0/WareHouse.Domain.sourcelink.json
+/src/WareHouseService/WareHouse.Domain/obj/Debug/net8.0/WareHouse.Domain.dll
+/src/WareHouseService/WareHouse.Domain/obj/Debug/net8.0/refint/WareHouse.Domain.dll
+/src/WareHouseService/WareHouse.Domain/obj/Debug/net8.0/WareHouse.Domain.pdb
+/src/WareHouseService/WareHouse.Domain/obj/Debug/net8.0/ref/WareHouse.Domain.dll

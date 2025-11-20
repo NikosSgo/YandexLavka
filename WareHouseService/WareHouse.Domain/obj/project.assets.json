@@ -120,19 +120,19 @@
     ]
   },
   "packageFolders": {
-    "/home/niko/.nuget/packages/": {}
+    "/root/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Domain/WareHouse.Domain.csproj",
+      "projectUniqueName": "/src/WareHouseService/WareHouse.Domain/WareHouse.Domain.csproj",
       "projectName": "WareHouse.Domain",
-      "projectPath": "/home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Domain/WareHouse.Domain.csproj",
-      "packagesPath": "/home/niko/.nuget/packages/",
-      "outputPath": "/home/niko/projects/education/backend/YandexLavka/WareHouseService/WareHouse.Domain/obj/",
+      "projectPath": "/src/WareHouseService/WareHouse.Domain/WareHouse.Domain.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/src/WareHouseService/WareHouse.Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/niko/.nuget/NuGet/NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -156,7 +156,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -181,11 +181,11 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.20, 8.0.20]"
+            "version": "[8.0.22, 8.0.22]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.20, 8.0.20]"
+            "version": "[8.0.22, 8.0.22]"
           }
         ],
         "frameworkReferences": {
@@ -193,7 +193,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.110/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.307/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

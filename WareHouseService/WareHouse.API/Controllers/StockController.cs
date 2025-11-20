@@ -62,6 +62,27 @@ public class StockController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Получить полный список товаров склада
+    /// </summary>
+    [HttpGet("products")]
+    [ProducesResponseType(typeof(List<StockLevelDto>), StatusCodes.Status200OK)]
+    public async Task<ActionResult<List<StockLevelDto>>> GetCatalogProducts()
+    {
+        _logger.LogInformation("Getting full warehouse catalog snapshot");
+
+        try
+        {
+            var catalog = await _mediator.Send(new GetCatalogProductsQuery());
+            return Ok(catalog);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error getting warehouse catalog snapshot");
+            return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Error retrieving warehouse catalog" });
+        }
+    }
+
     [HttpPut("products/{productId:guid}/stock")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
