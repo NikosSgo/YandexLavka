@@ -35,7 +35,9 @@ public static class Program
 
                 Console.WriteLine($"Database: {connectionString.Split(';').First(s => s.StartsWith("Database=")).Replace("Database=", "")}");
 
-                var sqlFilePath = Path.Combine(Directory.GetCurrentDirectory(), "seed_data.sql");
+                // Если указан второй аргумент, используем его как имя файла, иначе используем seed_data.sql
+                var sqlFileName = args.Length > 1 ? args[1] : "seed_data.sql";
+                var sqlFilePath = Path.Combine(Directory.GetCurrentDirectory(), sqlFileName);
                 
                 if (!File.Exists(sqlFilePath))
                 {

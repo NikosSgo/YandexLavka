@@ -393,8 +393,3 @@ C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Migrations\obj\Debug\n
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Migrations\obj\Debug\net9.0\WareHouse.Migrations.pdb
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Migrations\obj\Debug\net9.0\WareHouse.Migrations.genruntimeconfig.cache
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Migrations\obj\Debug\net9.0\ref\WareHouse.Migrations.dll
-<<<<<<< Updated upstream
-C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Migrations\bin\Debug\net9.0\appsettings.Development.json
-C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Migrations\bin\Debug\net9.0\appsettings.Production.json
-=======
->>>>>>> Stashed changes

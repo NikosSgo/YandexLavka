@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WareHouse.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< Updated upstream
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f399a4968dd7dd8be0f2f14abe3e6b25828feaf4")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05985419323db2d74628031d69d8c7ca0bd479aa")]
->>>>>>> Stashed changes
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c118bad0b7067af20e646bd524f17ff238bf0249")]
 [assembly: System.Reflection.AssemblyProductAttribute("WareHouse.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WareHouse.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

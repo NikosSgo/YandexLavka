@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WareHouse.Migrations")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< Updated upstream
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+76807a4290555f3b7cdfbe0d04ca0ef8e95c99dd")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05985419323db2d74628031d69d8c7ca0bd479aa")]
->>>>>>> Stashed changes
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c118bad0b7067af20e646bd524f17ff238bf0249")]
 [assembly: System.Reflection.AssemblyProductAttribute("WareHouse.Migrations")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WareHouse.Migrations")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

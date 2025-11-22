@@ -6,6 +6,6 @@
     "\\WareHouseService\\WareHouse.Migrations",
     "\\WareHouseService\\WareHouse.Migrations\\Migrations"
   ],
-  "SelectedNode": "\\WareHouseService\\WareHouse.Migrations\\Migrations\\202410280002_NormalizeDatabase.cs",
+  "SelectedNode": "\\WareHouseService\\WareHouse.Migrations\\Migrations\\202410280003_CreateCartTable.cs",
   "PreviewInSolutionExplorer": false
 }
