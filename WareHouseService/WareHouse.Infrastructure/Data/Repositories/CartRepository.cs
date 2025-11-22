@@ -263,15 +263,26 @@ public class CartRepository : ICartRepository
 
         try
         {
-            var cartItem = new CartItem
+            // Используем конструктор для установки Id
+            var cartItem = new CartItem(
+                result.id,
+                result.customer_id ?? string.Empty,
+                result.product_id,
+                result.quantity
+            );
+
+            // Используем reflection для установки CreatedAt и UpdatedAt (они protected в Entity)
+            var createdAtProperty = typeof(CartItem).BaseType?.GetProperty("CreatedAt");
+            if (createdAtProperty != null && createdAtProperty.CanWrite)
             {
-                Id = result.id,
-                CustomerId = result.customer_id,
-                ProductId = result.product_id,
-                Quantity = result.quantity,
-                CreatedAt = result.created_at,
-                UpdatedAt = result.updated_at
-            };
+                createdAtProperty.SetValue(cartItem, result.created_at);
+            }
+
+            var updatedAtProperty = typeof(CartItem).BaseType?.GetProperty("UpdatedAt");
+            if (updatedAtProperty != null && updatedAtProperty.CanWrite)
+            {
+                updatedAtProperty.SetValue(cartItem, result.updated_at);
+            }
 
             return cartItem;
         }

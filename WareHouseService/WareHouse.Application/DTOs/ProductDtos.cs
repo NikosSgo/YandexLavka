@@ -1,6 +1,5 @@
 namespace WareHouse.Application.DTOs;
 
-namespace WareHouse.Application.DTOs;
 
 public class ProductDto
 {

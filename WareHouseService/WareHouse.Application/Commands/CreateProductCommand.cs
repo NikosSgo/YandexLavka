@@ -80,19 +80,16 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand,
             }
 
             // Создаем новый продукт
-            var product = new Product
-            {
-                Id = Guid.NewGuid(),
-                Name = request.Name,
-                Sku = request.Sku,
-                Description = request.Description ?? string.Empty,
-                Category = request.Category,
-                UnitPrice = request.UnitPrice,
-                WeightKg = request.WeightKg,
-                RequiresRefrigeration = request.RequiresRefrigeration,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow
-            };
+            var product = new Product(
+                Guid.NewGuid(),
+                request.Name,
+                request.Sku,
+                request.Description ?? string.Empty,
+                request.Category,
+                request.UnitPrice,
+                request.WeightKg,
+                request.RequiresRefrigeration
+            );
 
             await _unitOfWork.Products.AddAsync(product);
             await _unitOfWork.CommitAsync();

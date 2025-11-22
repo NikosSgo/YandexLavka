@@ -51,13 +51,22 @@ public static class ApiServiceConfiguration
             {
                 Title = "WareHouse Service API",
                 Version = "v1",
-                Description = "API для управления складскими операциями",
+                Description = "API для управления складскими операциями Яндекс Лавки. " +
+                             "Включает управление продуктами, складскими единицами, заказами, корзиной и операциями сборки.",
                 Contact = new Microsoft.OpenApi.Models.OpenApiContact
                 {
                     Name = "WareHouse Team",
                     Email = "warehouse@company.com"
                 }
             });
+
+            // Включаем XML комментарии для документации (если они есть)
+            var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            if (File.Exists(xmlPath))
+            {
+                c.IncludeXmlComments(xmlPath);
+            }
 
             // JWT Authentication для Swagger
             c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
@@ -83,6 +92,10 @@ public static class ApiServiceConfiguration
                     Array.Empty<string>()
                 }
             });
+
+            // Группировка по тегам (контроллерам)
+            c.TagActionsBy(api => new[] { api.GroupName ?? api.ActionDescriptor.RouteValues["controller"] ?? "Default" });
+            c.DocInclusionPredicate((name, api) => true);
         });
 
         return services;

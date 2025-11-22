@@ -201,7 +201,6 @@ C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\obj\Debug\net8.0\r
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\obj\Debug\net8.0\WareHouse.API.pdb
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\obj\Debug\net8.0\WareHouse.API.genruntimeconfig.cache
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\obj\Debug\net8.0\ref\WareHouse.API.dll
-C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\bin\Debug\net8.0\Dapper.dll
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\bin\Debug\net8.0\Dapper.Contrib.dll
 C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

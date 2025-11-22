@@ -123,6 +123,14 @@ public class StockController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Создает новый продукт на складе
+    /// </summary>
+    /// <param name="request">Данные нового продукта</param>
+    /// <returns>Созданный продукт</returns>
+    /// <response code="201">Продукт успешно создан</response>
+    /// <response code="400">Ошибка валидации данных</response>
+    /// <response code="409">Продукт с таким SKU уже существует</response>
     [HttpPost("products")]
     [ProducesResponseType(typeof(ProductDto), StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -162,6 +170,14 @@ public class StockController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Удаляет продукт со склада
+    /// </summary>
+    /// <param name="productId">Идентификатор продукта</param>
+    /// <returns>Результат операции</returns>
+    /// <response code="200">Продукт успешно удален</response>
+    /// <response code="404">Продукт не найден</response>
+    /// <response code="409">Нельзя удалить продукт (есть товары на складе или зарезервированные)</response>
     [HttpDelete("products/{productId:guid}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -202,6 +218,15 @@ public class StockController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Добавляет товары на склад (создает новую единицу хранения)
+    /// </summary>
+    /// <param name="request">Данные для создания единицы хранения</param>
+    /// <returns>Созданная единица хранения</returns>
+    /// <response code="201">Единица хранения успешно создана</response>
+    /// <response code="400">Ошибка валидации данных</response>
+    /// <response code="404">Продукт не найден</response>
+    /// <response code="409">Единица хранения уже существует для этого продукта в этом месте</response>
     [HttpPost("storage-units/create")]
     [ProducesResponseType(typeof(StorageUnitDto), StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -245,6 +270,14 @@ public class StockController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Удаляет товары со склада (удаляет единицу хранения)
+    /// </summary>
+    /// <param name="storageUnitId">Идентификатор единицы хранения</param>
+    /// <returns>Результат операции</returns>
+    /// <response code="200">Единица хранения успешно удалена</response>
+    /// <response code="404">Единица хранения не найдена</response>
+    /// <response code="409">Нельзя удалить единицу хранения (есть товары на складе или зарезервированные)</response>
     [HttpDelete("storage-units/{storageUnitId:guid}/delete")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

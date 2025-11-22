@@ -1,6 +1,7 @@
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using WareHouse.Application.DTOs;
 using WareHouse.Domain.Entities;
 using WareHouse.Domain.Interfaces;
 

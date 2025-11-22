@@ -165,13 +165,19 @@ try
     }
 
     // Configure Pipeline
-    if (app.Environment.IsDevelopment())
+    // Включаем Swagger в Development и Production (если EnableSwagger = true)
+    var enableSwagger = app.Configuration.GetValue<bool>("ApiSettings:EnableSwagger", true);
+    if (app.Environment.IsDevelopment() || enableSwagger)
     {
         app.UseSwagger();
         app.UseSwaggerUI(c =>
         {
             c.SwaggerEndpoint("/swagger/v1/swagger.json", "WareHouse API v1");
             c.RoutePrefix = "api-docs";
+            c.DisplayRequestDuration();
+            c.EnableDeepLinking();
+            c.EnableFilter();
+            c.ShowExtensions();
         });
         Console.WriteLine("📚 SWAGGER ENABLED AT /api-docs");
     }

@@ -15,9 +15,24 @@ public class Product : Entity
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 
-    // ✅ ДОБАВЬТЕ КОНСТРУКТОР ЕСЛИ НУЖНО
+    // Конструктор для Dapper
     public Product()
     {
+        CreatedAt = DateTime.UtcNow;
+        UpdatedAt = DateTime.UtcNow;
+    }
+
+    // Конструктор для создания нового продукта с ID
+    public Product(Guid id, string name, string sku, string description, string category, 
+        decimal unitPrice, decimal? weightKg, bool requiresRefrigeration) : base(id)
+    {
+        Name = name;
+        Sku = sku;
+        Description = description;
+        Category = category;
+        UnitPrice = unitPrice;
+        WeightKg = weightKg;
+        RequiresRefrigeration = requiresRefrigeration;
         CreatedAt = DateTime.UtcNow;
         UpdatedAt = DateTime.UtcNow;
     }
