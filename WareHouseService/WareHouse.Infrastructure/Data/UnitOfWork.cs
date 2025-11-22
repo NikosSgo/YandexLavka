@@ -31,18 +31,22 @@ public class UnitOfWork : IUnitOfWork
     public IPickingTaskRepository PickingTasks { get; private set; } = null!;
     public IStorageUnitRepository StorageUnits { get; private set; } = null!;
     public IProductRepository Products { get; private set; } = null!;
+    public ICartRepository Cart { get; private set; } = null!;
 
     private void InitializeRepositoriesWithoutTransaction()
     {
         // Получаем логгеры из DI контейнера
         var productLogger = _serviceProvider.GetService<ILogger<ProductRepository>>() ??
                            Microsoft.Extensions.Logging.Abstractions.NullLogger<ProductRepository>.Instance;
+        var cartLogger = _serviceProvider.GetService<ILogger<CartRepository>>() ??
+                        Microsoft.Extensions.Logging.Abstractions.NullLogger<CartRepository>.Instance;
 
         // ✅ СОЗДАЕМ РЕПОЗИТОРИИ БЕЗ ТРАНЗАКЦИИ ДЛЯ ЗАПРОСОВ
         Orders = new OrderRepository(_connectionFactory);
         PickingTasks = new PickingTaskRepository(_connectionFactory);
         StorageUnits = new StorageUnitRepository(_connectionFactory);
         Products = new ProductRepository(_connectionFactory, productLogger);
+        Cart = new CartRepository(_connectionFactory, cartLogger);
     }
 
     private void InitializeRepositoriesWithTransaction()
@@ -53,12 +57,15 @@ public class UnitOfWork : IUnitOfWork
         // Получаем логгеры из DI контейнера
         var productLogger = _serviceProvider.GetService<ILogger<ProductRepository>>() ??
                            Microsoft.Extensions.Logging.Abstractions.NullLogger<ProductRepository>.Instance;
+        var cartLogger = _serviceProvider.GetService<ILogger<CartRepository>>() ??
+                        Microsoft.Extensions.Logging.Abstractions.NullLogger<CartRepository>.Instance;
 
         // ✅ СОЗДАЕМ РЕПОЗИТОРИИ С ТРАНЗАКЦИЕЙ ДЛЯ КОМАНД
         Orders = new OrderRepository(_connection, _transaction);
         PickingTasks = new PickingTaskRepository(_connection, _transaction);
         StorageUnits = new StorageUnitRepository(_connection, _transaction);
         Products = new ProductRepository(_connection, _transaction, productLogger);
+        Cart = new CartRepository(_connection, _transaction, cartLogger);
     }
 
     public async Task BeginTransactionAsync(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)

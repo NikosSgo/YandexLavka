@@ -1,0 +1,129 @@
+2025-11-16 00:44:51.993 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-16 00:44:52.048 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-16 00:44:52.052 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-11-16 00:52:16.108 +03:00 [INF] Incoming request: GET /api/Orders/ffffffff-ffff-ffff-ffff-ffffffffff11
+2025-11-16 00:52:16.155 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-ffffffffff11"
+2025-11-16 00:52:16.163 +03:00 [INF] Handling command/query: GetOrderQuery {"OrderId":"ffffffff-ffff-ffff-ffff-ffffffffff11","$type":"GetOrderQuery"}
+2025-11-16 00:52:16.174 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-ffffffffff11"
+2025-11-16 00:52:16.427 +03:00 [ERR] An unhandled exception has occurred: Unknown order status: Picked
+System.ArgumentException: Unknown order status: Picked
+   at WareHouse.Domain.Enums.EnumConverter.ToOrderStatus(String status) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Domain\Enums\EnumConverter.cs:line 29
+   at CallSite.Target(Closure, CallSite, Type, Object)
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at WareHouse.Infrastructure.Data.Repositories.OrderRepository.CreateOrderAggregateFromDynamic(Object result) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\Data\Repositories\OrderRepository.cs:line 332
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at WareHouse.Infrastructure.Data.Repositories.OrderRepository.GetByIdAsync(Guid id) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Infrastructure\Data\Repositories\OrderRepository.cs:line 57
+   at WareHouse.Application.Queries.GetOrderQueryHandler.Handle(GetOrderQuery request, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Queries\GetOrderQuery.cs:line 26
+   at WareHouse.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\ValidationBehavior.cs:line 36
+   at WareHouse.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.Application\Behaviors\LoggingBehavior.cs:line 22
+   at WareHouse.API.Controllers.OrdersController.GetOrder(Guid orderId) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Controllers\OrdersController.cs:line 29
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at WareHouse.API.Middleware.CorrelationIdMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\CorrelationIdMiddleware.cs:line 27
+   at WareHouse.API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\RequestLoggingMiddleware.cs:line 23
+   at WareHouse.API.Middleware.GlobalExceptionHandlerMiddleware.InvokeAsync(HttpContext context) in C:\Backend_Project\YandexLavka\WareHouseService\WareHouse.API\Middleware\GlobalExceptionHandlerMiddleware.cs:line 27
+2025-11-16 00:53:01.673 +03:00 [INF] Incoming request: GET /api/Orders/ffffffff-ffff-ffff-ffff-ffffffffff16
+2025-11-16 00:53:01.678 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-ffffffffff16"
+2025-11-16 00:53:01.681 +03:00 [INF] Handling command/query: GetOrderQuery {"OrderId":"ffffffff-ffff-ffff-ffff-ffffffffff16","$type":"GetOrderQuery"}
+2025-11-16 00:53:01.686 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-ffffffffff16"
+2025-11-16 00:53:01.707 +03:00 [INF] Handled command/query: GetOrderQuery
+2025-11-16 00:53:01.726 +03:00 [INF] Request completed: GET /api/Orders/ffffffff-ffff-ffff-ffff-ffffffffff16 - 200 in 53.0773ms
+2025-11-16 00:53:36.236 +03:00 [INF] Incoming request: GET /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff9
+2025-11-16 00:53:36.240 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-fffffffffff9"
+2025-11-16 00:53:36.243 +03:00 [INF] Handling command/query: GetOrderQuery {"OrderId":"ffffffff-ffff-ffff-ffff-fffffffffff9","$type":"GetOrderQuery"}
+2025-11-16 00:53:36.249 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-fffffffffff9"
+2025-11-16 00:53:36.279 +03:00 [INF] Handled command/query: GetOrderQuery
+2025-11-16 00:53:36.283 +03:00 [INF] Request completed: GET /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff9 - 200 in 46.5608ms
+2025-11-16 00:56:07.468 +03:00 [INF] Incoming request: GET /api/Orders/ffffffff-ffff-ffff-ffff-ffffffffff11
+2025-11-16 00:56:07.472 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-ffffffffff11"
+2025-11-16 00:56:07.475 +03:00 [INF] Handling command/query: GetOrderQuery {"OrderId":"ffffffff-ffff-ffff-ffff-ffffffffff11","$type":"GetOrderQuery"}
+2025-11-16 00:56:07.480 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-ffffffffff11"
+2025-11-16 00:56:07.495 +03:00 [INF] Handled command/query: GetOrderQuery
+2025-11-16 00:56:07.497 +03:00 [INF] Request completed: GET /api/Orders/ffffffff-ffff-ffff-ffff-ffffffffff11 - 200 in 28.3829ms
+2025-11-16 00:56:35.581 +03:00 [INF] Incoming request: GET /api/Orders/ffffffff-ffff-ffff-ffff-ffffffffff19
+2025-11-16 00:56:35.584 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-ffffffffff19"
+2025-11-16 00:56:35.587 +03:00 [INF] Handling command/query: GetOrderQuery {"OrderId":"ffffffff-ffff-ffff-ffff-ffffffffff19","$type":"GetOrderQuery"}
+2025-11-16 00:56:35.593 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-ffffffffff19"
+2025-11-16 00:56:35.611 +03:00 [INF] Handled command/query: GetOrderQuery
+2025-11-16 00:56:35.614 +03:00 [INF] Request completed: GET /api/Orders/ffffffff-ffff-ffff-ffff-ffffffffff19 - 200 in 33.3571ms
+2025-11-16 00:59:00.539 +03:00 [INF] Incoming request: GET /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff9
+2025-11-16 00:59:00.542 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-fffffffffff9"
+2025-11-16 00:59:00.545 +03:00 [INF] Handling command/query: GetOrderQuery {"OrderId":"ffffffff-ffff-ffff-ffff-fffffffffff9","$type":"GetOrderQuery"}
+2025-11-16 00:59:00.551 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-fffffffffff9"
+2025-11-16 00:59:00.567 +03:00 [INF] Handled command/query: GetOrderQuery
+2025-11-16 00:59:00.570 +03:00 [INF] Request completed: GET /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff9 - 200 in 30.5273ms
+2025-11-16 01:13:34.113 +03:00 [INF] Incoming request: GET /api/Orders
+2025-11-16 01:13:34.129 +03:00 [INF] Getting orders with status Cancelled
+2025-11-16 01:13:34.132 +03:00 [INF] Handling command/query: GetOrdersByStatusQuery {"Status":"Cancelled","$type":"GetOrdersByStatusQuery"}
+2025-11-16 01:13:34.138 +03:00 [INF] Getting orders with status Cancelled
+2025-11-16 01:13:34.165 +03:00 [INF] Handled command/query: GetOrdersByStatusQuery
+2025-11-16 01:13:34.168 +03:00 [INF] Request completed: GET /api/Orders - 200 in 55.4505ms
+2025-11-16 01:18:42.031 +03:00 [INF] Incoming request: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff5/start-picking
+2025-11-16 01:18:42.048 +03:00 [INF] Starting picking for order "ffffffff-ffff-ffff-ffff-fffffffffff5" with automatic zone detection
+2025-11-16 01:18:42.065 +03:00 [INF] Handling command/query: StartPickingCommand {"OrderId":"ffffffff-ffff-ffff-ffff-fffffffffff5","PickerId":"NewPicker","$type":"StartPickingCommand"}
+2025-11-16 01:18:42.095 +03:00 [INF] Transaction started successfully
+2025-11-16 01:18:42.097 +03:00 [INF] Starting picking for order "ffffffff-ffff-ffff-ffff-fffffffffff5" by picker NewPicker
+2025-11-16 01:18:42.123 +03:00 [INF] Automatically determined zones for order "ffffffff-ffff-ffff-ffff-fffffffffff5": A, B, C, cooler
+2025-11-16 01:18:42.190 +03:00 [INF] Transaction committed successfully
+2025-11-16 01:18:42.194 +03:00 [INF] Picking task "acca8b33-1653-49ad-820a-a2939cddb268" created for order "ffffffff-ffff-ffff-ffff-fffffffffff5" with zones: A,B,C,cooler
+2025-11-16 01:18:42.199 +03:00 [INF] Handled command/query: StartPickingCommand
+2025-11-16 01:18:42.204 +03:00 [INF] Request completed: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff5/start-picking - 200 in 173.6742ms
+2025-11-16 01:36:06.728 +03:00 [INF] Incoming request: GET /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff9
+2025-11-16 01:36:06.731 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-fffffffffff9"
+2025-11-16 01:36:06.733 +03:00 [INF] Handling command/query: GetOrderQuery {"OrderId":"ffffffff-ffff-ffff-ffff-fffffffffff9","$type":"GetOrderQuery"}
+2025-11-16 01:36:06.738 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-fffffffffff9"
+2025-11-16 01:36:06.752 +03:00 [INF] Handled command/query: GetOrderQuery
+2025-11-16 01:36:06.755 +03:00 [INF] Request completed: GET /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff9 - 200 in 27.0966ms
+2025-11-16 01:40:16.694 +03:00 [INF] Incoming request: GET /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff9
+2025-11-16 01:40:16.697 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-fffffffffff9"
+2025-11-16 01:40:16.700 +03:00 [INF] Handling command/query: GetOrderQuery {"OrderId":"ffffffff-ffff-ffff-ffff-fffffffffff9","$type":"GetOrderQuery"}
+2025-11-16 01:40:16.706 +03:00 [INF] Getting order "ffffffff-ffff-ffff-ffff-fffffffffff9"
+2025-11-16 01:40:16.721 +03:00 [INF] Handled command/query: GetOrderQuery
+2025-11-16 01:40:16.723 +03:00 [INF] Request completed: GET /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff9 - 200 in 29.1684ms
+2025-11-16 01:42:31.283 +03:00 [INF] Incoming request: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff9/start-picking
+2025-11-16 01:42:31.289 +03:00 [INF] Starting picking for order "ffffffff-ffff-ffff-ffff-fffffffffff9" with automatic zone detection
+2025-11-16 01:42:31.294 +03:00 [INF] Handling command/query: StartPickingCommand {"OrderId":"ffffffff-ffff-ffff-ffff-fffffffffff9","PickerId":"picker-sarah","$type":"StartPickingCommand"}
+2025-11-16 01:42:31.310 +03:00 [INF] Transaction started successfully
+2025-11-16 01:42:31.313 +03:00 [INF] Starting picking for order "ffffffff-ffff-ffff-ffff-fffffffffff9" by picker picker-sarah
+2025-11-16 01:42:31.325 +03:00 [INF] Automatically determined zones for order "ffffffff-ffff-ffff-ffff-fffffffffff9": A, B, C, freezer
+2025-11-16 01:42:31.350 +03:00 [INF] Transaction committed successfully
+2025-11-16 01:42:31.352 +03:00 [INF] Picking task "0862a53e-c56b-4173-aba1-9bf80a7586d5" created for order "ffffffff-ffff-ffff-ffff-fffffffffff9" with zones: A,B,C,freezer
+2025-11-16 01:42:31.355 +03:00 [INF] Handled command/query: StartPickingCommand
+2025-11-16 01:42:31.357 +03:00 [INF] Request completed: POST /api/Orders/ffffffff-ffff-ffff-ffff-fffffffffff9/start-picking - 200 in 74.3419ms
+2025-11-16 01:45:56.616 +03:00 [INF] Incoming request: GET /api/Picking/tasks
+2025-11-16 01:45:56.625 +03:00 [INF] Getting picking tasks. Status: InProgress, Zone: A,B,C,cooler
+2025-11-16 01:45:56.629 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":"InProgress","Zone":"A,B,C,cooler","$type":"GetPickingTasksQuery"}
+2025-11-16 01:45:56.637 +03:00 [INF] Getting picking tasks. Status: InProgress, Zone: A,B,C,cooler
+2025-11-16 01:45:56.673 +03:00 [INF] Found 1 picking tasks
+2025-11-16 01:45:56.676 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-11-16 01:45:56.678 +03:00 [INF] Request completed: GET /api/Picking/tasks - 200 in 62.0648ms
+2025-11-16 01:50:00.025 +03:00 [INF] Incoming request: GET /api/Picking/tasks
+2025-11-16 01:50:00.029 +03:00 [INF] Getting picking tasks. Status: InProgress, Zone: A,B,C,cooler
+2025-11-16 01:50:00.032 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":"InProgress","Zone":"A,B,C,cooler","$type":"GetPickingTasksQuery"}
+2025-11-16 01:50:00.040 +03:00 [INF] Getting picking tasks. Status: InProgress, Zone: A,B,C,cooler
+2025-11-16 01:50:00.060 +03:00 [INF] Found 2 picking tasks
+2025-11-16 01:50:00.063 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-11-16 01:50:00.065 +03:00 [INF] Request completed: GET /api/Picking/tasks - 200 in 39.4221ms
+2025-11-16 01:51:53.545 +03:00 [INF] Incoming request: GET /api/Picking/tasks
+2025-11-16 01:51:53.549 +03:00 [INF] Getting picking tasks. Status: InProgress, Zone: A,B,C,cooler
+2025-11-16 01:51:53.552 +03:00 [INF] Handling command/query: GetPickingTasksQuery {"Status":"InProgress","Zone":"A,B,C,cooler","$type":"GetPickingTasksQuery"}
+2025-11-16 01:51:53.560 +03:00 [INF] Getting picking tasks. Status: InProgress, Zone: A,B,C,cooler
+2025-11-16 01:51:53.578 +03:00 [INF] Found 1 picking tasks
+2025-11-16 01:51:53.580 +03:00 [INF] Handled command/query: GetPickingTasksQuery
+2025-11-16 01:51:53.582 +03:00 [INF] Request completed: GET /api/Picking/tasks - 200 in 36.9579ms
+2025-11-16 01:57:33.380 +03:00 [INF] Incoming request: GET /api/Stock/low-stock
+2025-11-16 01:57:33.387 +03:00 [INF] Getting low stock items
+2025-11-16 01:57:33.391 +03:00 [INF] Handling command/query: GetLowStockQuery {"$type":"GetLowStockQuery"}
+2025-11-16 01:57:33.396 +03:00 [INF] Getting low stock items
+2025-11-16 01:57:33.411 +03:00 [INF] Found 6 low stock items
+2025-11-16 01:57:33.416 +03:00 [INF] Handled command/query: GetLowStockQuery
+2025-11-16 01:57:33.420 +03:00 [INF] Request completed: GET /api/Stock/low-stock - 200 in 39.5044ms

@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Frontend",
+    "\\WareHouseService",
+    "\\WareHouseService\\WareHouse.Migrations",
+    "\\WareHouseService\\WareHouse.Migrations\\Migrations"
+  ],
+  "SelectedNode": "\\WareHouseService\\WareHouse.Migrations\\Migrations\\202410280002_NormalizeDatabase.cs",
+  "PreviewInSolutionExplorer": false
+}

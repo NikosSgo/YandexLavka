@@ -1,0 +1,35 @@
+2025-11-16 12:58:14.114 +03:00 [INF] Kafka consumer configured for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-16 12:58:14.258 +03:00 [INF] Starting Kafka consumer for topics: orders, warehouse-commands, warehouse-events, picking-tasks, stock-updates
+2025-11-16 12:58:14.268 +03:00 [INF] Waiting 10 seconds for Kafka to be ready...
+2025-11-16 13:07:38.657 +03:00 [INF] Incoming request: PUT /api/Stock/products/99999999-9999-9999-9999-999999999999/stock
+2025-11-16 13:07:38.781 +03:00 [INF] Updating stock for product "99999999-9999-9999-9999-999999999999"
+2025-11-16 13:07:38.827 +03:00 [INF] Handling command/query: UpdateStockCommand {"ProductId":"99999999-9999-9999-9999-999999999999","Quantity":16,"Location":"A-01-03","Operation":"adjust","$type":"UpdateStockCommand"}
+2025-11-16 13:07:38.919 +03:00 [INF] Transaction started successfully
+2025-11-16 13:07:38.926 +03:00 [INF] Updating stock for product "99999999-9999-9999-9999-999999999999" at A-01-03. Operation: adjust
+2025-11-16 13:07:39.499 +03:00 [INF] Adjusted stock to 16 units for product "99999999-9999-9999-9999-999999999999"
+2025-11-16 13:07:39.534 +03:00 [INF] Transaction committed successfully
+2025-11-16 13:07:39.540 +03:00 [INF] Stock updated successfully for product "99999999-9999-9999-9999-999999999999". New quantity: 16
+2025-11-16 13:07:39.545 +03:00 [INF] Handled command/query: UpdateStockCommand
+2025-11-16 13:07:39.571 +03:00 [INF] Request completed: PUT /api/Stock/products/99999999-9999-9999-9999-999999999999/stock - 200 in 918.2538ms
+2025-11-16 13:08:16.023 +03:00 [INF] Incoming request: PUT /api/Stock/products/99999999-9999-9999-9999-999999999999/stock
+2025-11-16 13:08:16.036 +03:00 [INF] Updating stock for product "99999999-9999-9999-9999-999999999999"
+2025-11-16 13:08:16.042 +03:00 [INF] Handling command/query: UpdateStockCommand {"ProductId":"99999999-9999-9999-9999-999999999999","Quantity":5,"Location":"A-01-03","Operation":"restock","$type":"UpdateStockCommand"}
+2025-11-16 13:08:16.058 +03:00 [INF] Transaction started successfully
+2025-11-16 13:08:16.062 +03:00 [INF] Updating stock for product "99999999-9999-9999-9999-999999999999" at A-01-03. Operation: restock
+2025-11-16 13:08:16.072 +03:00 [INF] Restocked 5 units for product "99999999-9999-9999-9999-999999999999"
+2025-11-16 13:08:16.083 +03:00 [INF] Transaction committed successfully
+2025-11-16 13:08:16.085 +03:00 [INF] Stock updated successfully for product "99999999-9999-9999-9999-999999999999". New quantity: 21
+2025-11-16 13:08:16.089 +03:00 [INF] Handled command/query: UpdateStockCommand
+2025-11-16 13:08:16.092 +03:00 [INF] Request completed: PUT /api/Stock/products/99999999-9999-9999-9999-999999999999/stock - 200 in 69.4819ms
+2025-11-16 13:08:51.732 +03:00 [INF] Incoming request: PUT /api/Stock/products/99999999-9999-9999-9999-999999999999/stock
+2025-11-16 13:08:51.786 +03:00 [INF] Request completed: PUT /api/Stock/products/99999999-9999-9999-9999-999999999999/stock - 400 in 54.4216ms
+2025-11-16 13:09:11.247 +03:00 [INF] Incoming request: PUT /api/Stock/products/99999999-9999-9999-9999-999999999999/stock
+2025-11-16 13:09:11.255 +03:00 [INF] Updating stock for product "99999999-9999-9999-9999-999999999999"
+2025-11-16 13:09:11.265 +03:00 [INF] Handling command/query: UpdateStockCommand {"ProductId":"99999999-9999-9999-9999-999999999999","Quantity":15,"Location":"A-01-03","Operation":"adjust","$type":"UpdateStockCommand"}
+2025-11-16 13:09:11.295 +03:00 [INF] Transaction started successfully
+2025-11-16 13:09:11.300 +03:00 [INF] Updating stock for product "99999999-9999-9999-9999-999999999999" at A-01-03. Operation: adjust
+2025-11-16 13:09:11.316 +03:00 [INF] Adjusted stock to 15 units for product "99999999-9999-9999-9999-999999999999"
+2025-11-16 13:09:11.337 +03:00 [INF] Transaction committed successfully
+2025-11-16 13:09:11.344 +03:00 [INF] Stock updated successfully for product "99999999-9999-9999-9999-999999999999". New quantity: 15
+2025-11-16 13:09:11.353 +03:00 [INF] Handled command/query: UpdateStockCommand
+2025-11-16 13:09:11.361 +03:00 [INF] Request completed: PUT /api/Stock/products/99999999-9999-9999-9999-999999999999/stock - 200 in 113.8809ms

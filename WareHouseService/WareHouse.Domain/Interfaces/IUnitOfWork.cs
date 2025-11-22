@@ -8,7 +8,8 @@ public interface IUnitOfWork : IDisposable, IAsyncDisposable
     IOrderRepository Orders { get; }
     IPickingTaskRepository PickingTasks { get; }
     IStorageUnitRepository StorageUnits { get; }
-    IProductRepository Products { get; } // Новое
+    IProductRepository Products { get; }
+    ICartRepository Cart { get; }
 
     Task BeginTransactionAsync(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted);
     Task CommitAsync();

@@ -24,6 +24,7 @@ public static class DependencyInjection
         services.AddScoped<IPickingTaskRepository, PickingTaskRepository>();
         services.AddScoped<IStorageUnitRepository, StorageUnitRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<ICartRepository, CartRepository>();
 
         // Services
         services.AddScoped<IDomainEventService, DomainEventService>();
