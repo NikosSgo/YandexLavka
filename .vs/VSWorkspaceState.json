@@ -1,11 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Frontend",
     "\\WareHouseService",
-    "\\WareHouseService\\WareHouse.Migrations",
-    "\\WareHouseService\\WareHouse.Migrations\\Migrations"
+    "\\WareHouseService\\WareHouse.API",
+    "\\WareHouseService\\WareHouse.API\\Controllers"
   ],
-  "SelectedNode": "\\WareHouseService\\WareHouse.Migrations\\Migrations\\202410280003_CreateCartTable.cs",
+  "SelectedNode": "\\WareHouseService\\WareHouse.API\\Controllers\\StockController.cs",
   "PreviewInSolutionExplorer": false
 }

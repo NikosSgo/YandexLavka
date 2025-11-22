@@ -1,0 +1,18 @@
+namespace WareHouse.Application.DTOs;
+
+namespace WareHouse.Application.DTOs;
+
+public class ProductDto
+{
+    public Guid Id { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public string Sku { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
+    public string Category { get; set; } = string.Empty;
+    public decimal UnitPrice { get; set; }
+    public decimal? WeightKg { get; set; }
+    public bool RequiresRefrigeration { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime UpdatedAt { get; set; }
+}
+

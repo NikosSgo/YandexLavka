@@ -122,6 +122,168 @@ public class StockController : ControllerBase
             return BadRequest(new { message = ex.Message });
         }
     }
+
+    [HttpPost("products")]
+    [ProducesResponseType(typeof(ProductDto), StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status409Conflict)]
+    public async Task<ActionResult<ProductDto>> CreateProduct([FromBody] CreateProductRequest request)
+    {
+        _logger.LogInformation("Creating new product with SKU {Sku}", request.Sku);
+
+        try
+        {
+            var command = new CreateProductCommand(
+                request.Name,
+                request.Sku,
+                request.Description,
+                request.Category,
+                request.UnitPrice,
+                request.WeightKg,
+                request.RequiresRefrigeration
+            );
+
+            var product = await _mediator.Send(command);
+
+            return CreatedAtAction(
+                nameof(GetStockLevel),
+                new { productId = product.Id },
+                product);
+        }
+        catch (InvalidOperationException ex)
+        {
+            _logger.LogWarning(ex, "Conflict creating product with SKU {Sku}", request.Sku);
+            return Conflict(new { message = ex.Message });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error creating product with SKU {Sku}", request.Sku);
+            return BadRequest(new { message = ex.Message });
+        }
+    }
+
+    [HttpDelete("products/{productId:guid}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status409Conflict)]
+    public async Task<ActionResult> DeleteProduct(
+        [FromRoute]
+        [Example("3f9bcc41-4a35-496b-a008-30428253ecb4")]
+        Guid productId)
+    {
+        _logger.LogInformation("Deleting product {ProductId}", productId);
+
+        try
+        {
+            var command = new DeleteProductCommand(productId);
+            await _mediator.Send(command);
+
+            return Ok(new
+            {
+                message = "Product deleted successfully",
+                productId = productId
+            });
+        }
+        catch (KeyNotFoundException ex)
+        {
+            _logger.LogWarning(ex, "Product {ProductId} not found", productId);
+            return NotFound(new { message = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            _logger.LogWarning(ex, "Cannot delete product {ProductId}: {Message}", productId, ex.Message);
+            return Conflict(new { message = ex.Message });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error deleting product {ProductId}", productId);
+            return BadRequest(new { message = ex.Message });
+        }
+    }
+
+    [HttpPost("storage-units/create")]
+    [ProducesResponseType(typeof(StorageUnitDto), StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status409Conflict)]
+    public async Task<ActionResult<StorageUnitDto>> CreateStorageUnit([FromBody] CreateStorageUnitRequest request)
+    {
+        _logger.LogInformation("Creating storage unit for product {ProductId} at location {Location}",
+            request.ProductId, request.Location);
+
+        try
+        {
+            var command = new CreateStorageUnitCommand(
+                request.ProductId,
+                request.Location,
+                request.Quantity,
+                request.Zone
+            );
+
+            var storageUnit = await _mediator.Send(command);
+
+            return CreatedAtAction(
+                nameof(GetStockLevel),
+                new { productId = storageUnit.ProductId },
+                storageUnit);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            _logger.LogWarning(ex, "Product {ProductId} not found", request.ProductId);
+            return NotFound(new { message = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            _logger.LogWarning(ex, "Conflict creating storage unit: {Message}", ex.Message);
+            return Conflict(new { message = ex.Message });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error creating storage unit for product {ProductId}", request.ProductId);
+            return BadRequest(new { message = ex.Message });
+        }
+    }
+
+    [HttpDelete("storage-units/{storageUnitId:guid}/delete")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status409Conflict)]
+    public async Task<ActionResult> DeleteStorageUnit(
+        [FromRoute]
+        [Example("3f9bcc41-4a35-496b-a008-30428253ecb4")]
+        Guid storageUnitId)
+    {
+        _logger.LogInformation("Deleting storage unit {StorageUnitId}", storageUnitId);
+
+        try
+        {
+            var command = new DeleteStorageUnitCommand(storageUnitId);
+            await _mediator.Send(command);
+
+            return Ok(new
+            {
+                message = "Storage unit deleted successfully",
+                storageUnitId = storageUnitId
+            });
+        }
+        catch (KeyNotFoundException ex)
+        {
+            _logger.LogWarning(ex, "Storage unit {StorageUnitId} not found", storageUnitId);
+            return NotFound(new { message = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            _logger.LogWarning(ex, "Cannot delete storage unit {StorageUnitId}: {Message}", storageUnitId, ex.Message);
+            return Conflict(new { message = ex.Message });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error deleting storage unit {StorageUnitId}", storageUnitId);
+            return BadRequest(new { message = ex.Message });
+        }
+    }
 }
 
 // ✅ ДОБАВЬТЕ КЛАСС ДЛЯ ПРИМЕРА GUID
@@ -144,4 +306,21 @@ public record UpdateStockRequest(
 public record RestockRequest(
     [Required][Range(1, int.MaxValue)] int Quantity,
     [Required] string Location
+);
+
+public record CreateProductRequest(
+    [Required] string Name,
+    [Required] string Sku,
+    string Description,
+    [Required] string Category,
+    [Required][Range(0.01, double.MaxValue)] decimal UnitPrice,
+    decimal? WeightKg,
+    bool RequiresRefrigeration
+);
+
+public record CreateStorageUnitRequest(
+    [Required] Guid ProductId,
+    [Required] string Location,
+    [Required][Range(1, int.MaxValue)] int Quantity,
+    string? Zone = null
 );
